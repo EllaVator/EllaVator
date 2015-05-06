@@ -1,0 +1,13 @@
+apply plugin: 'java'
+
+repositories {
+    jcenter()
+    maven {
+        url 'http://oss.jfrog.org/artifactory/repo'
+    }
+}
+
+dependencies {
+    compile group: 'de.dfki.mary', name: 'voice-cmu-slt-hsmm', version: '5.1.1'
+    compile group: 'edu.cmu.sphinx', name: 'sphinx4-core', version: '1.0-SNAPSHOT'
+}
