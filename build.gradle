@@ -8,15 +8,16 @@ repositories {
     maven {
         url 'http://oss.jfrog.org/artifactory/repo'
     }
+    ivy {
+        url 'https://dl.bintray.com/plison/generic'
+        layout 'pattern', {
+            artifact '[module]-[revision].[ext]'
+        }
+    }
 }
 
 dependencies {
     compile group: 'de.dfki.mary', name: 'voice-cmu-slt-hsmm', version: '5.1.1'
     compile group: 'edu.cmu.sphinx', name: 'sphinx4-core', version: '1.0-SNAPSHOT'
-    compile files('libs/opendial-1.3.jar')
-}
-
-def f = new File('libs/opendial-1.3.jar')
-if (!f.exists()) {
-    new URL('https://github.com/plison/opendial/releases/download/version1.3b/opendial-1.3.jar').withInputStream{ i -> f.withOutputStream{ it << i }}
+    compile name: 'opendial', version: '1.3'
 }
