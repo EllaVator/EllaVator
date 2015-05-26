@@ -35,12 +35,18 @@ project(':opendial') {
         compile name: 'jcommon'
         compile name: 'jfreechart'
         compile name: 'jung'
+        testCompile name: 'junit'
     }
 
     sourceSets {
         main {
             java {
                 srcDirs 'src'
+            }
+        }
+        test {
+            java {
+                srcDirs 'test'
             }
         }
     }
