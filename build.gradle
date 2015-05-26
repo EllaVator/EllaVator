@@ -1,4 +1,12 @@
-apply plugin: 'java'
+allprojects {
+    apply plugin: 'java'
+
+    repositories {
+        flatDir {
+            dirs file("${project(':opendial').projectDir}/lib")
+        }
+    }
+}
 
 apply plugin: 'application'
 mainClassName = 'OpenDialDemo'
@@ -17,5 +25,27 @@ dependencies {
 }
 
 project(':opendial') {
-    apply plugin: 'java'
+    dependencies {
+        compile name: 'apache-hc'
+        compile name: 'att-codekit'
+        compile name: 'balloontip'
+        compile name: 'commons-io'
+        compile name: 'exp4j'
+        compile name: 'java-json'
+        compile name: 'jcommon'
+        compile name: 'jfreechart'
+        compile name: 'jung'
+    }
+
+    sourceSets {
+        main {
+            java {
+                srcDirs 'src'
+            }
+        }
+    }
+
+    compileJava {
+        sourceCompatibility = '1.8'
+    }
 }
