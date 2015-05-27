@@ -19,5 +19,6 @@ repositories {
 dependencies {
     compile group: 'de.dfki.mary', name: 'voice-cmu-slt-hsmm', version: '5.1.1'
     compile group: 'edu.cmu.sphinx', name: 'sphinx4-core', version: '1.0-SNAPSHOT'
-    compile name: 'opendial', version: '1.3'
+    //compile name: 'opendial', version: '1.3'
+    compile files('WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz.jar', 'opendial-1.3.jar')
 }
