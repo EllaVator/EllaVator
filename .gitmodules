@@ -1,3 +1,4 @@
 [submodule "opendial"]
 	path = opendial
 	url = https://github.com/EllaVator/opendial.git
+	ignore = dirty
