@@ -2,6 +2,9 @@
 .gradle/
 build/
 
+# MaryTTS
+log/
+
 # IDEA
 .idea/
 EllaVator.iml
