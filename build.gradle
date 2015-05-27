@@ -43,6 +43,9 @@ project(':opendial') {
             java {
                 srcDirs 'src'
             }
+            resources {
+                srcDir 'resources'
+            }
         }
         test {
             java {
