@@ -1,4 +1,15 @@
-apply plugin: 'java'
+allprojects {
+    apply plugin: 'java'
+
+    repositories {
+        flatDir {
+            dirs file("${project(':opendial').projectDir}/lib")
+        }
+    }
+}
+
+apply plugin: 'application'
+mainClassName = 'OpenDialDemo'
 
 repositories {
     jcenter()
@@ -10,4 +21,46 @@ repositories {
 dependencies {
     compile group: 'de.dfki.mary', name: 'voice-cmu-slt-hsmm', version: '5.1.1'
     compile group: 'edu.cmu.sphinx', name: 'sphinx4-core', version: '1.0-SNAPSHOT'
+    compile project(':opendial')
+}
+
+project(':opendial') {
+    dependencies {
+        compile name: 'apache-hc'
+        compile name: 'att-codekit'
+        compile name: 'balloontip'
+        compile name: 'commons-io'
+        compile name: 'exp4j'
+        compile name: 'java-json'
+        compile name: 'jcommon'
+        compile name: 'jfreechart'
+        compile name: 'jung'
+        testCompile name: 'junit'
+    }
+
+    sourceSets {
+        main {
+            java {
+                srcDirs 'src'
+            }
+            resources {
+                srcDir 'resources'
+            }
+        }
+        test {
+            java {
+                srcDirs 'test'
+            }
+        }
+    }
+
+    compileJava {
+        sourceCompatibility = '1.8'
+    }
+}
+
+jar {
+    manifest {
+        attributes('Main-Class': project.mainClassName)
+    }
 }
