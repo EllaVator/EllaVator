@@ -41,8 +41,5 @@
 	database (used here to find the ticket prices and "book" the tickets) -->
 	<settings>
 		<modules>opendial.modules.examples.FlightBookingExample</modules>
-
-		<modules>opendial.plugins.MaryTTS</modules>
-
 	</settings>
 </domain>

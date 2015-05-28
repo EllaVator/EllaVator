@@ -31,6 +31,7 @@ import java.util.Map;
 
 
 import edu.cmu.sphinx.api.LiveSpeechRecognizer;
+import edu.cmu.sphinx.decoder.search.Token;
 import opendial.DialogueState;
 import opendial.DialogueSystem;
 import opendial.bn.values.Value;
@@ -69,14 +70,7 @@ public class SphinxASR implements Module {
 	private static final String GRAMMAR_PATH =
 			"src/main/resources/asr/";
 
-	/**
-	 * Recognition probability for the best hypothesis returned by Sphinx. This quick
-	 * and dirty hack is necessary at the moment since it seems difficult to retrieve
-	 * scored N-Best lists from Sphinx when the language model is grammar-based.
-	 */
-	public static final double RECOG_PROB = 0.7;
-
-	/** The dialogue system to which the ASR is connected */
+    /** The dialogue system to which the ASR is connected */
 	DialogueSystem system;
 
 	Configuration configuration;
@@ -110,6 +104,7 @@ public class SphinxASR implements Module {
 		configuration.setDictionaryPath(DICTIONARY_PATH);
 		configuration.setGrammarPath(GRAMMAR_PATH);
 		configuration.setUseGrammar(true);
+		System.getProperties().setProperty("logLevel", "OFF");
 
 		try {
 			configuration.setGrammarName("dialog");
@@ -119,7 +114,9 @@ public class SphinxASR implements Module {
 			log.warning("Failed to load config: " + e);
 		}
 
-		system.enableSpeech(true);
+		// system.enableSpeech(true);
+
+		(new Thread(new RecognitionProcess())).start();
 	}
 
 	/**
@@ -145,7 +142,7 @@ public class SphinxASR implements Module {
 				&& !isPaused) {
 			Value speechVal = system.getContent(speechVar).toDiscrete().getBest();
 			if (speechVal instanceof SpeechData) {
-				(new Thread(new RecognitionProcess((SpeechData) speechVal))).start();
+				(new Thread(new RecognitionProcess())).start();
 			}
 		}
 	}
@@ -178,8 +175,17 @@ public class SphinxASR implements Module {
 	 * @return the corresponding N-best list
 	 */
 	private Map<String, Double> createNBestList(SpeechResult result) {
+		log.info(result.getHypothesis());
+
+
 		Map<String, Double> table = new HashMap<String, Double>();
-		table.put(result.getHypothesis(), RECOG_PROB);
+		for(Token token : result.getResult().getResultTokens()) {
+			String utterance = token.getWordPathNoFiller();
+			Double prob = result.getResult().getLogMath().logToLinear(token.getScore());
+			//TODO[ab]: this does not work because getScore() is very unpredictable
+			log.info(utterance + token.getScore() + ' ' + prob);
+			table.put(utterance, prob);
+		}
 		return table;
 	}
 
@@ -190,22 +196,28 @@ public class SphinxASR implements Module {
 
 		SpeechData stream;
 
-		public RecognitionProcess(SpeechData stream) {
-			this.stream = stream;
+		public RecognitionProcess() {
+
 		}
 
 		@Override
 		public void run() {
+
 			try {
 
+				log.fine("start Sphinx recognition...");
 				asr.startRecognition(true);
 
+				while (true) {
+					SpeechResult curResult = asr.getResult();
+					log.info((curResult == null) ? "No recognition results " : "Recognition completed");
+					if (curResult != null) {
+						log.info(curResult.getHypothesis() + ' ' + curResult.getResult().getBestToken().getScore());
+						//createNBestList(curResult);
+						//system.addUserInput(curResult.getHypothesis());
+					}
+				}
 
-					String utterance = asr.getResult().getHypothesis();
-
-					system.addUserInput(utterance);
-
-				asr.stopRecognition();
 			}
 			catch (Exception e) {
 				log.warning("cannot do recognition: " + e.toString());
