@@ -2,3 +2,6 @@
 	path = opendial
 	url = https://github.com/EllaVator/opendial.git
 	ignore = dirty
+[submodule "sphinx4"]
+	path = sphinx4
+	url = git@github.com:cmusphinx/sphinx4.git
