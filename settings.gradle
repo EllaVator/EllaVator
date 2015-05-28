@@ -1,1 +1,3 @@
 include 'opendial'
+include 'sphinx4:sphinx4-core'
+include 'sphinx4:sphinx4-data'

@@ -59,6 +59,17 @@ project(':opendial') {
     }
 }
 
+project(':sphinx4:sphinx4-core') {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        compile group: 'org.apache.commons', name: 'commons-math3', version: '3.2'
+        compile project(':sphinx4:sphinx4-data')
+    }
+}
+
 jar {
     manifest {
         attributes('Main-Class': project.mainClassName)
