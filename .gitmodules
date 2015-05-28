@@ -4,5 +4,5 @@
 	ignore = dirty
 [submodule "sphinx4"]
 	path = sphinx4
-	url = git@github.com:cmusphinx/sphinx4.git
+	url = https://github.com/EllaVator/sphinx4.git
 	ignore = dirty
