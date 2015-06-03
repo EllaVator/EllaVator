@@ -64,7 +64,7 @@ run {
     doFirst {
         copy {
             from project(':opendial').sourceSets.main.output.resourcesDir
-            into buildDir
+            into 'build/resources'
             include 'settings.xml'
         }
     }
