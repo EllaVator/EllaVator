@@ -61,6 +61,13 @@ project(':opendial') {
 
 run {
     workingDir = buildDir
+    doFirst {
+        copy {
+            from project(':opendial').sourceSets.main.output.resourcesDir
+            into buildDir
+            include 'settings.xml'
+        }
+    }
 }
 
 jar {
