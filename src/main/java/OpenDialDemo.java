@@ -8,7 +8,7 @@ public class OpenDialDemo {
 		DialogueSystem system = new DialogueSystem();
 
 		// Extracting the dialogue domain
-		Domain domain = XMLDomainReader.extractDomain("./src/main/resources/example-simulator.xml");
+		Domain domain = XMLDomainReader.extractDomain("resources/main/example-simulator.xml");
 		system.changeDomain(domain);
 
 		// Adding new domain modules (optional)

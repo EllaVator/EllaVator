@@ -59,6 +59,10 @@ project(':opendial') {
     }
 }
 
+run {
+    workingDir = buildDir
+}
+
 jar {
     manifest {
         attributes('Main-Class': project.mainClassName)
