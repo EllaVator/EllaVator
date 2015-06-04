@@ -59,15 +59,15 @@ project(':opendial') {
     }
 }
 
+task copySettingsXml(type: Copy) {
+    from project(':opendial').sourceSets.main.output.resourcesDir
+    into "$buildDir/resources"
+    include 'settings.xml'
+}
+
 run {
+    dependsOn copySettingsXml
     workingDir = buildDir
-    doFirst {
-        copy {
-            from project(':opendial').sourceSets.main.output.resourcesDir
-            into buildDir
-            include 'settings.xml'
-        }
-    }
 }
 
 jar {
