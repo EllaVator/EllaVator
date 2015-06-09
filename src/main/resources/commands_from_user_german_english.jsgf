@@ -1,0 +1,72 @@
+German Grammar
+#JSGF V1.0 ;
+public <BasicElevatorGerman> = <FloorRequestGerman>
+
+
+<GreetingGerman> = hi | hallo | guten tag | guten morgen | guten abend ;
+<AddressGerman> = aufzug | lift | fahrstuhl | ella ;
+<GreetingWithAddressGerman> = <GreetingGerman> [<AddressGerman>] ; 
+
+<RejectGerman> = (nein | ne | falsch | stimmt nicht | das stimmt nicht | das hast du falsch verstanden | quatsch)+ ;
+<ConfirmGerman> = (ja | genau | richtig | exakt | stimmt)+ ;
+
+<StartPoliteGerman> = bitte ;
+<EndPoliteGerman> = bitte | danke | vielen dank ;
+<PoliteRequestGerman> = ich möchte | ich möchte gerne | ich würde gerne | ich suche ;
+
+<NumberGerman> = eins | zwei | drei | erste | zweite | dritte | erstes | zweites | drittes | oberstes | unterstes | oberste | unterste | ersten | zweiten | dritten ;
+<AnyFloorGerman> = etage | stockwerk | geschoss | stock ;
+<PreciseFloorGerman> = erdgeschoss | aquarium  | zwischengeschoss | zwischenstockwerk | mezzanine | ausgang | eingang | ganz nach oben | ganz nach unten ; 
+
+<MovementWithoutGoalGerman> = nach oben | nach unten ;
+<BathroomGerman> = toilette | klo ;
+<LabGerman> = labor | versuch | eye-tracking labor | eye-tracking versuch | leseexperiment | leseversuch ;
+
+<RoomWithNameOrNumberGerman> = <RoomGerman> (<RoomNumberGerman> | <RoomNameGerman>); 
+<RoomGerman> = raum | büro | raum von | büro von ; 
+<RoomNumberGerman> = alle vorhandenen Raumnummern 
+<RoomNameGerman> = Name von Mittarbeitern
+
+<ToGerman> = zum | ins | in den | in das | zu ;
+
+<FloorRequestMiddleGerman> = ((<NumberGerman> <AnyFloorGerman>) | <PreciseFloorGerman> | <LabGerman> | <BathroomGerman> | <MovementWithoutGoal> |  <RoomWithNameOrNumberGerman>)
+<FloorRequestGerman> =  [(<StartPoliteGerman> | <PoliteRequestGerman>)] [<ToGerman>] <FloorRequestMiddleGerman> [<EndPoliteGerman>]
+
+
+
+English Grammar
+#JSGF V1.0 ;
+public <BasicElevatorEnglish> = <FloorRequestEnglish>
+
+
+<GreetingEnglish> = hi | hello | good morning | good afternoon | good evening ; 
+<AddressEnglish> = ella | elevator | lift ;
+<GreetingWithAddress> = <GreetingEnglish> [<AddressEnglish>] ; 
+
+
+<RejectEnglish> = (no | that's wrong | that's not true | no not true | you got it wrong | you understood me wrong)+ ; 
+<ConfirmEnglish> = (yes | that's right | correct | that's correct | that's true | exactly)+ ; 
+
+<startPoliteEnglish> = please ; 
+<endPoliteEnglish> = please | thanks | thank you | thanks a lot ; 
+<PoliteRequestEnglish> = I would like to go | take me ; 
+
+<NumberEnglish> = one | two | three | first | second | third; 
+<AnyFloorEnglish> = floor | storey;
+<PreciseFloorEnglish> = lab | laboratory | experiment | eye-tracking experiment | reading experiment | eye-tracking laboratory | eye-tracking lab | top floor | lobby | street level | ground level | ground floor | mezzanine ;
+
+<MovementWithoutGoalEnglish> = up | down;
+<BathroomEnglish> = bathroom | restroom | restrooms ; 
+
+<RoomWithNameOrNumberEnglish> = <RoomEnglish> (<RoomNumberEnglish> | <RoomNameGerman>) ; 
+<RoomEnglish> = room | office ; 
+<RoomNumberEnglish> = alle Raumnummern;
+<RoomNameEnglish> = Namen von Mitarbeitern; 
+
+<ToEnglish> = to | to the; 
+
+
+<FloorRequestMiddleEnglish> = ((<NumberEnglish> <AnyFloorEnglish>) | <PreciseFloorEnglish> | <LabEnglish> | <BathroomEnglish> | <MovementWithoutEnglish> |  <RoomWithNameOrNumberEnglish>)
+<FloorRequestEnglish> =  [(<StartPoliteEnglish> | <PoliteRequestEnglish>)]  [<ToEnglish>] <FloorRequestMiddleEnglish> [<EndPoliteEnglish>]
+
+
