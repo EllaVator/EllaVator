@@ -67,6 +67,8 @@ project(':sphinx4:sphinx4-core') {
     dependencies {
         compile group: 'org.apache.commons', name: 'commons-math3', version: '3.2'
         compile project(':sphinx4:sphinx4-data')
+        testCompile group: 'org.testng', name: 'testng', version: '6.8.8'
+        testCompile group: 'org.hamcrest', name: 'hamcrest-library', version: '1.3'
     }
 }
 
