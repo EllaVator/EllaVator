@@ -1,5 +1,8 @@
 #JSGF V1.0 ;
-public <BasicElevatorGerman> = <FloorRequestGerman>
+
+grammar elevator_german;
+
+public <BasicElevatorGerman> = <FloorRequestGerman> ;
 
 
 <GreetingGerman> = hi | hallo | guten tag | guten morgen | guten abend ;
@@ -23,12 +26,12 @@ public <BasicElevatorGerman> = <FloorRequestGerman>
 
 <RoomWithNameOrNumberGerman> = <RoomGerman> (<RoomNumberGerman> | <RoomNameGerman>); 
 <RoomGerman> = raum | büro | raum von | büro von ; 
-<RoomNumberGerman> = alle vorhandenen Raumnummern 
-<RoomNameGerman> = Name von Mittarbeitern
+<RoomNumberGerman> = alle vorhandenen Raumnummern ;
+<RoomNameGerman> = Name von Mittarbeitern ;
 
 <ToGerman> = zum | ins | in den | in das | zu ;
 
-<FloorRequestMiddleGerman> = ((<NumberGerman> <AnyFloorGerman>) | <PreciseFloorGerman> | <LabGerman> | <BathroomGerman> | <MovementWithoutGoal> |  <RoomWithNameOrNumberGerman>)
-<FloorRequestGerman> =  [(<StartPoliteGerman> | <PoliteRequestGerman>)] [<ToGerman>] <FloorRequestMiddleGerman> [<EndPoliteGerman>]
+<FloorRequestMiddleGerman> = ((<NumberGerman> <AnyFloorGerman>) | <PreciseFloorGerman> | <LabGerman> | <BathroomGerman> | <MovementWithoutGoalGerman> |  <RoomWithNameOrNumberGerman>) ;
+<FloorRequestGerman> =  [(<StartPoliteGerman> | <PoliteRequestGerman>)] [<ToGerman>] <FloorRequestMiddleGerman> [<EndPoliteGerman>] ;
 
 

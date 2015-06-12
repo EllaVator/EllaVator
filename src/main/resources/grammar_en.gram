@@ -1,0 +1,35 @@
+#JSGF V1.0 ;
+grammar elevator_english;
+public <BasicElevatorEnglish> = <FloorRequestEnglish>;
+
+
+<GreetingEnglish> = hi | hello | good morning | good afternoon | good evening ;
+<AddressEnglish> = ella | elevator | lift ;
+<GreetingWithAddress> = <GreetingEnglish> [<AddressEnglish>] ;
+
+
+<RejectEnglish> = (no | that's wrong | that's not true | no not true | you got it wrong | you understood me wrong)+ ;
+<ConfirmEnglish> = (yes | that's right | correct | that's correct | that's true | exactly)+ ;
+
+<StartPoliteEnglish> = please ;
+<EndPoliteEnglish> = please | thanks | thank you | thanks a lot ;
+<PoliteRequestEnglish> = I would like to go | take me ;
+
+<NumberEnglish> = one | two | three | first | second | third;
+<AnyFloorEnglish> = floor | storey;
+<PreciseFloorEnglish> = ground floor | aquarium  | mezzanine | entresol | intermediate storey | top floor | lobby | street level | ground level | ground floor | mezzanine | exit ;
+
+<MovementWithoutGoalEnglish> = up | down;
+<BathroomEnglish> = bathroom | restroom | restrooms ;
+<LabEnglish> = lab | laboratory | experiment | eye-tracking experiment | reading experiment | eye-tracking laboratory | eye-tracking lab  ;
+
+<RoomWithNameOrNumberEnglish> = <RoomEnglish> (<RoomNumberEnglish> | <RoomNameEnglish>) ;
+<RoomEnglish> = room | office ;
+<RoomNumberEnglish> = two oh three;
+<RoomNameEnglish> = mister bean;
+
+<ToEnglish> = to | to the;
+
+
+<FloorRequestMiddleEnglish> = ((<NumberEnglish> <AnyFloorEnglish>) | <PreciseFloorEnglish> | <LabEnglish> | <BathroomEnglish> | <MovementWithoutGoalEnglish> |  <RoomWithNameOrNumberEnglish>);
+<FloorRequestEnglish> =  [(<StartPoliteEnglish> | <PoliteRequestEnglish>)]  [<ToEnglish>] <FloorRequestMiddleEnglish> [<EndPoliteEnglish>];

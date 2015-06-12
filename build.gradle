@@ -20,7 +20,7 @@ repositories {
 
 dependencies {
     compile group: 'de.dfki.mary', name: 'voice-cmu-slt-hsmm', version: '5.1.1'
-    compile project(':sphinx4')
+    compile project(':sphinx4:sphinx4-core')
     compile project(':opendial')
 }
 
