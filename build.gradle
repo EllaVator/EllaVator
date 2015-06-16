@@ -72,6 +72,36 @@ project(':sphinx4:sphinx4-core') {
     }
 }
 
+task expandGrammarEnglish {
+    dependsOn classes
+    def grammarFile = file("$sourceSets.main.output.resourcesDir/grammar_en.gram")
+    def textFile = file("$sourceSets.main.output.resourcesDir/grammar_en_sample.txt")
+    inputs.files grammarFile
+    outputs.files textFile
+    doLast {
+        javaexec {
+            main 'JsgfExpander'
+            classpath sourceSets.main.runtimeClasspath
+            args = [grammarFile.parent, grammarFile.name, true, textFile]
+        }
+    }
+}
+
+task expandGrammarGerman {
+    dependsOn classes
+    def grammarFile = file("$sourceSets.main.output.resourcesDir/grammar_de.gram")
+    def textFile = file("$sourceSets.main.output.resourcesDir/grammar_de_sample.txt")
+    inputs.files grammarFile
+    outputs.files textFile
+    doLast {
+        javaexec {
+            main 'JsgfExpander'
+            classpath sourceSets.main.runtimeClasspath
+            args = [grammarFile.parent, grammarFile.name, true, textFile]
+        }
+    }
+}
+
 task copySettingsXml(type: Copy) {
     from project(':opendial').sourceSets.main.output.resourcesDir
     into "$buildDir/resources"

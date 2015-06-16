@@ -8,14 +8,18 @@ import edu.cmu.sphinx.linguist.language.grammar.GrammarArc;
 import edu.cmu.sphinx.linguist.language.grammar.GrammarNode;
 
 import java.io.PrintWriter;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
 public class JsgfExpander {
     public static void main (String[] args) throws Exception {
         JsgfExpander expander = new JsgfExpander();
-        expander.expandGrammarToFile("../src/main/resources", "grammar_en", true, "../src/main/resources/grammar_en_sample.txt");
-        expander.expandGrammarToFile("../src/main/resources", "grammar_de", true, "../src/main/resources/grammar_de_sample.txt");
+        String grammarPath = args[0];
+        String grammarName = args[1];
+        boolean random = Boolean.parseBoolean(args[2]);
+        String fileName = args[3];
+        expander.expandGrammarToFile(grammarPath, grammarName, random, fileName);
     }
 
     public void expandGrammarToFile(String grammarPath, String grammarName, boolean random, String fileName) throws Exception
@@ -30,14 +34,13 @@ public class JsgfExpander {
 
     public String[] expandGrammar(String grammarPath, String grammarName, boolean random) throws Exception {
 
-        String dictionaryUrl = "../sphinx4/sphinx4-data/src/main/resources/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict";
-        String noisedictUrl = "../sphinx4/sphinx4-data/src/main/resources/edu/cmu/sphinx/models/en-us/en-us/noisedict";
+        URL dictionaryUrl = getClass().getResource("/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
+        URL noisedictUrl = getClass().getResource("/edu/cmu/sphinx/models/en-us/en-us/noisedict");
 
         Dictionary dictionary = new TextDictionary(
             dictionaryUrl,
             noisedictUrl,
             null,
-            true,
             null,
             new UnitManager()
         );
