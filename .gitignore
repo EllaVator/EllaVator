@@ -1,3 +1,10 @@
 # gradle
 .gradle/
 build/
+
+# MaryTTS
+log/
+
+# IDEA
+.idea/
+*.iml

@@ -1,4 +1,15 @@
-apply plugin: 'java'
+allprojects {
+    apply plugin: 'java'
+
+    repositories {
+        flatDir {
+            dirs file("${project(':opendial').projectDir}/lib")
+        }
+    }
+}
+
+apply plugin: 'application'
+mainClassName = 'OpenDialDemo'
 
 repositories {
     jcenter()
@@ -9,5 +20,101 @@ repositories {
 
 dependencies {
     compile group: 'de.dfki.mary', name: 'voice-cmu-slt-hsmm', version: '5.1.1'
-    compile group: 'edu.cmu.sphinx', name: 'sphinx4-core', version: '1.0-SNAPSHOT'
+    compile project(':sphinx4:sphinx4-core')
+    compile project(':opendial')
+}
+
+project(':opendial') {
+    dependencies {
+        compile name: 'apache-hc'
+        compile name: 'att-codekit'
+        compile name: 'balloontip'
+        compile name: 'commons-io'
+        compile name: 'exp4j'
+        compile name: 'java-json'
+        compile name: 'jcommon'
+        compile name: 'jfreechart'
+        compile name: 'jung'
+        testCompile name: 'junit'
+    }
+
+    sourceSets {
+        main {
+            java {
+                srcDirs 'src'
+            }
+            resources {
+                srcDir 'resources'
+            }
+        }
+        test {
+            java {
+                srcDirs 'test'
+            }
+        }
+    }
+
+    compileJava {
+        sourceCompatibility = '1.8'
+    }
+}
+
+project(':sphinx4:sphinx4-core') {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        compile group: 'org.apache.commons', name: 'commons-math3', version: '3.2'
+        compile project(':sphinx4:sphinx4-data')
+        testCompile group: 'org.testng', name: 'testng', version: '6.8.8'
+        testCompile group: 'org.hamcrest', name: 'hamcrest-library', version: '1.3'
+    }
+}
+
+task expandGrammarEnglish {
+    dependsOn classes
+    def grammarFile = file("$sourceSets.main.output.resourcesDir/grammar_en.gram")
+    def textFile = file("$sourceSets.main.output.resourcesDir/grammar_en_sample.txt")
+    inputs.files grammarFile
+    outputs.files textFile
+    doLast {
+        javaexec {
+            main 'JsgfExpander'
+            classpath sourceSets.main.runtimeClasspath
+            args = [grammarFile.parent, grammarFile.name, true, textFile]
+        }
+    }
+}
+
+task expandGrammarGerman {
+    dependsOn classes
+    def grammarFile = file("$sourceSets.main.output.resourcesDir/grammar_de.gram")
+    def textFile = file("$sourceSets.main.output.resourcesDir/grammar_de_sample.txt")
+    inputs.files grammarFile
+    outputs.files textFile
+    doLast {
+        javaexec {
+            main 'JsgfExpander'
+            classpath sourceSets.main.runtimeClasspath
+            args = [grammarFile.parent, grammarFile.name, true, textFile]
+        }
+    }
+}
+
+task copySettingsXml(type: Copy) {
+    from project(':opendial').sourceSets.main.output.resourcesDir
+    into "$buildDir/resources"
+    include 'settings.xml'
+}
+
+run {
+    dependsOn copySettingsXml
+    workingDir = buildDir
+}
+
+jar {
+    manifest {
+        attributes('Main-Class': project.mainClassName)
+    }
 }

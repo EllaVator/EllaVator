@@ -1,0 +1,52 @@
+#JSGF V1.0 ;
+
+grammar elevator_german;
+
+public <BasicElevatorGerman> = <FloorRequestGerman> ;
+
+
+<GreetingGerman> = hi | hallo | guten tag | guten morgen | guten abend ;
+<AddressGerman> = aufzug | lift | fahrstuhl | ella ;
+<GreetingWithAddressGerman> = <GreetingGerman> [<AddressGerman>] ; 
+
+<RejectGerman> = (nein | ne | falsch | stimmt nicht | das stimmt nicht | das hast du falsch verstanden | quatsch)+ ;
+<ConfirmGerman> = (ja | genau | richtig | exakt | stimmt)+ ;
+
+<StartPoliteGerman> = bitte ;
+<EndPoliteGerman> = bitte | danke | vielen dank ;
+<PoliteRequestGerman> = ich möchte | ich möchte gerne | ich würde gerne | ich suche ;
+
+<NumberGerman> = eins | zwei | drei | erste | zweite | dritte | erstes | zweites | drittes | oberstes | unterstes | oberste | unterste | ersten | zweiten | dritten ;
+<AnyFloorGerman> = etage | stockwerk | geschoss | stock ;
+<PreciseFloorGerman> = erdgeschoss | aquarium  | zwischengeschoss | zwischenstockwerk | mezzanine | ausgang | eingang | ganz nach oben | ganz nach unten ; 
+
+<MovementWithoutGoalGerman> = nach oben | nach unten ;
+<BathroomGerman> = toilette | klo ;
+<LabGerman> = labor | versuch | eye-tracking labor | eye-tracking versuch | leseexperiment | leseversuch ;
+
+<RoomWithNameOrNumberGerman> = <RoomGerman> (<RoomNumberGerman> | <RoomNameGerman>); 
+<RoomGerman> = raum | büro | raum von | büro von ; 
+<RoomNumberGerman> = hundertsiebzehn | eins | zwei | drei | null eins | null zwei | null drei | null vier |
+null null eins | null null zwei | null null drei | null null vier |
+eins null sieben | hunderteins |
+eins null eins | einhunderteins | hundertzwei | einhundertzwei | eins null zwei |
+hundertdrei | eins null drei | einhundertdrei | hundertvier | eins null vier | einhundertvier | hundertfünf | eins null fünf | einhundertfünf |
+hundertsechs | eins null sechs | einhundertsechs | hundertsieben | eins null sieben | einhundertsieben | zweihunderteins | zwei null eins |
+zweihundertzwei | zwei null zwei | zweihundertdrei | zwei null drei | zweihundertvier | zwei null vier | zweihundertfünf | zwei null fünf |
+zweihundertsechs | zwei null sechs | zweihundertsieben | zwei null sieben | dreihunderteins | drei null eins | dreihundertzwei | drei null zwei |
+dreihundertdrei | drei null drei | dreihundertvier | drei null vier | dreihundertfünf | drei null fünf | dreihundertsechs | drei null sechs|
+dreihundertsieben | drei null sieben | dreihundertacht | drei null acht | dreihundertneun | drei null neun | dreihundertzehn | drei zehn | 
+dreihundertelf | drei elf | dreihundertzwölf | drei zwölf | dreihundertdreizehn | drei dreizehn | dreihundertvierzehn | drei vierzehn | 
+dreihundertfünfzehn | drei fünfzehn | dreihundertsechzehn | drei sechzehn | dreihundertsiebzehn | drei siebzehn | dreihundertachzehn  | drei achtzehn | 
+dreihundertneunzehn | drei neunzehn;
+<RoomNameGerman> = Manfred Pinkal | Vera Demberg | Maria Staudte | Ingmar Steiner  |Annemarie Friedrich | Chiara Gambi | Alexander Hewer |
+Andrea Horbach | David Howcroft | Arif Khan | Alexandre Klementiev | Mikhail Kozhevnikov | Ekaterina Kravtchenko | Sébastien Le Maguer |
+Ashutosh Modi | Asad Sayeed | Mirjana Sekicki | Hongxia Shi | Diana Steffen | Fatemeh Torabi Asr | Elli Tourtouri | Yoana Vergilova | Jorrig Vogels |
+Lilian Wanzare | Alessandra Zarcone | Ross Macdonald | Nikolina Koleva | Christine Ankener;
+
+<ToGerman> = zum | ins | in den | in das | zu ;
+
+<FloorRequestMiddleGerman> = ((<NumberGerman> <AnyFloorGerman>) | <PreciseFloorGerman> | <LabGerman> | <BathroomGerman> | <MovementWithoutGoalGerman> |  <RoomWithNameOrNumberGerman>) ;
+<FloorRequestGerman> =  [(<StartPoliteGerman> | <PoliteRequestGerman>)] [<ToGerman>] <FloorRequestMiddleGerman> [<EndPoliteGerman>] ;
+
+
