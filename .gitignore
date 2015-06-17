@@ -7,4 +7,4 @@ log/
 
 # IDEA
 .idea/
-EllaVator.iml
+*.iml
