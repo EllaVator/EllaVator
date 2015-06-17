@@ -25,8 +25,44 @@ public <BasicElevatorEnglish> = <FloorRequestEnglish>;
 
 <RoomWithNameOrNumberEnglish> = <RoomEnglish> (<RoomNumberEnglish> | <RoomNameEnglish>) ;
 <RoomEnglish> = room | office ;
-<RoomNumberEnglish> = two oh three;
-<RoomNameEnglish> = mister bean;
+<RoomNumberEnglish> = one hundred and seventeen | one hundred seventeen | one | two | three | four | oh one | oh two | oh three | oh four |
+zero one | zero two | zero three | zero four | zero zero one | zero zero two | zero zero three | zero zero four | one oh one | one zero one |
+one hundred one | one hundred and one | one hundred and two | one hundred two | one zero two  | one oh two | one hundred and three | one hundred three | 
+one oh three  | one zero three  | one hundred and four | one hundred four | one oh four | one zero four |
+one hundred and five | one hundred five | one oh five  | one zero five | 
+one hundred and six | one hundred six | one oh six | one zero six|
+one hundred and seven | one hundred seven | one oh seven | one zero seven |
+two hundred and one | two hundred one | two oh one | two zero one | 
+two hundred and two | two hundred two | two oh two | two zero two| 
+two hundred and three  |two hundred three  | two oh three | two zero three | 
+two hundred and four  | two hundred four | two oh four | two zero four  |
+two hundred and five | two hundred five | two oh five  | two zero five | 
+two hundred and six | two hundred six  |two oh six | two zero six| 
+two hundred and seven | two hundred seven  | two oh seven | two zero seven|
+
+three hundred and one | three hundred one | three oh one | three zero one | 
+three hundred and two | three hundred two | three oh two | three zero two| 
+three hundred and three  |three hundred three  | three oh three | three zero three | 
+three hundred and four  | three hundred four | three oh four | three zero four  |
+three hundred and five | three hundred five | three oh five  | three zero five | 
+three hundred and six | three hundred six  |three oh six | three zero six| 
+three hundred and seven | three hundred seven  | three oh seven | three zero seven|
+three hundred and eight | three hundred eight  | three oh eight | three zero eight|
+three hundred and nine | three hundred nine  | three oh nine | three zero nine|
+three hundred and ten  | three hundred ten   | three oh ten  | three zero ten |
+three hundred and eleven | three hundred eleven  | three oh eleven | three zero eleven|
+three hundred and twelve | three hundred twelve  | three oh twelve | three zero twelve|
+three hundred and thirteen | three hundred thirteen  | three oh thirteen | three zero thirteen|
+three hundred and fourteen | three hundred fourteen  | three oh fourteen | three zero fourteen|
+three hundred and fifteen | three hundred fifteen  | three oh fifteen | three zero fifteen|
+three hundred and sixteen | three hundred sixteen  | three oh sixteen | three zero sixteen|
+three hundred and eighteen | three hundred eighteen  | three oh eighteen | three zero eighteen|
+three hundred and nineteen | three hundred nineteen  | three oh nineteen | three zero nineteen|;
+
+<RoomNameEnglish> = Manfred Pinkal | Vera Demberg | Maria Staudte | Ingmar Steiner  |Annemarie Friedrich | Chiara Gambi | Alexander Hewer |
+Andrea Horbach | David Howcroft | Arif Khan | Alexandre Klementiev | Mikhail Kozhevnikov | Ekaterina Kravtchenko | Sébastien Le Maguer |
+Ashutosh Modi | Asad Sayeed | Mirjana Sekicki | Hongxia Shi | Diana Steffen | Fatemeh Torabi Asr | Elli Tourtouri | Yoana Vergilova | Jorrig Vogels |
+Lilian Wanzare | Alessandra Zarcone | Ross Macdonald | Nikolina Koleva | Christine Ankener;
 
 <ToEnglish> = to | to the;
 

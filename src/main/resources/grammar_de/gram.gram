@@ -26,8 +26,23 @@ public <BasicElevatorGerman> = <FloorRequestGerman> ;
 
 <RoomWithNameOrNumberGerman> = <RoomGerman> (<RoomNumberGerman> | <RoomNameGerman>); 
 <RoomGerman> = raum | büro | raum von | büro von ; 
-<RoomNumberGerman> = alle vorhandenen Raumnummern ;
-<RoomNameGerman> = Name von Mittarbeitern ;
+<RoomNumberGerman> = hundertsiebzehn | eins | zwei | drei | null eins | null zwei | null drei | null vier |
+null null eins | null null zwei | null null drei | null null vier |
+eins null sieben | hunderteins |
+eins null eins | einhunderteins | hundertzwei | einhundertzwei | eins null zwei |
+hundertdrei | eins null drei | einhundertdrei | hundertvier | eins null vier | einhundertvier | hundertfünf | eins null fünf | einhundertfünf |
+hundertsechs | eins null sechs | einhundertsechs | hundertsieben | eins null sieben | einhundertsieben | zweihunderteins | zwei null eins |
+zweihundertzwei | zwei null zwei | zweihundertdrei | zwei null drei | zweihundertvier | zwei null vier | zweihundertfünf | zwei null fünf |
+zweihundertsechs | zwei null sechs | zweihundertsieben | zwei null sieben | dreihunderteins | drei null eins | dreihundertzwei | drei null zwei |
+dreihundertdrei | drei null drei | dreihundertvier | drei null vier | dreihundertfünf | drei null fünf | dreihundertsechs | drei null sechs|
+dreihundertsieben | drei null sieben | dreihundertacht | drei null acht | dreihundertneun | drei null neun | dreihundertzehn | drei zehn | 
+dreihundertelf | drei elf | dreihundertzwölf | drei zwölf | dreihundertdreizehn | drei dreizehn | dreihundertvierzehn | drei vierzehn | 
+dreihundertfünfzehn | drei fünfzehn | dreihundertsechzehn | drei sechzehn | dreihundertsiebzehn | drei siebzehn | dreihundertachzehn  | drei achtzehn | 
+dreihundertneunzehn | drei neunzehn;
+<RoomNameGerman> = Manfred Pinkal | Vera Demberg | Maria Staudte | Ingmar Steiner  |Annemarie Friedrich | Chiara Gambi | Alexander Hewer |
+Andrea Horbach | David Howcroft | Arif Khan | Alexandre Klementiev | Mikhail Kozhevnikov | Ekaterina Kravtchenko | Sébastien Le Maguer |
+Ashutosh Modi | Asad Sayeed | Mirjana Sekicki | Hongxia Shi | Diana Steffen | Fatemeh Torabi Asr | Elli Tourtouri | Yoana Vergilova | Jorrig Vogels |
+Lilian Wanzare | Alessandra Zarcone | Ross Macdonald | Nikolina Koleva | Christine Ankener;
 
 <ToGerman> = zum | ins | in den | in das | zu ;
 
