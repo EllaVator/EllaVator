@@ -1,0 +1,33 @@
+#JSGF V1.0 ;
+public <BasicElevatorGerman> = <FloorRequestGerman>
+
+
+<GreetingGerman> = hi | hallo | guten tag | guten morgen | guten abend ;
+<AddressGerman> = aufzug | lift | fahrstuhl | ella ;
+<GreetingWithAddressGerman> = [<GreetingGerman>] <AddressGerman> ; 
+
+<PoliteRequestGerman> = ich möchte | ich möchte gerne | ich würde gerne | ich suche | bring mich | bring uns | fahr uns | fahr mich ;
+<Please>= bitte;
+
+<RejectGerman> = (nein | ne | falsch | stimmt nicht | das stimmt nicht | das hast du falsch verstanden | quatsch)+ ;
+<NumberGerman> = eins | zwei | drei | erste | zweite | dritte | erstes | zweites | drittes | oberstes | unterstes | oberste | unterste | ersten | zweiten | dritten ;
+<AnyFloorGerman> = etage | stockwerk | geschoss | stock ;
+<PreciseFloorGerman> = erdgeschoss | zwischengeschoss | zwischenstockwerk | mezzanine | ausgang | eingang | ganz nach oben | ganz nach unten ; 
+<MovementWithoutGoalGerman> = nach oben | nach unten | hoch | runter ;
+<BathroomGerman> = toilette | klo ;
+<LabGerman> = labor | versuch | eye-tracking labor | eye-tracking versuch | leseexperiment | leseversuch ;
+<ToGerman> = zum | ins | in den | in das | zu ;
+<RoomGerman> = raum | büro | raum von | büro von  ; 
+<RoomNumberGerman> = alle vorhandenen Raumnummern 
+<RoomNameGerman> = Name von Mittarbeitern
+<specialRoom> = <LabGerman> | Aquarium | Konferenzraum;
+
+<RoomWithNameOrNumber> = [<RoomGerman>] (<RoomNumberGerman> | <RoomNameGerman>)| <specialRoom>; 
+<FloorRequestMiddleGerman> = ((<NumberGerman> <AnyFloorGerman>) | <PreciseFloorGerman> )
+<RequestWithout>= <MovementWithoutGoal> 
+<RequestFloor>= <PreciseFloorGerman>
+<RequestRoom>= <RoomWithNameOrNumberGerman> |
+<Toilet> = <BathroomGerman>
+<Greeting> = <GreetingGerman> 
+<StartPolite> =  [<Please> ] [<PoliteRequestGerman>] 
+

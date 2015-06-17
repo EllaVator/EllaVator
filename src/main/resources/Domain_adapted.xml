@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain>
+
+<initialstate>	
+		<variable id="u_m">
+			<value>Welcome!</value>
+		</variable>
+</initialstate>
+
+	<!-- NLU model -->
+	<model trigger="u_u">
+
+		<rule>
+		<case>
+			<condition operator="or">
+				<if var="u_u" value="<Reject>" relation="contains" />
+			</condition>
+			<effect prob="1">
+				<set var="a_u" value="nope" />
+			</effect>
+			</case>
+						
+			<case>
+				<condition operator="or">
+					<if var="u_u" value="<StartPolite> * <RequestWithout> * <StartPolite>" relation="contains" />
+				</condition>
+				<effect prob="1">
+					<set var="a_u" value="Request(<RequestWithout>)" />
+				</effect>
+			</case>
+			
+			<case>
+				<condition operator="or">
+					<if var="u_u" value="<StartPolite> * <RoomWithNameOrNumber> * <StartPolite>" relation="contains" />
+				</condition>
+				<effect prob="1">
+					<set var="a_u" value="Requestroom(<RoomWithNameOrNumber>)" />
+				</effect>
+			</case>
+			
+			<case>
+				<condition operator="or">
+					<if var="u_u" value="<StartPolite> * <RequestFloor> * <bitte>" relation="contains" />
+				</condition>
+				<effect prob="1">
+					<set var="a_u" value="Requestfloor(<RequestFloor>)" />
+				</effect>
+			</case>
+			
+			
+			<case>
+				<condition operator="or">
+					<if var="u_u" value="<StartPolite> * <Toilet> * <bitte>" relation="contains" />
+				</condition>
+				<effect prob="1">
+					<set var="a_u" value="toilet" />
+				</effect>
+			</case>
+			
+			<case>
+				<condition operator="or">
+					<if var="u_u" value="<Greeting>" relation="contains" />
+				</condition>
+				<effect prob="1">
+					<set var="a_u" value="Greet" />
+				</effect>
+			</case>
+		</rule>
+	</model>
+			
+			
+			
+	<!-- Action selection model -->
+	<model trigger="a_u">
+		<rule id="grounding">
+			<case>
+				<condition>
+					<if var="a_u" value="nope" />
+				</condition>
+				<effect util="1">
+					<set var="a_m" value="nope" />
+				</effect>
+			</case>
+		</rule>
+	
+		<rule id="movement">
+			<case>
+				<condition>
+					<if var="a_u" value="Request({X})" />
+				</condition>
+				<effect util="1">
+					<set var="a_m" value="Move({X})" />
+				</effect>
+			</case>
+		</rule>
+		
+		
+		<rule id="movetofloor">
+			<case>
+				<condition>
+					<if var="a_u" value="Requestfloor({X})" />
+				</condition>
+				<effect util="1">
+					<set var="a_m" value="Movefloor({X})" />
+				</effect>
+			</case>
+		</rule>
+		
+		<rule id="movetofloor">
+			<case>
+				<condition>
+					<if var="a_u" value="Requestroom({X})" />
+				</condition>
+				<effect util="1">
+					<set var="a_m" value="Moveroom({X})" />
+				</effect>
+			</case>
+		</rule>
+		
+		<rule id="toiletfloor">
+			<case>
+			<condition>
+					<if var="a_u" value="Toilet" />
+				</condition>
+				<effect util="1">
+					<set var="a_m" value="Toilet" />
+				</effect>
+			</case>
+		</rule>
+
+		
+		<rule id="greeting">
+			<case>
+			<condition>
+					<if var="a_u" value="Greet" />
+				</condition>
+				<effect util="1">
+					<set var="a_m" value="Greet" />
+				</effect>
+			</case>
+		</rule>
+		
+	
+		
+		<rule id="repeat">
+			<case>
+				<effect util="0.2">
+					<set var="a_m" value="AskRepeat" />
+				</effect>
+			</case>
+		</rule>
+
+	
+	</model>
+
+
+	<!-- NLG model -->
+	<model trigger="a_m">
+		<rule>		
+			<case>
+				<condition>
+					<if var="a_m" value="Move({X})" />
+				</condition>
+				<effect util="1">
+					<set var="last" value="moving {X}" />
+					<set var="u_m" value="Ok, moving {X}" />
+				</effect>
+			</case>
+			
+				<case>
+				<condition>
+					<if var="a_m" value="Requestroom({X})" />
+				</condition>
+				<effect util="1">
+					<set var="last" value="moving {X}" />
+					<set var="u_m" value="Ok, moving to the room {X}" />
+				</effect>
+			</case>
+			
+			<case>
+				<condition>
+					<if var="a_m" value="nope" />
+				</condition>
+				<effect util="1"> 
+					<set var="u_m" value= "I'm not {last}." />
+				</effect>
+			</case>
+			
+			<case>
+				<condition>
+					<if var="a_m" value="Movefloor({X})" />
+				</condition>
+				<effect util="1">
+				<set var="last" value="taking you to floor {X}" />
+					<set var="u_m" value="I shall take you to floor {X}" />
+				</effect>
+			</case>
+			<case>
+				<condition>
+					<if var="a_m" value="Toilet" />
+				</condition>
+				<effect util="1">
+					<set var="last" value="not taking you to floor zero dot five" />
+					<set var="u_m" value="I'm moving to floor zero dot five, where the toilets are located" />
+				</effect>
+			</case>
+			
+			<case>
+				<condition>
+					<if var="a_m" value="AskRepeat" />
+				</condition>
+				<effect util="1">
+					<set var="u_m" value="Sorry, could you repeat?" />
+				</effect>
+			</case>
+			
+			<case>
+				<condition>
+					<if var="a_m" value="Greet" />
+				</condition>
+				<effect util="1">
+					<set var="u_m" value="Hello human" />
+				</effect>
+				</case>
+		</rule>
+	</model>
+
+
+
+	<!-- Prediction model for the next user dialogue act -->
+	<model trigger="a_m">
+
+		<rule>
+			<case>
+				<condition>
+					<if var="a_m" value="AskRepeat" />
+				</condition>
+				<effect prob="0.95">
+					<set var="a_u^p" value="{a_u}" />
+				</effect>
+			</case>
+		</rule>
+	</model>
+
+
+</domain>
