@@ -8,3 +8,4 @@ log/
 # IDEA
 .idea/
 *.iml
+/.nb-gradle/
