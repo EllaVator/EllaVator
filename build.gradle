@@ -61,6 +61,12 @@ project(':opendial') {
     compileJava {
         sourceCompatibility = '1.8'
     }
+
+    test {
+        systemProperty 'java.awt.headless', true
+        exclude 'opendial/modules/RecordingTest*',
+                'opendial/modules/WizardTest*'
+    }
 }
 
 project(':sphinx4:sphinx4-core') {
