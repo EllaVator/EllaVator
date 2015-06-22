@@ -1,5 +1,5 @@
 allprojects {
-    apply plugin: 'java'
+    apply plugin: 'groovy'
 
     repositories {
         flatDir {
@@ -22,6 +22,8 @@ dependencies {
     compile group: 'de.dfki.mary', name: 'voice-cmu-slt-hsmm', version: '5.1.1'
     compile project(':sphinx4:sphinx4-core')
     compile project(':opendial')
+    testCompile localGroovy()
+    testCompile group: 'org.testng', name: 'testng', version: '6.8.21'
 }
 
 project(':opendial') {
@@ -95,6 +97,7 @@ task expandGrammarEnglish {
             args = [grammarFile.parent, grammarFile.name, true, textFile]
         }
     }
+    processTestResources.dependsOn it
 }
 
 task expandGrammarGerman {
@@ -127,4 +130,8 @@ jar {
     manifest {
         attributes('Main-Class': project.mainClassName)
     }
+}
+
+test {
+    useTestNG()
 }
