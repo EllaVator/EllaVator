@@ -64,6 +64,8 @@ project(':opendial') {
 
     test {
         systemProperty 'java.awt.headless', true
+        exclude 'opendial/modules/RecordingTest*',
+                'opendial/modules/WizardTest*'
     }
 }
 
