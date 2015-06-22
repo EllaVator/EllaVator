@@ -49,7 +49,11 @@ project(':opendial') {
         }
         test {
             java {
-                srcDirs 'test'
+                srcDirs 'test/opendial'
+            }
+            resources {
+                srcDirs 'test/domains'
+                exclude 'domain-demo-exportparams.xml'
             }
         }
     }
