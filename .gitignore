@@ -9,3 +9,4 @@ log/
 .idea/
 *.iml
 /.nb-gradle/
+/bin/
