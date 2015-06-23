@@ -8,6 +8,13 @@ log/
 # IDEA
 .idea/
 *.iml
+/.nb-gradle/
+/bin/
 
 # OSX
 .DS_Store
+
+# User blacklist
+.classpath
+.project
+.settings
