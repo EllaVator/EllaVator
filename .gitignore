@@ -13,3 +13,8 @@ log/
 
 # OSX
 .DS_Store
+
+# User blacklist
+.classpath
+.project
+.settings
