@@ -16,7 +16,6 @@ repositories {
     maven {
         url 'http://oss.jfrog.org/artifactory/repo'
     }
-    mavenCentral() //because pi4j does not exist in jfrog.org repo
 }
 
 dependencies {
