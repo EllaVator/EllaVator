@@ -49,13 +49,23 @@ project(':opendial') {
         }
         test {
             java {
-                srcDirs 'test'
+                srcDirs 'test/opendial'
+            }
+            resources {
+                srcDirs 'test/domains'
+                exclude 'domain-demo-exportparams.xml'
             }
         }
     }
 
     compileJava {
         sourceCompatibility = '1.8'
+    }
+
+    test {
+        systemProperty 'java.awt.headless', true
+        exclude 'opendial/modules/RecordingTest*',
+                'opendial/modules/WizardTest*'
     }
 }
 
@@ -116,5 +126,11 @@ run {
 jar {
     manifest {
         attributes('Main-Class': project.mainClassName)
+    }
+}
+
+test {
+    testLogging {
+        exceptionFormat = 'full'
     }
 }

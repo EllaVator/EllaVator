@@ -10,3 +10,6 @@ log/
 *.iml
 /.nb-gradle/
 /bin/
+
+# OSX
+.DS_Store
