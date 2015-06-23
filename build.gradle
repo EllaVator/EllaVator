@@ -134,4 +134,7 @@ jar {
 
 test {
     useTestNG()
+    testLogging {
+        exceptionFormat = 'full'
+    }
 }
