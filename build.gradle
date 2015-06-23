@@ -128,3 +128,7 @@ jar {
         attributes('Main-Class': project.mainClassName)
     }
 }
+
+    testLogging {
+        exceptionFormat = 'full'
+    }
