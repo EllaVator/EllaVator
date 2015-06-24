@@ -13,7 +13,7 @@
 		<rule>
 		<case>
 			<condition operator="or">
-				<if var="u_u" value="<Reject>" relation="contains" />
+				<if var="u_u" value="Reject" relation="contains" />
 			</condition>
 			<effect prob="1">
 				<set var="a_u" value="nope" />
@@ -22,35 +22,35 @@
 						
 			<case>
 				<condition operator="or">
-					<if var="u_u" value="<StartPolite> * <RequestWithout> * <StartPolite>" relation="contains" />
+					<if var="u_u" value="(StartPolite)? RequestWithout (bitte)?" relation="contains" />
 				</condition>
 				<effect prob="1">
-					<set var="a_u" value="Request(<RequestWithout>)" />
+					<set var="a_u" value="Request(RequestWithout)" />
 				</effect>
 			</case>
 			
 			<case>
 				<condition operator="or">
-					<if var="u_u" value="<StartPolite> * <RoomWithNameOrNumber> * <StartPolite>" relation="contains" />
+					<if var="u_u" value="(StartPolite)? RoomWithNameOrNumber (StartPolite)?" relation="contains" />
 				</condition>
 				<effect prob="1">
-					<set var="a_u" value="Requestroom(<RoomWithNameOrNumber>)" />
+					<set var="a_u" value="Requestroom(RoomWithNameOrNumber)" />
 				</effect>
 			</case>
 			
 			<case>
 				<condition operator="or">
-					<if var="u_u" value="<StartPolite> * <RequestFloor> * <bitte>" relation="contains" />
+					<if var="u_u" value="(StartPolite)? RequestFloor (bitte)?" relation="contains" />
 				</condition>
 				<effect prob="1">
-					<set var="a_u" value="Requestfloor(<RequestFloor>)" />
+					<set var="a_u" value="Requestfloor(RequestFloor)" />
 				</effect>
 			</case>
 			
 			
 			<case>
 				<condition operator="or">
-					<if var="u_u" value="<StartPolite> * <Toilet> * <bitte>" relation="contains" />
+					<if var="u_u" value="(StartPolite)? Toilet (bitte)?" relation="contains" />
 				</condition>
 				<effect prob="1">
 					<set var="a_u" value="toilet" />
@@ -59,7 +59,7 @@
 			
 			<case>
 				<condition operator="or">
-					<if var="u_u" value="<Greeting>" relation="contains" />
+					<if var="u_u" value="Greeting" relation="contains" />
 				</condition>
 				<effect prob="1">
 					<set var="a_u" value="Greet" />
