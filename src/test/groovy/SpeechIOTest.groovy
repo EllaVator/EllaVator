@@ -1,34 +1,33 @@
-import javax.sound.sampled.AudioInputStream
+import edu.cmu.sphinx.api.StreamSpeechRecognizer
+import edu.cmu.sphinx.api.Configuration;
 
-import marytts.LocalMaryInterface
+import javax.sound.sampled.AudioInputStream
 
 import org.testng.annotations.*
 
+import javax.sound.sampled.AudioSystem
+
 class SpeechIOTest {
 
-    def mary;
-
-    @BeforeSuite
-    void startUpMaryTTS() {
-        mary = new LocalMaryInterface()
-    }
-
-    AudioInputStream synthesize(String text) {
-        mary.generateAudio(text)
-    }
-
     String recognize(AudioInputStream audio) {
-        'NOT YET IMPLEMENTED!'
+        Configuration configuration = new Configuration();
+        configuration.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
+        configuration.setDictionaryPath("resource:/en.dict");
+        configuration.setGrammarPath("resource:/grammar_en");
+        configuration.setUseGrammar(true);
+        configuration.setGrammarName("gram");
+        StreamSpeechRecognizer recognizer = new StreamSpeechRecognizer(configuration)
+        recognizer.startRecognition(audio);
+        return recognizer.getResult().getHypothesis()
     }
 
     @DataProvider
     Object[][] expandedGrammar() {
-        getClass().getResourceAsStream('grammar_en_sample.txt').readLines().collect { [it] }
+        return [[AudioSystem.getAudioInputStream(getClass().getResourceAsStream('SpeechInput/lab.wav')), 'lab']]
     }
 
     @Test(dataProvider = 'expandedGrammar')
-    void canRecognizeGrammar(String expected) {
-        def audio = synthesize(expected)
+    void canRecognizeGrammar(AudioInputStream audio, String expected) {
         def actual = recognize(audio)
         assert actual == expected
     }
