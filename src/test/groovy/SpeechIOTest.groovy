@@ -12,7 +12,7 @@ class SpeechIOTest {
     String recognize(AudioInputStream audio) {
         Configuration configuration = new Configuration();
         configuration.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
-        configuration.setDictionaryPath("resource:/en.dict");
+        configuration.setDictionaryPath("resource:/grammar_en/ella_en.dict");
         configuration.setGrammarPath("resource:/grammar_en");
         configuration.setUseGrammar(true);
         configuration.setGrammarName("gram");
@@ -23,7 +23,9 @@ class SpeechIOTest {
 
     @DataProvider
     Object[][] expandedGrammar() {
-        return [[AudioSystem.getAudioInputStream(getClass().getResourceAsStream('SpeechInput/lab.wav')), 'lab']]
+        return [
+            [AudioSystem.getAudioInputStream(getClass().getResourceAsStream('SpeechInput/room-one.wav')), 'room one'],
+        ]
     }
 
     @Test(dataProvider = 'expandedGrammar')
