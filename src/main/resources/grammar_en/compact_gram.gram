@@ -1,0 +1,62 @@
+#JSGF V1.0 ;
+grammar elevator_english;
+public <BasicElevator> = <FloorRequest>;
+
+<Greeting> = hi | hello;
+<Address> = ella | elevator | lift;
+<GreetingWithAddress> = <Greeting> [ <Address> ];
+<StartPolite> = please;
+<EndPolite> = please | thanks | thank you | thanks a lot;
+<PoliteRequest> = I would like to go | take me;
+<Number> = one | two | three | first | second | third;
+<AnyFloor> = floor | storey;
+<PreciseFloor> = ground floor | aquarium  | mezzanine | entresol | intermediate storey | top floor | lobby | street level | ground level | ground floor | mezzanine | exit;
+<MovementWithoutGoal> = up | down;
+<Bathroom> = bathroom | restroom | restrooms;
+<Lab> = lab | laboratory | experiment | eye-tracking experiment | reading experiment | eye-tracking laboratory | eye-tracking lab;
+<RoomWithNameOrNumber> = <Room> (<RoomNumber> | <RoomName>);
+<Room> = room | office;
+<RoomNumber> = <ground> | <first> | <second> | <third>;
+<zero> = oh | zero;
+<number> = one | two | three | four;
+<style> = hundred | hundred and | <zero>;
+<room-1-7> = one | two | three | four | five | six | seven;
+<room-8-19> = eight | nine | ten | eleven | twelve | thirteen | fourteen | fifteen | sixteen | eighteen | nineteen;
+<room-all> = <room-1-7> | <room-8-19>;
+<style1> = [ <zero> ] <number>;
+<style2> = zero zero <number>;
+<ground> = <style1> | <style2>;
+<first> = one <style> <room-1-7>;
+<second> = two <style> <room-1-7>;
+<third> = three <style> <room-all>;
+<RoomName> = Manfred Pinkal
+| Vera Demberg
+| Maria Staudte
+| Ingmar Steiner
+| Annemarie Friedrich
+| Chiara Gambi
+| Alexander Hewer
+| Andrea Horbach
+| David Howcroft
+| Arif Khan
+| Alexandre Klementiev
+| Mikhail Kozhevnikov
+| Ekaterina Kravtchenko
+| Sebastien Le Maguer
+| Ashutosh Modi
+| Asad Sayeed
+| Mirjana Sekicki
+| Hongxia Shi
+| Diana Steffen
+| Fatemeh Torabi Asr
+| Elli Tourtouri
+| Yoana Vergilova
+| Jorrig Vogels
+| Lilian Wanzare
+| Alessandra Zarcone
+| Ross Macdonald
+| Nikolina Koleva
+| Christine Ankener;
+<To> = to | to the;
+<FloorRequestMiddle> = ((<Number> <AnyFloor>) | <PreciseFloor> | <Lab> | <Bathroom> | <MovementWithoutGoal> |  <RoomWithNameOrNumber>);
+<FloorRequest> =  [(<StartPolite> | <PoliteRequest>)]  [<To>] <FloorRequestMiddle> [<EndPolite>];

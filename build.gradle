@@ -6,6 +6,12 @@ allprojects {
             dirs file("${project(':opendial').projectDir}/lib")
         }
     }
+
+    test {
+        testLogging {
+            exceptionFormat = 'full'
+        }
+    }
 }
 
 apply plugin: 'application'
@@ -24,6 +30,7 @@ dependencies {
     compile project(':opendial')
     testCompile localGroovy()
     testCompile group: 'org.testng', name: 'testng', version: '6.8.21'
+    compile group: 'com.pi4j', name: 'pi4j-distribution', version: '1.0'
 }
 
 project(':opendial') {
@@ -62,12 +69,6 @@ project(':opendial') {
 
     compileJava {
         sourceCompatibility = '1.8'
-    }
-
-    test {
-        systemProperty 'java.awt.headless', true
-        exclude 'opendial/modules/RecordingTest*',
-                'opendial/modules/WizardTest*'
     }
 }
 

@@ -6,7 +6,6 @@ import edu.cmu.sphinx.linguist.dictionary.TextDictionary;
 import edu.cmu.sphinx.linguist.dictionary.Word;
 import edu.cmu.sphinx.linguist.language.grammar.GrammarArc;
 import edu.cmu.sphinx.linguist.language.grammar.GrammarNode;
-
 import java.io.PrintWriter;
 import java.net.URL;
 import java.util.Arrays;
