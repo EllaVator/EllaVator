@@ -46,7 +46,19 @@
 				<condition operator="or">
 					<if var="u_u" value="go * to* floor * zero" relation="contains" />
 					<if var="u_u" value="floor * zero" relation="contains" />
-					<if var="u_u" value="zero" relation="contains" />
+					<!--<if var="u_u" value="zero" relation="contains" /> -->
+					<if var="u_u" value="ground" relation="contains"/>
+					<if var="u_u" value="exit" relation="contains"/>
+					<if var="u_u" value="street * level" relation="contains"/>
+					<if var="u_u" value="Christoph * Clodo" relation="contains"/>
+					<if var="u_u" value="Bernd * Mechenbier" relation="contains"/>
+					<if var="u_u" value="Josef * Nguyen" relation="contains"/>
+					<if var="u_u" value="Wahid * Rahmani" relation="contains"/>
+					<if var="u_u" value="Sebastian * Schmidt" relation="contains"/>
+					<if var="u_u" value="zero * zero * one" relation="contains"/>
+					<if var="u_u" value="zero * zero * two" relation="contains"/>
+					<if var="u_u" value="zero * zero * three" relation="contains"/>
+					<if var="u_u" value="zero * zero * four" relation="contains"/>
 				</condition>
 				<effect prob="1">
 					<set var="a_u" value="Requestfloor(zero)" />
@@ -54,10 +66,44 @@
 			</case>
 			<case>
 				<condition operator="or">
-					<if var="u_u" value="take * me * to * the *first * floor" relation="contains" />
+					<if var="u_u" value="first * floor" relation="contains" />
 					<if var="u_u" value="go * to* floor * one" relation="contains" />
+					<if var="u_u" value="first * storey" relation="contains"/>
 					<if var="u_u" value="floor * one" relation="contains" />
-					<if var="u_u" value="one" relation="contains" />
+					<!-- <if var="u_u" value="one" relation="contains" /> -->
+					<if var="u_u" value="laboratory" relation="contains"/>
+					<if var="u_u" value="experiment" relation="contains"/>
+					<if var="u_u" value="eye-tracking" relation="contains"/>
+					<if var="u_u" value="eye-tracking * experiment" relation="contains"/>
+					<if var="u_u" value="eye-tracking * laboratory" relation="contains"/>
+					<if var="u_u" value="reading" relation="contains"/>
+					<if var="u_u" value="reading * experiment" relation="contains"/>
+					<if var="u_u" value="kitchen" relation="contains"/>
+					<if var="u_u" value="guest * kitchen" relation="contains"/>
+					<if var="u_u" value="one * zero * one" relation="contains"/>
+					<if var="u_u" value="one * zero * two" relation="contains"/>
+					<if var="u_u" value="one * zero * three" relation="contains"/>
+					<if var="u_u" value="one * zero * four" relation="contains"/>
+					<if var="u_u" value="one * zero * five" relation="contains"/>
+					<if var="u_u" value="one * zero * six" relation="contains"/>
+					<if var="u_u" value="one * zero * seven" relation="contains"/>
+					<if var="u_u" value="one * zero * eight" relation="contains"/>
+					<if var="u_u" value="one * oh * one" relation="contains"/>
+					<if var="u_u" value="one * oh * two" relation="contains"/>
+					<if var="u_u" value="one * oh * three" relation="contains"/>
+					<if var="u_u" value="one * oh * four" relation="contains"/>
+					<if var="u_u" value="one * oh * five" relation="contains"/>
+					<if var="u_u" value="one * oh * six" relation="contains"/>
+					<if var="u_u" value="one * oh * seven" relation="contains"/>
+					<if var="u_u" value="one * oh * eight" relation="contains"/>
+					<if var="u_u" value="one * hundred * one" relation="contains"/>
+					<if var="u_u" value="one * hundred * two" relation="contains"/>
+					<if var="u_u" value="one * hundred * three" relation="contains"/>
+					<if var="u_u" value="one * hundred * four" relation="contains"/>
+					<if var="u_u" value="one * hundred * five" relation="contains"/>
+					<if var="u_u" value="one * hundred * six" relation="contains"/>
+					<if var="u_u" value="one * hundred * seven" relation="contains"/>
+					<if var="u_u" value="one * hundred * eight" relation="contains"/>
 				</condition>
 				<effect prob="1">
 					<set var="a_u" value="Requestfloor(one)" />
@@ -65,34 +111,153 @@
 			</case>
 			<case>
 				<condition operator="or">
-					<if var="u_u" value="go * to* floor * two" relation="contains" />
 					<if var="u_u" value="floor * two" relation="contains" />
-					<if var="u_u" value="take * me * to * the * second * floor" relation="contains" />
-					<if var="u_u" value="two" relation="contains" />
+					<if var="u_u" value="second * floor" relation="contains"/>
+					<if var="u_u" value="second * storey" relation="contains"/>
+					<!-- <if var="u_u" value="two" relation="contains" />-->
+					<if var="u_u" value="Ingmar * Steiner" relation="contains"/>
+					<if var="u_u" value="Arif * Khan" relation="contains"/>
+					<if var="u_u" value="Alexander * Hewer" relation="contains"/>
+					<if var="u_u" value="Maria * Staudte" relation="contains"/>
+					<if var="u_u" value="Sebastien * Le * Maguer" relation="contains"/>
+					<if var="u_u" value="Mirjana * Sekicki" relation="contains"/>
+					<if var="u_u" value="Ross * Macdonald" relation="contains"/>
+					<if var="u_u" value="Nikolina * Koleva" relation= "contains"/>
+					<if var="u_u" value="Christine * Ankener" relation="contains"/>
+					<if var="u_u" value="Elli * Tourtouri" relation="contains"/>
+					<if var="u_u" value="two * zero * one" relation="contains"/>
+					<if var="u_u" value="two * zero * two" relation="contains"/>
+					<if var="u_u" value="two * zero * three" relation="contains"/>
+					<if var="u_u" value="two * zero * four" relation="contains"/>
+					<if var="u_u" value="two * oh * one" relation="contains"/>
+					<if var="u_u" value="two * oh * two" relation="contains"/>
+					<if var="u_u" value="two * oh * three" relation="contains"/>
+					<if var="u_u" value="two * oh * four" relation="contains"/>
+					<if var="u_u" value="two * hundred * one" relation="contains"/>
+					<if var="u_u" value="two * hundred * two" relation="contains"/>
+					<if var="u_u" value="two * hundred * three" relation="contains"/>
+					<if var="u_u" value="two * hundred * four" relation="contains"/>
 				</condition>
 				<effect prob="1">
-					<set var="a_u" value="Requestfloor(zero)" />
+					<set var="a_u" value="Requestfloor(two)" />
 				</effect>
 			</case>
 			<case>
 				<condition operator="or">
-					<if var="u_u" value="go * to* floor * three" relation="contains" />
 					<if var="u_u" value="floor * three" relation="contains" />
-					<if var="u_u" value="take * me * to * the * third * floor" relation="contains" />
-					<if var="u_u" value="three" relation="contains" />
+					<if var="u_u" value="third * floor" relation="contains" />
+					<!--<if var="u_u" value="three" relation="contains" />-->
+					<if var="u_u" value="third * storey" relation="contains" />
+					<if var="u_u" value="top * floor" relation="contains"/>
+					<if var="u_u" value="aquarium" relation="contains"/>
+					<if var="u_u" value="Manfred * Pinkal" relation="contains" />
+					<if var="u_u" value="Vera * Demberg" relation="contains" />
+					<if var="u_u" value="Annemarie * Friedrich" relation="contains" />
+					<if var="u_u" value="Asad * Sayeed" relation="contains" />
+					<if var="u_u" value="Andrea * Horbach" relation="contains" />
+					<if var="u_u" value="David * Howcroft" relation="contains" />
+					<if var="u_u" value="Alexandre * Klementiev" relation="contains" />
+					<if var="u_u" value="Mikhail * Kozhevnikov" relation="contains" />
+					<if var="u_u" value="Ekaterina * Kravtchenko" relation="contains" />
+					<if var="u_u" value="Ashutosh * Modi" relation="contains" />
+					<if var="u_u" value="Diana * Steffen" relation="contains" />
+					<if var="u_u" value="Fatemeh * Torabi * Asr" relation="contains" />
+					<if var="u_u" value="Yoana * Vergilova" relation="contains" />
+					<if var="u_u" value="Jorrig * Vogels" relation="contains" />
+					<if var="u_u" value="Lilian * Wanzare" relation="contains" />
+					<if var="u_u" value="Yoana * Vergilova" relation="contains" />
+					<if var="u_u" value="Jorrig * Vogels" relation="contains" />
+					<if var="u_u" value="Lilian * Wanzare" relation="contains" />
+					<if var="u_u" value="Alessandra * Zarcone" relation="contains" />
+					<if var="u_u" value="Chiara * Gambi" relation="contains" />
+					<if var="u_u" value="Hongxia * Shi" relation="contains" />
+					<if var="u_u" value="three * zero * one" relation="contains"/>
+					<if var="u_u" value="three * zero * two" relation="contains"/>
+					<if var="u_u" value="three * zero * three" relation="contains"/>
+					<if var="u_u" value="three * zero * four" relation="contains"/>
+					<if var="u_u" value="three * zero * five" relation="contains"/>
+					<if var="u_u" value="three * zero * six" relation="contains"/>
+					<if var="u_u" value="three * zero * seven" relation="contains"/>
+					<if var="u_u" value="three * zero * eight" relation="contains"/>
+					<if var="u_u" value="three * zero * nine" relation="contains"/>
+					<if var="u_u" value="three * zero * ten" relation="contains"/>
+					<if var="u_u" value="three * zero * eleven" relation="contains"/>
+					<if var="u_u" value="three * zero * twelve" relation="contains"/>
+					<if var="u_u" value="three * zero * thirteen" relation="contains"/>
+					<if var="u_u" value="three * zero * fourteen" relation="contains"/>
+					<if var="u_u" value="three * zero * fifteen" relation="contains"/>
+					<if var="u_u" value="three * zero * sixteen" relation="contains"/>
+					<if var="u_u" value="three * zero * seventeen" relation="contains"/>
+					<if var="u_u" value="three * zero * eighteen" relation="contains"/>
+					<if var="u_u" value="three * zero * nineteen" relation="contains"/>
+					<if var="u_u" value="three * oh * one" relation="contains"/>
+					<if var="u_u" value="three * oh * two" relation="contains"/>
+					<if var="u_u" value="three * oh * three" relation="contains"/>
+					<if var="u_u" value="three * oh * four" relation="contains"/>
+					<if var="u_u" value="three * oh * five" relation="contains"/>
+					<if var="u_u" value="three * oh * six" relation="contains"/>
+					<if var="u_u" value="three * oh * seven" relation="contains"/>
+					<if var="u_u" value="three * oh * eight" relation="contains"/>
+					<if var="u_u" value="three * oh * nine" relation="contains"/>
+					<if var="u_u" value="three * oh * ten" relation="contains"/>
+					<if var="u_u" value="three * oh * eleven" relation="contains"/>
+					<if var="u_u" value="three * oh * twelve" relation="contains"/>
+					<if var="u_u" value="three * oh * thirteen" relation="contains"/>
+					<if var="u_u" value="three * oh * fourteen" relation="contains"/>
+					<if var="u_u" value="three * oh * fifteen" relation="contains"/>
+					<if var="u_u" value="three * oh * sixteen" relation="contains"/>
+					<if var="u_u" value="three * oh * seventeen" relation="contains"/>
+					<if var="u_u" value="three * oh * eighteen" relation="contains"/>
+					<if var="u_u" value="three * oh * nineteen" relation="contains"/>
+					<if var="u_u" value="three * hundred * one" relation="contains"/>
+					<if var="u_u" value="three * hundred * two" relation="contains"/>
+					<if var="u_u" value="three * hundred * three" relation="contains"/>
+					<if var="u_u" value="three * hundred * four" relation="contains"/>
+					<if var="u_u" value="three * hundred * five" relation="contains"/>
+					<if var="u_u" value="three * hundred * six" relation="contains"/>
+					<if var="u_u" value="three * hundred * seven" relation="contains"/>
+					<if var="u_u" value="three * hundred * eight" relation="contains"/>
+					<if var="u_u" value="three * hundred * nine" relation="contains"/>
+					<if var="u_u" value="three * hundred * ten" relation="contains"/>
+					<if var="u_u" value="three * hundred * eleven" relation="contains"/>
+					<if var="u_u" value="three * hundred * twelve" relation="contains"/>
+					<if var="u_u" value="three * hundred * thirteen" relation="contains"/>
+					<if var="u_u" value="three * hundred * fourteen" relation="contains"/>
+					<if var="u_u" value="three * hundred * fifteen" relation="contains"/>
+					<if var="u_u" value="three * hundred * sixteen" relation="contains"/>
+					<if var="u_u" value="three * hundred * seventeen" relation="contains"/>
+					<if var="u_u" value="three * hundred * eighteen" relation="contains"/>
+					<if var="u_u" value="three * hundred * nineteen" relation="contains"/>
 				</condition>
 				<effect prob="1">
 					<set var="a_u" value="Requestfloor(three)" />
 				</effect>
 			</case>
-			
+
 			<case>
 				<condition operator="or">
-					<if var="u_u" value="take * me * to * the * toilet" relation="contains" />
-					<if var="u_u" value="toilet" relation="contains" />
+					<if var="u_u" value="mezzanine" relation="contains" />
+					<if var="u_u" value="entresol" relation="contains" />
+					<if var="u_u" value="conference * room" relation="contains"/>
+					<if var="u_u" value="intermediate" relation="contains"/>
+					<if var="u_u" value="one * seventeen" relation="contains"/>
+					<if var="u_u" value="one * hundred * seventeen" relation="contains"/>
 				</condition>
 				<effect prob="1">
-					<set var="a_u" value="toilet" />
+					<set var="a_u" value="Requestfloor(one point five)" />
+				</effect>
+			</case>
+
+
+		
+			<case>
+				<condition operator="or">
+					<if var="u_u" value="bathroom" relation="contains" />
+					<if var="u_u" value="restroom" relation="contains" />
+					<if var="u_u" value="restrooms" relation="contains"/>
+				</condition>
+				<effect prob="1">
+					<set var="a_u" value="restrooms" />
 				</effect>
 			</case>
 			
@@ -100,7 +265,6 @@
 				<condition operator="or">
 					<if var="u_u" value="Hi" relation="contains" />
 					<if var="u_u" value="Hello" relation="contains" />
-					<if var="u_u" value="Hey" relation="contains" />
 				</condition>
 				<effect prob="1">
 					<set var="a_u" value="Greet" />
@@ -146,13 +310,13 @@
 			</case>
 		</rule>
 		
-		<rule id="toiletfloor">
+		<rule id="restroomfloor">
 			<case>
 			<condition>
-					<if var="a_u" value="Toilet" />
+					<if var="a_u" value="restrooms" />
 				</condition>
 				<effect util="1">
-					<set var="a_m" value="Toilet" />
+					<set var="a_m" value="restrooms" />
 				</effect>
 			</case>
 		</rule>
@@ -211,16 +375,16 @@
 				</condition>
 				<effect util="1">
 				<set var="last" value="taking you to floor {X}" />
-					<set var="u_m" value="I shall take you to floor {X}" />
+					<set var="u_m" value="I will take you to floor {X}" />
 				</effect>
 			</case>
 			<case>
 				<condition>
-					<if var="a_m" value="Toilet" />
+					<if var="a_m" value="restrooms" />
 				</condition>
 				<effect util="1">
 					<set var="last" value="not taking you to floor zero dot five" />
-					<set var="u_m" value="I'm moving to floor zero dot five, where the toilets are located" />
+					<set var="u_m" value="I'm moving to floor zero dot five, where the restrooms are located" />
 				</effect>
 			</case>
 			
