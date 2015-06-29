@@ -1,5 +1,5 @@
 allprojects {
-    apply plugin: 'java'
+    apply plugin: 'groovy'
 
     repositories {
         flatDir {
@@ -28,6 +28,8 @@ dependencies {
     compile group: 'de.dfki.mary', name: 'voice-cmu-slt-hsmm', version: '5.1.1'
     compile project(':sphinx4:sphinx4-core')
     compile project(':opendial')
+    testCompile localGroovy()
+    testCompile group: 'org.testng', name: 'testng', version: '6.8.21'
     compile group: 'com.pi4j', name: 'pi4j-distribution', version: '1.0'
 }
 
@@ -96,6 +98,7 @@ task expandGrammarEnglish {
             args = [grammarFile.parent, grammarFile.name, true, textFile]
         }
     }
+    processTestResources.dependsOn it
 }
 
 task expandGrammarGerman {
@@ -127,5 +130,12 @@ run {
 jar {
     manifest {
         attributes('Main-Class': project.mainClassName)
+    }
+}
+
+test {
+    useTestNG()
+    testLogging {
+        exceptionFormat = 'full'
     }
 }

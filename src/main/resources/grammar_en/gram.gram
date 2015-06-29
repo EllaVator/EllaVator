@@ -1,5 +1,5 @@
 #JSGF V1.0 ;
-grammar elevator_english;
+grammar gram;
 public <BasicElevatorEnglish> = <FloorRequestEnglish>;
 
 
