@@ -1,6 +1,6 @@
 #JSGF V1.0 ;
 
-grammar elevator_german;
+grammar gram;
 
 public <BasicElevatorGerman> = <FloorRequestGerman> ;
 
