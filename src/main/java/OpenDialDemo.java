@@ -13,7 +13,7 @@ public class OpenDialDemo {
         system.changeDomain(domain);
 
         Settings setting = system.getSettings();
-        setting.params.put("acousticmodel", "resources/main/acoustic_model/WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz");
+        setting.params.put("acousticmodel", "resources/main/edu/cmu/sphinx/models/en-us/en-us");
         setting.params.put("dictionary", "resources/main/grammar_en/ella_en.dict");
         setting.params.put("grammar", "resources/main/grammar_en/compact_gram.gram");
         system.changeSettings(setting);
