@@ -26,15 +26,20 @@ package opendial.plugins;
 import java.util.logging.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 import opendial.DialogueState;
 import opendial.DialogueSystem;
+import opendial.Settings;
 import opendial.bn.values.Value;
 import opendial.datastructs.SpeechData;
 import opendial.modules.Module;
+import opendial.utils.InferenceUtils;
 import edu.cmu.sphinx.api.Configuration;
 import edu.cmu.sphinx.api.SpeechResult;
 import edu.cmu.sphinx.api.StreamSpeechRecognizer;
@@ -46,14 +51,13 @@ import edu.cmu.sphinx.util.TimeFrame;
  * recognition and adds the corresponding recognition results to the dialogue state.
  *
  * <p>
- * The plugin requires the specification of a recognition grammar in JSGF format, but
- * can be easily adapted to instead employ a statistical language model. The plugin
- * uses a wideband acoustic model trained on the Wall Street Journal (dictation
- * domain, with microphone speech) and the CMU pronunciation. dictionary. These
- * models can also be straightforwardly changed, depending on the particular needs of
- * the application.
- * 
- * 
+ * The plugin requires the specification of three parameters:<ol>
+ * <li>acousticmodel: the path to the directory containing the acoustic model
+ * <li>dictionary: the path to the dictionary file
+ * <li>grammar: the path to the grammar file in JSGF format, <b>OR</b>
+ * <li> slm: the path to the statistical language model.
+ * </ol>
+ *
  * @author Pierre Lison (plison@ifi.uio.no)
  */
 public class SphinxASR implements Module {
@@ -61,31 +65,23 @@ public class SphinxASR implements Module {
 	// logger
 	final static Logger log = Logger.getLogger("OpenDial");
 
-	/** Acoustic model */
-	public static final String ACOUSTIC_MODEL =
-			"resource:/WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz";
-
-	/** Pronunciation dictionary */
-	public static final String DICTIONARY =
-			"resource:/WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/dict/cmudict.0.6d";
-
 	/**
 	 * Recognition probability for the best hypothesis returned by Sphinx. This quick
 	 * and dirty hack is necessary at the moment since it seems difficult to retrieve
 	 * scored N-Best lists from Sphinx when the language model is grammar-based.
 	 */
 	public static final double RECOG_PROB = 0.7;
+	/**
+	 * Maximum number of recognition results (only when using a language model)
+	 */
+	public static final int NBEST = 5;
 
 	/** The dialogue system to which the ASR is connected */
 	DialogueSystem system;
 
-	Configuration configuration;
-	
-	/** the speech recogniser itself */
+	/** the speech recogniser itself and its configuration */
+	final Configuration configuration;
 	StreamSpeechRecognizer asr;
-
-	/** recognition grammar (in JSGF format) */
-	File grammarFile;
 
 	/** whether the ASR is active or paused */
 	boolean isPaused = true;
@@ -104,35 +100,50 @@ public class SphinxASR implements Module {
 	public SphinxASR(DialogueSystem system) {
 
 		this.system = system;
-
-		if (system.getSettings().params.containsKey("grammar")) {
-			String grammarPath = system.getSettings().params.getProperty("grammar");
-			File f = new File(grammarPath);
-			if (!f.exists()) {
-				f =
-						new File((new File(system.getDomain().getName()).getParent()
-								+ "/" + grammarPath));
-			}
-			if (f.exists()) {
-				this.grammarFile = f;
-				log.info("Sphinx ASR will be used with the grammar: "
-						+ grammarFile.getPath());
-			}
-			else {
-				throw new RuntimeException("Grammar file " + f.getPath()
-						+ " cannot be found");
-			}
-		}
-		else {
-			throw new RuntimeException("Grammar file must be specified");
-		}
+		Properties params = system.getSettings().params;
 
 		configuration = new Configuration();
-		configuration.setAcousticModelPath(ACOUSTIC_MODEL);
-		configuration.setDictionaryPath(DICTIONARY);
+
+		// retrieving the path to the acoustic model
+		if (params.containsKey("acousticmodel")) {
+		File acousticModel = getFile(params.getProperty("acousticmodel"));
+		configuration.setAcousticModelPath(acousticModel.getAbsolutePath());
+		log.info("Acoustic model: " + acousticModel.getPath());
+		}
+		else {
+			throw new RuntimeException("Acoustic model must be provided");
+		}
+		
+		// retrieving the path to the dictionary
+		if (params.containsKey("acousticmodel")) {
+		File dictionary = getFile(params.getProperty("dictionary"));
+		configuration.setDictionaryPath(dictionary.getAbsolutePath());
+		log.info("Dictionary: " + dictionary.getPath());
+		}
+		else {
+			throw new RuntimeException("Dictionary must be provided");
+		}
+		
+		// retrieving the path to the grammar file
+		if (params.containsKey("grammar")) {
+		File grammarFile = getFile(params.getProperty("grammar"));
 		configuration.setGrammarPath(grammarFile.getParent() + "/");
 		configuration.setGrammarName(grammarFile.getName().replace(".gram", ""));
 		configuration.setUseGrammar(true);
+		log.info("Recognition grammar: " + grammarFile.getPath());
+		}
+		// else, retrieving the path to the statistical language model
+		else if (params.containsKey("lm")) {
+			File slm = getFile(params.getProperty("lm"));
+			configuration.setLanguageModelPath(slm.getAbsolutePath());
+			configuration.setUseGrammar(false);
+			log.info("Statistical language model: " + slm.getPath());
+		}
+		
+		else {
+			throw new RuntimeException("Must provide either grammar or language model");
+		}
+		
 		System.getProperties().setProperty("logLevel", "OFF");
 		try {
 			asr = new StreamSpeechRecognizer(configuration);
@@ -143,6 +154,8 @@ public class SphinxASR implements Module {
 
 		system.enableSpeech(true);
 	}
+	
+	
 
 	/**
 	 * Starts the recogniser.
@@ -201,10 +214,46 @@ public class SphinxASR implements Module {
 	 */
 	private Map<String, Double> createNBestList(SpeechResult result) {
 		Map<String, Double> table = new HashMap<String, Double>();
-		table.put(result.getHypothesis(), RECOG_PROB);
+		if (configuration.getUseGrammar()) {
+			String hypothesis = result.getHypothesis().trim();
+			if (hypothesis.length()>0 && !hypothesis.equals("<unk>")) {
+				table.put(hypothesis, RECOG_PROB);
+			}
+		}
+		else {
+			for (String r : result.getNbest(NBEST)) {
+				String hypothesis = r.replaceAll("</?s>", "").trim();
+				if (hypothesis.length()>0 && !hypothesis.equals("<unk>")) {
+					// since getting explicit scores from Sphinx is difficult, we 
+					// simply calculate a score from the position of the hypothesis
+					// in the N-Best list (an hypothesis at position i gets a score 
+					// that is half the one of the hypothesis at i-1).
+					table.put(hypothesis, 1.0/ (table.size() + 1));
+				}
+			}
+			table = InferenceUtils.normalise(table);
+		}
 		return table;
 	}
+	
+	
+	/**
+	 * Retrieves the file associated with the given path
+	 * @param path the path
+	 * @return the corresponding file object
+	 */
+	private File getFile(String path) {
+		File f = new File(path);
+		if (!f.exists()) {
+			f = new File((new File(system.getDomain().getName()).getParent()+ "/" + path));	
+		}
+		if (!f.exists()) {
+			throw new RuntimeException("File " + f.getPath() + " cannot be found");			
+		}
+		return f;
+	}
 
+	
 	/**
 	 * Thread for a speech recognition process
 	 */
@@ -222,7 +271,8 @@ public class SphinxASR implements Module {
 				log.fine("start Sphinx recognition...");
 				asr.startRecognition(stream, new TimeFrame(15000));
 				SpeechResult curResult = asr.getResult();
-				log.info((curResult==null)? "No recognition results " : "Recognition completed");
+				log.info((curResult == null) ? "No recognition results "
+						: "Recognition completed");
 				if (curResult != null) {
 					Map<String, Double> results = createNBestList(curResult);
 					system.addUserInput(results);
