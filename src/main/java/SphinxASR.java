@@ -21,7 +21,7 @@
 // SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // =================================================================                                                                   
 
-package opendial.plugins;
+// package opendial.plugins;
 
 import java.util.logging.*;
 import java.io.File;
