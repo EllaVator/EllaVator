@@ -10,13 +10,13 @@ public <BasicElevator> = <FloorRequest>;
 <PoliteRequest> = I would like to go | take me;
 <Number> = one | two | three | first | second | third;
 <AnyFloor> = floor | storey;
-<PreciseFloor> = ground floor | aquarium  | mezzanine | entresol | intermediate storey | top floor | lobby | street level | ground level | ground floor | mezzanine | exit;
+<PreciseFloor> = ground floor | aquarium  | mezzanine | entresol | intermediate storey | top floor | lobby | street level | ground level | ground floor | mezzanine | exit | conference room;
 <MovementWithoutGoal> = up | down;
 <Bathroom> = bathroom | restroom | restrooms;
-<Lab> = lab | laboratory | experiment | eye-tracking experiment | reading experiment | eye-tracking laboratory | eye-tracking lab;
-<RoomWithNameOrNumber> = <Room> (<RoomNumber> | <RoomName>);
+<Lab> = lab | laboratory | experiment | eye-tracking experiment | reading experiment | eye-tracking laboratory | eye-tracking lab | guest kitchen | kitchen;
+<RoomWithNameOrNumber> = (<Room> (<RoomNumber> | <RoomName>)) | (<RoomName> <Room>);
 <Room> = room | office;
-<RoomNumber> = <ground> | <first> | <second> | <third>;
+<RoomNumber> = <ground> | <first> | <oneandhalf> | <second> | <third>;
 <zero> = oh | zero;
 <number> = one | two | three | four;
 <style> = hundred | hundred and | <zero>;
@@ -27,36 +27,53 @@ public <BasicElevator> = <FloorRequest>;
 <style2> = zero zero <number>;
 <ground> = <style1> | <style2>;
 <first> = one <style> <room-1-7>;
+<oneandhalf> = one seventeen | one hundred seventeen | one hundred and seventeen;
 <second> = two <style> <room-1-7>;
 <third> = three <style> <room-all>;
-<RoomName> = Manfred Pinkal
-| Vera Demberg
-| Maria Staudte
-| Ingmar Steiner
+<RoomName> = [of] <Name> ;
+<Name> = <NameOnGroundFloor> | <NameOnSecondFloor> | <NameOnThirdFloor>;
+<NameOnThirdFloor> = 
+Manfred Pinkal 
+| Vera Demberg 
 | Annemarie Friedrich
-| Chiara Gambi
-| Alexander Hewer
+| Asad Sayeed
 | Andrea Horbach
 | David Howcroft
-| Arif Khan
 | Alexandre Klementiev
 | Mikhail Kozhevnikov
 | Ekaterina Kravtchenko
-| Sebastien Le Maguer
 | Ashutosh Modi
-| Asad Sayeed
-| Mirjana Sekicki
-| Hongxia Shi
 | Diana Steffen
 | Fatemeh Torabi Asr
-| Elli Tourtouri
 | Yoana Vergilova
 | Jorrig Vogels
 | Lilian Wanzare
 | Alessandra Zarcone
+| Chiara Gambi
+| Hongxia Shi
+; 
+<NameOnSecondFloor> = 
+Maria Staudte 
+| Ingmar Steiner 
+| Alexander Hewer
+| Arif Khan
+| Sebastien Le Maguer
+| Mirjana Sekicki
 | Ross Macdonald
 | Nikolina Koleva
-| Christine Ankener;
+| Christine Ankener
+| Elli Tourtouri
+; 
+
+<NameOnGroundFloor> = 
+Christoph Clodo
+| Bernd Mechenbier
+| Josef Nguyen
+| Wahid Rahmani
+| Sebastian Schmidt
+; 
+
+
 <To> = to | to the;
 <FloorRequestMiddle> = ((<Number> <AnyFloor>) | <PreciseFloor> | <Lab> | <Bathroom> | <MovementWithoutGoal> |  <RoomWithNameOrNumber>);
 <FloorRequest> =  [(<StartPolite> | <PoliteRequest>)]  [<To>] <FloorRequestMiddle> [<EndPolite>];
