@@ -20,12 +20,10 @@ public class OpenDialDemo {
 
         // Adding new domain modules (optional)
         system.attachModule(new MaryTTS(system));
+        system.attachModule(new SphinxASR(system));
 
         // When used as part of another application, we often want to switch off the OpenDial GUI
         //system.getSettings().showGUI = false;
-
-        // Sphinx ASR
-        SphinxASR asr = new SphinxASR(system);
 
         // Finally, start the system
         system.startSystem();
