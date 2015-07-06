@@ -5,37 +5,30 @@ first version 28.June, Laura Faust
 2. I would like to go up
 3. to office three seventeen
 4. to the restroom
-5. to the reading experiment please
-6. to the room of Christine Ankener please
-7. take me Fatemeh Torabi Asr room please
-8. please to the ground level 
-9. up
-10. I would like to go to the laboratory
-11. third floor thank you
-12. top floor
-13. third storey
-14. to the conference room
-15. to aquarium
-16. please to the office zero zero two 
-17. down thank you
-18. office one seventeen thank you
-19. room three hundred and twelve please
-20. I would like to the office two zero four
-21. room two hundred and two 
-22. I would like to go to the top floor
-23. to the lobby
-24. entresol please
-25. to storey two
-26. Vera Demberg(s) office
-27. Nikolina Koleva(s) office
-28. take me to office three hundred thirteen
-29. to office of Lilian Wanzare thanks
-30. please Manfred Pinkal(s) room
-31. hello 
-32. hi
-32. to the guest kitchen
-33. to the first floor
-34. to the mezzanine
-(35. no)
-(36. yes)
-(37. correct)
+5. to the reading laboratory please
+6. please to the ground level 
+7. third floor thank you
+8. to the conference room
+9. to the aquarium
+10. down thank you
+11. office one seventeen thank you
+12. room three hundred and twelve please
+13. I would like to go to the office two zero four
+14. room two hundred and two 
+15. I would like to go to the top floor
+16. Vera Dembergs office
+17. please Manfred Pinkals room
+18. hello 
+19. to the guest kitchen
+20. to the first floor
+21. to the mezzanine
+---------
+22. to room oh oh seven
+23. to Maria's office
+24. to Dr. Steiner's office
+25. skywards
+26. Tell me how to get to the lab.
+27. Where is the restroom?
+28. Open.
+29. Close doors.
+30. Hurry up.
