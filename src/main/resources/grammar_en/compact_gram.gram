@@ -7,13 +7,14 @@ public <BasicElevator> = <FloorRequest>;
 <GreetingWithAddress> = <Greeting> [ <Address> ];
 <StartPolite> = please;
 <EndPolite> = please | thanks | thank you | thanks a lot;
-<PoliteRequest> = I would like to go | take me;
+<PoliteRequest> = i would like to go | take me;
 <Number> = one | two | three | first | second | third;
 <AnyFloor> = floor | storey;
 <PreciseFloor> = ground floor | aquarium  | mezzanine | entresol | intermediate storey | top floor | lobby | street level | ground level | ground floor | mezzanine | exit | conference room;
 <MovementWithoutGoal> = up | down;
 <Bathroom> = bathroom | restroom | restrooms;
-<Lab> = lab | laboratory | experiment | eye-tracking experiment | reading experiment | eye-tracking laboratory | eye-tracking lab | guest kitchen | kitchen;
+<Lab> = lab | laboratory | experiment | eye-tracking experiment | reading experiment | eye-tracking laboratory |
+eye-tracking lab | guest kitchen | kitchen;
 <RoomWithNameOrNumber> = (<Room> (<RoomNumber> | <RoomName>)) | (<RoomName> <Room>);
 <Room> = room | office;
 <RoomNumber> = <ground> | <first> | <oneandhalf> | <second> | <third>;
@@ -32,48 +33,39 @@ public <BasicElevator> = <FloorRequest>;
 <third> = three <style> <room-all>;
 <RoomName> = [of] <Name> ;
 <Name> = <NameOnGroundFloor> | <NameOnSecondFloor> | <NameOnThirdFloor>;
-<NameOnThirdFloor> = 
-Manfred Pinkal 
-| Vera Demberg 
-| Annemarie Friedrich
-| Asad Sayeed
-| Andrea Horbach
-| David Howcroft
-| Alexandre Klementiev
-| Mikhail Kozhevnikov
-| Ekaterina Kravtchenko
-| Ashutosh Modi
-| Diana Steffen
-| Fatemeh Torabi Asr
-| Yoana Vergilova
-| Jorrig Vogels
-| Lilian Wanzare
-| Alessandra Zarcone
-| Chiara Gambi
-| Hongxia Shi
-; 
-<NameOnSecondFloor> = 
-Maria Staudte 
-| Ingmar Steiner 
-| Alexander Hewer
-| Arif Khan
-| Sebastien Le Maguer
-| Mirjana Sekicki
-| Ross Macdonald
-| Nikolina Koleva
-| Christine Ankener
-| Elli Tourtouri
-; 
-
-<NameOnGroundFloor> = 
-Christoph Clodo
-| Bernd Mechenbier
-| Josef Nguyen
-| Wahid Rahmani
-| Sebastian Schmidt
-; 
-
-
+<NameOnThirdFloor> = manfred pinkal
+| vera demberg
+| annemarie friedrich
+| asad sayeed
+| andrea horbach
+| david howcroft
+| alexandre klementiev
+| mikhail kozhevnikov
+| ekaterina kravtchenko
+| ashutosh modi
+| diana steffen
+| fatemeh torabi asr
+| yoana vergilova
+| jorrig vogels
+| lilian wanzare
+| alessandra zarcone
+| chiara gambi
+| hongxia shi;
+<NameOnSecondFloor> = maria staudte
+| ingmar steiner
+| alexander hewer
+| arif khan
+| sebastien le maguer
+| mirjana sekicki
+| ross macdonald
+| nikolina koleva
+| christine ankener
+| elli tourtouri;
+<NameOnGroundFloor> = christoph clodo
+| bernd mechenbier
+| josef nguyen
+| wahid rahmani
+| sebastian schmidt;
 <To> = to | to the;
 <FloorRequestMiddle> = ((<Number> <AnyFloor>) | <PreciseFloor> | <Lab> | <Bathroom> | <MovementWithoutGoal> |  <RoomWithNameOrNumber>);
 <FloorRequest> =  [(<StartPolite> | <PoliteRequest>)]  [<To>] <FloorRequestMiddle> [<EndPolite>];
