@@ -146,3 +146,31 @@ test {
         exceptionFormat = 'full'
     }
 }
+
+task generatePromptList {
+    inputs.files 'doc/prompts_en.txt'
+    ext.texFile = file('doc/prompts.tex')
+    outputs.files texFile
+    doLast {
+        texFile.withWriter { tex ->
+            tex.println "\\documentclass{beamer}"
+            tex.println "\\usepackage[utf8]{inputenc}"
+            tex.println "\\newcommand*{\\prompt}[1]{%"
+            tex.println "  \\frame{\\Huge\\centering #1}"
+            tex.println "}"
+            tex.println "\\begin{document}"
+            inputs.files.each { file ->
+                file.eachLine { line ->
+                    tex.println "\\prompt{$line}"
+                }
+            }
+            tex.println "\\end{document}"
+        }
+    }
+}
+
+task compilePromptList(type: Exec, dependsOn: generatePromptList) {
+    outputs.files 'doc/prompts.pdf'
+    commandLine "latexmk", "-pdf", generatePromptList.texFile
+    workingDir file('doc')
+}
