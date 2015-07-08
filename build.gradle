@@ -155,6 +155,8 @@ task generatePromptList {
         texFile.withWriter { tex ->
             tex.println "\\documentclass{beamer}"
             tex.println "\\usepackage[utf8]{inputenc}"
+            tex.println "\\beamertemplatenavigationsymbolsempty"
+            tex.println "\\setbeamertemplate{footline}[frame number]"
             tex.println "\\newcommand*{\\prompt}[1]{%"
             tex.println "  \\frame{\\Huge\\centering #1}"
             tex.println "}"
