@@ -39,10 +39,10 @@ dreihundertsieben | drei null sieben | dreihundertacht | drei null acht | dreihu
 dreihundertelf | drei elf | dreihundertzwölf | drei zwölf | dreihundertdreizehn | drei dreizehn | dreihundertvierzehn | drei vierzehn | 
 dreihundertfünfzehn | drei fünfzehn | dreihundertsechzehn | drei sechzehn | dreihundertsiebzehn | drei siebzehn | dreihundertachzehn  | drei achtzehn | 
 dreihundertneunzehn | drei neunzehn;
-<RoomNameGerman> = Manfred Pinkal | Vera Demberg | Maria Staudte | Ingmar Steiner  |Annemarie Friedrich | Chiara Gambi | Alexander Hewer |
-Andrea Horbach | David Howcroft | Arif Khan | Alexandre Klementiev | Mikhail Kozhevnikov | Ekaterina Kravtchenko | Sébastien Le Maguer |
-Ashutosh Modi | Asad Sayeed | Mirjana Sekicki | Hongxia Shi | Diana Steffen | Fatemeh Torabi Asr | Elli Tourtouri | Yoana Vergilova | Jorrig Vogels |
-Lilian Wanzare | Alessandra Zarcone | Ross Macdonald | Nikolina Koleva | Christine Ankener;
+<RoomNameGerman> = manfred pinkal | vera demberg | maria staudte | ingmar steiner | annemarie friedrich | chiara gambi | alexander hewer |
+andrea horbach | david howcroft | arif khan | alexandre klementiev | mikhail kozhevnikov | ekaterina kravtchenko | sebastien le maguer |
+ashutosh modi | asad sayeed | mirjana sekicki | hongxia shi | diana steffen | fatemeh torabi asr | elli tourtouri | yoana vergilova | jorrig vogels |
+lilian wanzare | alessandra zarcone | ross macdonald | nikolina koleva | christine ankener;
 
 <ToGerman> = zum | ins | in den | in das | zu ;
 

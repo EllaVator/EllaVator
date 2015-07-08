@@ -50,11 +50,11 @@
 					<if var="u_u" value="ground" relation="contains"/>
 					<if var="u_u" value="exit" relation="contains"/>
 					<if var="u_u" value="street * level" relation="contains"/>
-					<if var="u_u" value="Christoph * Clodo" relation="contains"/>
-					<if var="u_u" value="Bernd * Mechenbier" relation="contains"/>
-					<if var="u_u" value="Josef * Nguyen" relation="contains"/>
-					<if var="u_u" value="Wahid * Rahmani" relation="contains"/>
-					<if var="u_u" value="Sebastian * Schmidt" relation="contains"/>
+					<if var="u_u" value="christoph * clodo" relation="contains"/>
+					<if var="u_u" value="bernd * mechenbier" relation="contains"/>
+					<if var="u_u" value="josef * nguyen" relation="contains"/>
+					<if var="u_u" value="wahid * rahmani" relation="contains"/>
+					<if var="u_u" value="sebastian * schmidt" relation="contains"/>
 					<if var="u_u" value="zero * zero * one" relation="contains"/>
 					<if var="u_u" value="zero * zero * two" relation="contains"/>
 					<if var="u_u" value="zero * zero * three" relation="contains"/>
@@ -115,16 +115,16 @@
 					<if var="u_u" value="second * floor" relation="contains"/>
 					<if var="u_u" value="second * storey" relation="contains"/>
 					<!-- <if var="u_u" value="two" relation="contains" />-->
-					<if var="u_u" value="Ingmar * Steiner" relation="contains"/>
-					<if var="u_u" value="Arif * Khan" relation="contains"/>
-					<if var="u_u" value="Alexander * Hewer" relation="contains"/>
-					<if var="u_u" value="Maria * Staudte" relation="contains"/>
-					<if var="u_u" value="Sebastien * Le * Maguer" relation="contains"/>
-					<if var="u_u" value="Mirjana * Sekicki" relation="contains"/>
-					<if var="u_u" value="Ross * Macdonald" relation="contains"/>
-					<if var="u_u" value="Nikolina * Koleva" relation= "contains"/>
-					<if var="u_u" value="Christine * Ankener" relation="contains"/>
-					<if var="u_u" value="Elli * Tourtouri" relation="contains"/>
+					<if var="u_u" value="ingmar * steiner" relation="contains"/>
+					<if var="u_u" value="arif * khan" relation="contains"/>
+					<if var="u_u" value="alexander * hewer" relation="contains"/>
+					<if var="u_u" value="maria * staudte" relation="contains"/>
+					<if var="u_u" value="sebastien * le * maguer" relation="contains"/>
+					<if var="u_u" value="mirjana * sekicki" relation="contains"/>
+					<if var="u_u" value="ross * macdonald" relation="contains"/>
+					<if var="u_u" value="nikolina * koleva" relation= "contains"/>
+					<if var="u_u" value="christine * ankener" relation="contains"/>
+					<if var="u_u" value="elli * tourtouri" relation="contains"/>
 					<if var="u_u" value="two * zero * one" relation="contains"/>
 					<if var="u_u" value="two * zero * two" relation="contains"/>
 					<if var="u_u" value="two * zero * three" relation="contains"/>
@@ -150,27 +150,27 @@
 					<if var="u_u" value="third * storey" relation="contains" />
 					<if var="u_u" value="top * floor" relation="contains"/>
 					<if var="u_u" value="aquarium" relation="contains"/>
-					<if var="u_u" value="Manfred * Pinkal" relation="contains" />
-					<if var="u_u" value="Vera * Demberg" relation="contains" />
-					<if var="u_u" value="Annemarie * Friedrich" relation="contains" />
-					<if var="u_u" value="Asad * Sayeed" relation="contains" />
-					<if var="u_u" value="Andrea * Horbach" relation="contains" />
-					<if var="u_u" value="David * Howcroft" relation="contains" />
-					<if var="u_u" value="Alexandre * Klementiev" relation="contains" />
-					<if var="u_u" value="Mikhail * Kozhevnikov" relation="contains" />
-					<if var="u_u" value="Ekaterina * Kravtchenko" relation="contains" />
-					<if var="u_u" value="Ashutosh * Modi" relation="contains" />
-					<if var="u_u" value="Diana * Steffen" relation="contains" />
-					<if var="u_u" value="Fatemeh * Torabi * Asr" relation="contains" />
-					<if var="u_u" value="Yoana * Vergilova" relation="contains" />
-					<if var="u_u" value="Jorrig * Vogels" relation="contains" />
-					<if var="u_u" value="Lilian * Wanzare" relation="contains" />
-					<if var="u_u" value="Yoana * Vergilova" relation="contains" />
-					<if var="u_u" value="Jorrig * Vogels" relation="contains" />
-					<if var="u_u" value="Lilian * Wanzare" relation="contains" />
-					<if var="u_u" value="Alessandra * Zarcone" relation="contains" />
-					<if var="u_u" value="Chiara * Gambi" relation="contains" />
-					<if var="u_u" value="Hongxia * Shi" relation="contains" />
+					<if var="u_u" value="manfred * pinkal" relation="contains" />
+					<if var="u_u" value="vera * demberg" relation="contains" />
+					<if var="u_u" value="annemarie * friedrich" relation="contains" />
+					<if var="u_u" value="asad * sayeed" relation="contains" />
+					<if var="u_u" value="andrea * horbach" relation="contains" />
+					<if var="u_u" value="david * howcroft" relation="contains" />
+					<if var="u_u" value="alexandre * klementiev" relation="contains" />
+					<if var="u_u" value="mikhail * kozhevnikov" relation="contains" />
+					<if var="u_u" value="ekaterina * kravtchenko" relation="contains" />
+					<if var="u_u" value="ashutosh * modi" relation="contains" />
+					<if var="u_u" value="diana * steffen" relation="contains" />
+					<if var="u_u" value="fatemeh * torabi * asr" relation="contains" />
+					<if var="u_u" value="yoana * vergilova" relation="contains" />
+					<if var="u_u" value="jorrig * vogels" relation="contains" />
+					<if var="u_u" value="lilian * wanzare" relation="contains" />
+					<if var="u_u" value="yoana * vergilova" relation="contains" />
+					<if var="u_u" value="jorrig * vogels" relation="contains" />
+					<if var="u_u" value="lilian * wanzare" relation="contains" />
+					<if var="u_u" value="alessandra * zarcone" relation="contains" />
+					<if var="u_u" value="chiara * gambi" relation="contains" />
+					<if var="u_u" value="hongxia * shi" relation="contains" />
 					<if var="u_u" value="three * zero * one" relation="contains"/>
 					<if var="u_u" value="three * zero * two" relation="contains"/>
 					<if var="u_u" value="three * zero * three" relation="contains"/>
@@ -264,7 +264,7 @@
 			<case>
 				<condition operator="or">
 					<if var="u_u" value="Hi" relation="contains" />
-					<if var="u_u" value="Hello" relation="contains" />
+					<if var="u_u" value="hello" relation="contains" />
 				</condition>
 				<effect prob="1">
 					<set var="a_u" value="Greet" />

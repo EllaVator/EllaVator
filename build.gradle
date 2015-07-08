@@ -122,6 +122,13 @@ task copySettingsXml(type: Copy) {
     include 'settings.xml'
 }
 
+processResources {
+    from project(':sphinx4:sphinx4-data').sourceSets.main.output.resourcesDir
+    eachFile {
+        println it.path
+    }
+}
+
 run {
     dependsOn copySettingsXml
     workingDir = buildDir
