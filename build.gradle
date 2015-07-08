@@ -148,7 +148,7 @@ test {
 }
 
 task generatePromptList {
-    inputs.files 'doc/prompts_en.txt', 'doc/bits_excerpt.txt'
+    inputs.files 'doc/prompts_en.txt', 'doc/prompts_de.txt', 'doc/bits_excerpt.txt'
     ext.texFile = file('doc/prompts.tex')
     outputs.files texFile
     doLast {
