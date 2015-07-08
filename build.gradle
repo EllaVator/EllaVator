@@ -149,8 +149,11 @@ test {
 
 task generatePromptList {
     inputs.files 'doc/prompts_en.txt', 'doc/harvard.txt', 'doc/prompts_de.txt', 'doc/bits_excerpt.txt'
-    ext.texFile = file('doc/prompts.tex')
+    ext.texFile = file("$buildDir/prompts/prompts.tex")
     outputs.files texFile
+    doFirst {
+        texFile.parentFile.mkdirs()
+    }
     doLast {
         texFile.withWriter { tex ->
             tex.println "\\documentclass{beamer}"
@@ -174,9 +177,6 @@ task generatePromptList {
 task compilePromptList(type: Exec) {
     inputs.files generatePromptList
     outputs.files 'doc/prompts.pdf'
-    commandLine "latexmk", "-pdf", generatePromptList.texFile
+    commandLine "latexmk", "-pdf", "-quiet", inputs.files.singleFile
     workingDir "$buildDir/prompts"
-    doFirst {
-        workingDir.mkdirs()
-    }
 }
