@@ -15,7 +15,7 @@ class SpeechIOTest {
         configuration.setDictionaryPath("resource:/grammar_en/ella_en.dict");
         configuration.setGrammarPath("resource:/grammar_en");
         configuration.setUseGrammar(true);
-        configuration.setGrammarName("gram");
+        configuration.setGrammarName("compact_gram");
         StreamSpeechRecognizer recognizer = new StreamSpeechRecognizer(configuration)
         recognizer.startRecognition(audio);
         return recognizer.getResult().getHypothesis()
