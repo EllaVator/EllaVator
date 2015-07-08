@@ -175,5 +175,8 @@ task compilePromptList(type: Exec) {
     inputs.files generatePromptList
     outputs.files 'doc/prompts.pdf'
     commandLine "latexmk", "-pdf", generatePromptList.texFile
-    workingDir file('doc')
+    workingDir "$buildDir/prompts"
+    doFirst {
+        workingDir.mkdirs()
+    }
 }
