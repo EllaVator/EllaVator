@@ -146,37 +146,3 @@ test {
         exceptionFormat = 'full'
     }
 }
-
-task generatePromptList {
-    inputs.files 'doc/prompts_en.txt', 'doc/harvard.txt', 'doc/prompts_de.txt', 'doc/bits_excerpt.txt'
-    ext.texFile = file("$buildDir/prompts/prompts.tex")
-    outputs.files texFile
-    doFirst {
-        texFile.parentFile.mkdirs()
-    }
-    doLast {
-        texFile.withWriter { tex ->
-            tex.println "\\documentclass[aspectratio=169]{beamer}"
-            tex.println "\\usepackage[utf8]{inputenc}"
-            tex.println "\\beamertemplatenavigationsymbolsempty"
-            tex.println "\\setbeamertemplate{footline}[frame number]"
-            tex.println "\\newcommand*{\\prompt}[1]{%"
-            tex.println "  \\frame{\\Huge\\centering #1}"
-            tex.println "}"
-            tex.println "\\begin{document}"
-            inputs.files.each { file ->
-                file.eachLine { line ->
-                    tex.println "\\prompt{$line}"
-                }
-            }
-            tex.println "\\end{document}"
-        }
-    }
-}
-
-task compilePromptList(type: Exec) {
-    inputs.files generatePromptList
-    outputs.files 'doc/prompts.pdf'
-    commandLine "latexmk", "-pdf", "-quiet", inputs.files.singleFile
-    workingDir "$buildDir/prompts"
-}
