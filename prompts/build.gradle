@@ -1,0 +1,45 @@
+sourceSets {
+    text
+}
+
+task generatePromptList {
+    inputs.files processTextResources
+    def texFile = file("$sourceSets.text.output.resourcesDir/prompts.tex")
+    outputs.files texFile
+    doLast {
+        texFile.withWriter { tex ->
+            tex.println "\\documentclass[aspectratio=169]{beamer}"
+            tex.println "\\usepackage[utf8]{inputenc}"
+            tex.println "\\beamertemplatenavigationsymbolsempty"
+            tex.println "\\setbeamertemplate{footline}[frame number]"
+            tex.println "\\newcommand*{\\prompt}[1]{%"
+            tex.println "  \\frame{\\Huge\\centering #1}"
+            tex.println "}"
+            tex.println "\\begin{document}"
+            inputs.files.each { dir ->
+                dir.eachFile { file ->
+                    file.eachLine { line ->
+                        tex.println "\\prompt{$line}"
+                    }
+                }
+            }
+            tex.println "\\end{document}"
+        }
+    }
+}
+
+task compilePromptList(type: Exec) {
+    inputs.files generatePromptList
+    outputs.files "$buildDir/prompts.pdf"
+    executable 'latexmk'
+    doFirst {
+        args '-pdf', "-output-directory=$temporaryDir", '-quiet', inputs.files.singleFile
+    }
+    doLast {
+        copy {
+            from temporaryDir
+            into buildDir
+            include 'prompts.pdf'
+        }
+    }
+}
