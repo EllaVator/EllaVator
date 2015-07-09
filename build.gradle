@@ -156,7 +156,7 @@ task generatePromptList {
     }
     doLast {
         texFile.withWriter { tex ->
-            tex.println "\\documentclass{beamer}"
+            tex.println "\\documentclass[aspectratio=169]{beamer}"
             tex.println "\\usepackage[utf8]{inputenc}"
             tex.println "\\beamertemplatenavigationsymbolsempty"
             tex.println "\\setbeamertemplate{footline}[frame number]"
