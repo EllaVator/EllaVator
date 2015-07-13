@@ -1,0 +1,44 @@
+"Praat chronological TextGrid text file"
+0 432   ! Time domain.
+1   ! Number of tiers.
+"IntervalTier" "prompts" 0 432
+
+! prompts:
+1 0 3.471029462307933
+""
+
+! prompts:
+1 3.471029462307933 4.814689099416711
+"Ich habe Moos gesagt."
+
+! prompts:
+1 4.814689099416711 6.353311115243232
+"Ich habe muss gesagt."
+
+! prompts:
+1 6.353311115243232 7.944625665858334
+"Ich habe Mus gesagt."
+
+! prompts:
+1 7.944625665858334 8.742609667104045
+""
+
+! prompts:
+1 8.742609667104045 10.903003585083354
+"Im Frühling fliegen die Pollen durch die Luft."
+
+! prompts:
+1 10.903003585083354 13.021243475394776
+"Im Frühling fliegen die Polen durch die Luft."
+
+! prompts:
+1 13.021243475394776 15.389465069242078
+""
+
+! prompts:
+1 15.389465069242078 17.05981841558218
+"To the eye-tracking experiment"
+
+! prompts:
+1 17.05981841558218 432
+""
