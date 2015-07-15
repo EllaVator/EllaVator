@@ -1,0 +1,45 @@
+clearinfo
+
+#Prompt user to choose a file and Open it
+file$= chooseReadFile$: "Choose a TextGrid!"
+Read from file: file$
+
+#extract the name of that file
+num = length(file$) -9
+a$=left$(file$,num)
+n= rindex(a$, "\")
+num = length(a$) -n
+a$= right$(a$,num)
+name$= a$
+
+#Select the file an get the number of intervals:
+selectObject: "TextGrid " + name$
+a= Get number of intervals: 1
+
+#create a new file
+newfile$ = name$ + "_promts.json"
+writeFileLine: newfile$, "["
+#iterate over the number of intervals
+for x from 1 to a
+
+# if the label is not empty
+d$= Get label of interval: 1, x
+if d$ <> ""
+
+# collect and print the needed information.
+start= Get starting point: 1, x
+end= Get end point: 1, x
+
+
+i$= string$(x)
+it$= name$ +i$
+appendFileLine:  newfile$, "	{"
+appendFileLine:  newfile$, "		Name: ", it$ 
+appendFileLine:  newfile$, "		start: ", start
+appendFileLine: newfile$, "		End:", end
+appendFileLine:  newfile$, "		Prompt: ", d$ 
+appendFileLine: newfile$, "	}"
+endif
+endfor
+appendFileLine: newfile$, "]"
+appendInfoLine: "finished wirting the file"
