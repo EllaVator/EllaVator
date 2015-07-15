@@ -6,7 +6,7 @@ import com.pi4j.io.serial.SerialFactory;
 import com.pi4j.io.serial.SerialPortException;
 import java.util.Random;
 
-public class SerialController {
+public class SerialPortControllerTest {
     public static void main(String args[]) throws InterruptedException {
         System.out.println(">>> pi4j example...");
         System.out.println(">>> connection settings: 38400, N, 8, 1");
