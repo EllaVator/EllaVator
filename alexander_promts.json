@@ -1,0 +1,810 @@
+[
+	{
+		Name: alexander2
+		start: 3.471029462307933
+		End:4.814689099416711
+		Prompt: Ich habe Moos gesagt.
+	}
+	{
+		Name: alexander3
+		start: 4.814689099416711
+		End:6.353311115243232
+		Prompt: Ich habe muss gesagt.
+	}
+	{
+		Name: alexander4
+		start: 6.353311115243232
+		End:7.944625665858334
+		Prompt: Ich habe Mus gesagt.
+	}
+	{
+		Name: alexander6
+		start: 8.742609667104045
+		End:10.903003585083354
+		Prompt: Im Frühling fliegen die Pollen durch die Luft.
+	}
+	{
+		Name: alexander7
+		start: 10.903003585083354
+		End:13.021243475394776
+		Prompt: Im Frühling fliegen die Polen durch die Luft.
+	}
+	{
+		Name: alexander9
+		start: 15.389465069242078
+		End:17.05981841558218
+		Prompt: To the eye-tracking experiment
+	}
+	{
+		Name: alexander11
+		start: 17.98301981943994
+		End:19.332950959455243
+		Prompt: I would like to go up
+	}
+	{
+		Name: alexander13
+		start: 20.450135351192042
+		End:22.17827995715991
+		Prompt: To office three seventeen
+	}
+	{
+		Name: alexander15
+		start: 23.097629612859986
+		End:24.086803293043616
+		Prompt: To the rest room
+	}
+	{
+		Name: alexander17
+		start: 25.036198687400155
+		End:27.008727379060446
+		Prompt: To the reading laboratory please
+	}
+	{
+		Name: alexander19
+		start: 27.84079635615608
+		End:29.16163415263657
+		Prompt: Please to the ground level
+	}
+	{
+		Name: alexander21
+		start: 30.041205522509564
+		End:31.228213938729915
+		Prompt: Third floor thank you
+	}
+	{
+		Name: alexander23
+		start: 33.45094538478959
+		End:34.469212408508035
+		Prompt:  To the conference room
+	}
+	{
+		Name: alexander25
+		start: 36.16339739735577
+		End:37.32131247004131
+		Prompt: To the conference room
+	}
+	{
+		Name: alexander27
+		start: 38.298848812811016
+		End:39.30547849911553
+		Prompt: To the aquarium
+	}
+	{
+		Name: alexander29
+		start: 40.50994292145677
+		End:41.37692455879418
+		Prompt: Down thank you
+	}
+	{
+		Name: alexander31
+		start: 42.62307205720582
+		End:44.31048598222494
+		Prompt: Office one seventeen thank you
+	}
+	{
+		Name: alexander33
+		start: 45.427670373961746
+		End:47.40019906562203
+		Prompt:  Room three hundred and twelve please
+	}
+	{
+		Name: alexander35
+		start: 54.05284218792349
+		End:56.77016047407498
+		Prompt: I would like to go to the office two zero four
+	}
+	{
+		Name: alexander36
+		start: 56.77016047407498
+		End:57.887344865811784
+		Prompt:  
+	}
+	{
+		Name: alexander37
+		start: 57.887344865811784
+		End:59.32455603643152
+		Prompt: Room two hundred andtwo
+	}
+	{
+		Name: alexander39
+		start: 60.45433016070391
+		End:61.798442632012254
+		Prompt: I would like to go to the
+	}
+	{
+		Name: alexander41
+		start: 65.54079900571078
+		End:67.24566893685079
+		Prompt: I would like to go to the top floor
+	}
+	{
+		Name: alexander42
+		start: 67.24566893685079
+		End:68.5315947210895
+		Prompt:  
+	}
+	{
+		Name: alexander43
+		start: 68.5315947210895
+		End:69.77678982437949
+		Prompt: Vera Dembergs office
+	}
+	{
+		Name: alexander45
+		start: 71.12419830077005
+		End:72.69523885164992
+		Prompt: Please Manfred Pinkals room
+	}
+	{
+		Name: alexander47
+		start: 73.76587378246366
+		End:74.30119130350421
+		Prompt: Hello
+	}
+	{
+		Name: alexander49
+		start: 75.7006472147146
+		End:77.0040290050742
+		Prompt: To the guest kitchen
+	}
+	{
+		Name: alexander51
+		start: 78.07466404715531
+		End:79.06383772733894
+		Prompt: To the first floor
+	}
+	{
+		Name: alexander53
+		start: 88.12540947832288
+		End:89.78954872851416
+		Prompt: To room oh oh seven
+	}
+	{
+		Name: alexander55
+		start: 90.63907435973069
+		End:91.96573082491814
+		Prompt: To Maria's office
+	}
+	{
+		Name: alexander57
+		start: 93.1420542988462
+		End:94.8352868925723
+		Prompt: To doctor Steiner's office
+	}
+	{
+		Name: alexander59
+		start: 95.6266258367192
+		End:96.81945292164652
+		Prompt: Skywards
+	}
+	{
+		Name: alexander61
+		start: 98.12283471200611
+		End:99.53095253909105
+		Prompt: Tell me how to get to the lab
+	}
+	{
+		Name: alexander63
+		start: 100.78291870620964
+		End:101.74881771156541
+		Prompt: Where is the rest room
+	}
+	{
+		Name: alexander65
+		start: 102.76708473528385
+		End:103.24421556925478
+		Prompt: Open
+	}
+	{
+		Name: alexander67
+		start: 104.18102123107575
+		End:105.01309085617137
+		Prompt: Close doors
+	}
+	{
+		Name: alexander69
+		start: 105.82770425914615
+		End:106.45030181079113
+		Prompt: Hurry up
+	}
+	{
+		Name: alexander71
+		start: 107.80700401463506
+		End:109.34313255327315
+		Prompt: Bring me to double oh four please
+	}
+	{
+		Name: alexander73
+		start: 113.48697706775211
+		End:114.73217195504208
+		Prompt: I would like to see Maria
+	}
+	{
+		Name: alexander75
+		start: 116.81525535213466
+		End:118.39793324042846
+		Prompt: Where is Ross Macdonald's office
+	}
+	{
+		Name: alexander77
+		start: 119.62080606401224
+		End:121.44204936929151
+		Prompt: Which floor is Arif Khan's room
+	}
+	{
+		Name: alexander79
+		start: 122.98399657663657
+		End:124.13027431190818
+		Prompt: Room one point one
+	}
+	{
+		Name: alexander81
+		start: 125.20186174911095
+		End:126.10375539869013
+		Prompt: To the top floor
+	}
+	{
+		Name: alexander83
+		start: 127.29658248361744
+		End:129.82770337114613
+		Prompt: Bring me to where Alexander Hewer's office is
+	}
+	{
+		Name: alexander85
+		start: 131.196042912404
+		End:133.79698782441625
+		Prompt: Can you tell me where Hongxia Shi's office is
+	}
+	{
+		Name: alexander87
+		start: 135.31079408334813
+		End:137.44624549880336
+		Prompt: Can you lift me up to floor two please
+	}
+	{
+		Name: alexander89
+		start: 138.8194513136465
+		End:139.89008635572762
+		Prompt: Two floors up please
+	}
+	{
+		Name: alexander91
+		start: 141.44123700769396
+		End:143.40794703064728
+		Prompt: The birch canoe slid on the smooth
+	}
+	{
+		Name: alexander93
+		start: 143.50104572995866
+		End:144.05381925712013
+		Prompt: planks
+	}
+	{
+		Name: alexander95
+		start: 145.80037226433055
+		End:148.15693309065037
+		Prompt: 
+Glue the sheet to the dark blue background.
+	}
+	{
+		Name: alexander97
+		start: 149.34976017557767
+		End:150.85679537068097
+		Prompt: 
+It's easy to tell the depth of
+	}
+	{
+		Name: alexander99
+		start: 151.159366143443
+		End:151.50848626586077
+		Prompt: well
+	}
+	{
+		Name: alexander101
+		start: 152.78736425666716
+		End:154.93445300953633
+		Prompt: 
+It's easy to tell the depth of a well.
+	}
+	{
+		Name: alexander103
+		start: 156.32511483050038
+		End:158.67585698811322
+		Prompt: 
+These days a chicken leg is a rare dish.
+	}
+	{
+		Name: alexander105
+		start: 159.81726844979954
+		End:161.16138092110788
+		Prompt: Rice is often served
+	}
+	{
+		Name: alexander107
+		start: 163.2623371145646
+		End:165.79345800209327
+		Prompt: 
+Rice is often served in round bowls.
+	}
+	{
+		Name: alexander109
+		start: 167.2607146759418
+		End:169.46017144717365
+		Prompt: 
+The juice of lemons makes fine punch.
+	}
+	{
+		Name: alexander111
+		start: 171.5490735129732
+		End:172.09602837142768
+		Prompt: 
+The box
+	}
+	{
+		Name: alexander113
+		start: 174.61646410066413
+		End:177.18831566914156
+		Prompt: 
+The box was thrown beside the parked truck.
+	}
+	{
+		Name: alexander115
+		start: 178.5741112165203
+		End:180.58155192042236
+		Prompt: The hogs were fed chopped corn and
+	}
+	{
+		Name: alexander117
+		start: 182.5424432746687
+		End:183.6479903289916
+		Prompt: The hogs were fed
+	}
+	{
+		Name: alexander119
+		start: 186.73283713880338
+		End:189.85746223444224
+		Prompt: 
+The hogs were fed chopped corn and garbage.
+	}
+	{
+		Name: alexander121
+		start: 191.31308180630452
+		End:193.83256535641928
+		Prompt: 
+Four hours of steady work faced us.
+	}
+	{
+		Name: alexander123
+		start: 194.83919504272382
+		End:197.445958623443
+		Prompt: 
+Large size in stockings is hard to sell.
+	}
+	{
+		Name: alexander125
+		start: 198.65137544090587
+		End:201.03121094205352
+		Prompt: 
+The boy was there when the sun rose.
+	}
+	{
+		Name: alexander127
+		start: 202.358951784
+		End:204.56991391100843
+		Prompt: 
+A rod is used to catch pink salmon.
+	}
+	{
+		Name: alexander129
+		start: 205.74528498981485
+		End:208.27058720863658
+		Prompt: 
+The source of the huge river is the clear spring.
+	}
+	{
+		Name: alexander131
+		start: 209.388723995495
+		End:211.32052200620655
+		Prompt: 
+Kick the ball straight and follow through.
+	}
+	{
+		Name: alexander133
+		start: 212.53080509725476
+		End:213.735269519596
+		Prompt: Help the woman get back
+	}
+	{
+		Name: alexander135
+		start: 214.358951448
+		End:216.25570546483246
+		Prompt: 
+Help the woman get back to her feet.
+	}
+	{
+		Name: alexander137
+		start: 217.79183400347057
+		End:218.51916759184087
+		Prompt: A pot
+	}
+	{
+		Name: alexander139
+		start: 218.96138641357
+		End:221.13174984126704
+		Prompt: A pot of tea helps to pass
+	}
+	{
+		Name: alexander141
+		start: 222.942308204254
+		End:225.1475836441928
+		Prompt: 
+A pot of tea helps to pass the evening.
+	}
+	{
+		Name: alexander143
+		start: 226.56247253510634
+		End:228.71537995668245
+		Prompt: 
+Smoky fires lack flame and heat.
+	}
+	{
+		Name: alexander145
+		start: 230.15259091130224
+		End:231.48506604519667
+		Prompt: The soft cushion broke the
+	}
+	{
+		Name: alexander147
+		start: 232.59156549464115
+		End:234.65719288561283
+		Prompt: 
+The soft cushion broke the man's fall.
+	}
+	{
+		Name: alexander149
+		start: 236.01876136304207
+		End:238.2647674839296
+		Prompt: 
+The salt breeze came across from the sea.
+	}
+	{
+		Name: alexander151
+		start: 239.43527228915076
+		End:242.13513456918136
+		Prompt: 
+The girl at the booth sold fifty bonds.
+	}
+	{
+		Name: alexander153
+		start: 243.44433502824793
+		End:245.3877703763734
+		Prompt: Bring mich bitte zu null null eins
+	}
+	{
+		Name: alexander155
+		start: 246.30225375848812
+		End:247.83256362841928
+		Prompt: Ich möchte zu Maria Staudte
+	}
+	{
+		Name: alexander157
+		start: 252.64555504419891
+		End:254.5249850365478
+		Prompt: Wo ist Ross Macdonalds Büro
+	}
+	{
+		Name: alexander159
+		start: 256.06980151550727
+		End:258.1994342622556
+		Prompt: In welcher Etage arbeitet Arif Khan
+	}
+	{
+		Name: alexander161
+		start: 259.4572190980811
+		End:260.65586485171536
+		Prompt: Raum eins punkt eins
+	}
+	{
+		Name: alexander163
+		start: 262.02907066655854
+		End:262.8727776290681
+		Prompt: Bis ganz nach oben
+	}
+	{
+		Name: alexander165
+		start: 264.22844447881675
+		End:266.98649344591695
+		Prompt: Bringe mich in den Stock in dem Alexander Hewers Büro ist
+	}
+	{
+		Name: alexander167
+		start: 274.18513902024785
+		End:276.2973157608753
+		Prompt: Wo ist denn Hongxia Shis Büro
+	}
+	{
+		Name: alexander169
+		start: 277.45618322868245
+		End:279.53926662577504
+		Prompt: Kannst du mich bitte in die zweite Etage bringen
+	}
+	{
+		Name: alexander171
+		start: 280.98229646510174
+		End:282.4136889670145
+		Prompt: Zwei Stockwerke höher bitte
+	}
+	{
+		Name: alexander173
+		start: 283.4387270545616
+		End:285.0214049428554
+		Prompt: Ich suche das Eye-tracking Labor
+	}
+	{
+		Name: alexander175
+		start: 286.13277066588523
+		End:287.104488339948
+		Prompt: Zum Labor bitte
+	}
+	{
+		Name: alexander177
+		start: 288.1062517526672
+		End:289.5841936042357
+		Prompt: Zum Aufnahmestudio bitte
+	}
+	{
+		Name: alexander179
+		start: 290.73629000821427
+		End:292.0280344611599
+		Prompt: Ich muss zur Gästeküche
+	}
+	{
+		Name: alexander181
+		start: 293.00557080392963
+		End:293.9423764657506
+		Prompt: Zum Aquarium
+	}
+	{
+		Name: alexander183
+		start: 294.99650789683244
+		End:296.8293885395256
+		Prompt: Zum Büro drei hundert und achtzehn
+	}
+	{
+		Name: alexander185
+		start: 297.67309550203515
+		End:298.6971811944606
+		Prompt: Zur Toilette bitte
+	}
+	{
+		Name: alexander187
+		start: 299.6814886010589
+		End:301.0779690907299
+		Prompt: Ich möchte das Gebäude verlassen
+	}
+	{
+		Name: alexander189
+		start: 302.39880688721036
+		End:304.05130879998774
+		Prompt: Ich suche das Leseexperiment
+	}
+	{
+		Name: alexander191
+		start: 305.13358117948275
+		End:306.13439219708033
+		Prompt: Ich habe es eilig
+	}
+	{
+		Name: alexander193
+		start: 307.30489700230146
+		End:308.43953740015917
+		Prompt: Zum Konferenzraum
+	}
+	{
+		Name: alexander195
+		start: 311.978240369114
+		End:313.217616803697
+		Prompt: Ins zweite Stockwerk
+	}
+	{
+		Name: alexander197
+		start: 314.2358838274155
+		End:315.32979354432445
+		Prompt: Ins erste Stockwerk
+	}
+	{
+		Name: alexander199
+		start: 316.22586852519663
+		End:317.4012396040031
+		Prompt: Einmal nach unten bitte
+	}
+	{
+		Name: alexander201
+		start: 318.2691736364621
+		End:319.6656541261331
+		Prompt: Zu Professor Pinkal
+	}
+	{
+		Name: alexander203
+		start: 320.7071958246794
+		End:322.2433243633175
+		Prompt: Zur Gruppe von Doktor Demberg
+	}
+	{
+		Name: alexander205
+		start: 323.29163712569243
+		End:326.4919049145218
+		Prompt: Das Dunkel war ein kurzes und leiser werdendes Verschwinden.
+	}
+	{
+		Name: alexander207
+		start: 327.4927159321193
+		End:329.54670598567714
+		Prompt: 
+Er sah sich im Karstadt-Kaufhaus um
+	}
+	{
+		Name: alexander209
+		start: 330.8801335146932
+		End:333.0621342798042
+		Prompt: 
+Fahr, hat er gesagt, um das Hindernis herum.
+	}
+	{
+		Name: alexander211
+		start: 334.3593056464404
+		End:337.05334925776407
+		Prompt: Gemütlicher Abend auf der Weser mit Kohlfahrt ab
+	}
+	{
+		Name: alexander213
+		start: 339.46709759804435
+		End:342.12622919712624
+		Prompt: Gemütlicher Abend auf der Weser mit Kohlfahrt ab
+	}
+	{
+		Name: alexander215
+		start: 344.92014240716145
+		End:348.8593811217751
+		Prompt: 
+Gemütlicher Abend auf der Weser mit Kohlfahrt ab Martini-Anleger
+	}
+	{
+		Name: alexander217
+		start: 350.0760783593871
+		End:352.69447927752026
+		Prompt: 
+Das Schiff wogte auf den starken Wellen hin und her.
+	}
+	{
+		Name: alexander219
+		start: 354.8134269883703
+		End:357.9496894214231
+		Prompt: 
+Der schnellste Weg zum Jenseits führt kopfüber in die Nacht.
+	}
+	{
+		Name: alexander221
+		start: 359.3403510263871
+		End:360.80665554054167
+		Prompt: 
+Zu schade für's Altpapier.
+	}
+	{
+		Name: alexander223
+		start: 362.407741830078
+		End:367.3943409119449
+		Prompt: 
+Zu den Ressorts Arbeit und Frauen könnte noch Gesundheit oder Soziales hinzukommen.
+	}
+	{
+		Name: alexander225
+		start: 368.8092298028584
+		End:371.42181205228457
+		Prompt: 
+Weltausstellung in Hannover ökologisch vertretbar.
+	}
+	{
+		Name: alexander227
+		start: 372.5981355262127
+		End:374.93142167770463
+		Prompt: 
+Das Gemälde ohne Titel in Tusche auf Papier.
+	}
+	{
+		Name: alexander229
+		start: 376.22316613065027
+		End:379.63859268
+		Prompt: 
+In Ungarn zeigt die Abbildung eine Zahnbürste mit Zahnpasta.
+	}
+	{
+		Name: alexander231
+		start: 380.58812005599384
+		End:384.7310121753511
+		Prompt: 
+Ein Computer besitzt im Allgemeinen Prozessor, Arbeitsspeicher und Festplatte.
+	}
+	{
+		Name: alexander233
+		start: 385.84333029350273
+		End:389.1076034381087
+		Prompt: 
+Das Netzwerk hilft dem Automotor auf das Motorrad.
+	}
+	{
+		Name: alexander235
+		start: 390.71450839635196
+		End:393.44928268862435
+		Prompt: Die Telekom drückt mit ihrer Preispolitik
+	}
+	{
+		Name: alexander237
+		start: 400.996729224
+		End:405.2616814045661
+		Prompt: 
+Die Telekom drückt mit ihrer Preispolitik kräftig auf das Bremspedal.
+	}
+	{
+		Name: alexander239
+		start: 406.4085544599776
+		End:408.90476333526453
+		Prompt: 
+Der Lehrer benutzte den Projektor im Unterricht.
+	}
+	{
+		Name: alexander241
+		start: 409.98224069360487
+		End:413.991303432702
+		Prompt: 
+In der Linguistik kommt es zu Meinungsverschiedenheiten zwischen Fundis und Realos.
+	}
+	{
+		Name: alexander243
+		start: 415.27818157285384
+		End:418.1700599202142
+		Prompt: 
+Die Sprache ist ein weltweites Medium der Kommunikation.
+	}
+	{
+		Name: alexander245
+		start: 419.1650522691048
+		End:421.96383191715375
+		Prompt: 
+Hervor trat ein langes Messer im Suhrkamp-Verlag
+	}
+	{
+		Name: alexander247
+		start: 422.9248646489242
+		End:424.6297345800642
+		Prompt: 
+Wo Wilhelm Busch zur Schule ging.
+	}
+	{
+		Name: alexander249
+		start: 425.87889233391275
+		End:429.3060882023137
+		Prompt: 
+Unter anderem flog Lufthansa von Friedrichshafen nach Oldenburg.
+	}
+]
