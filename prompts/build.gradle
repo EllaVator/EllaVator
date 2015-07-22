@@ -48,6 +48,21 @@ task compilePromptList(type: Exec) {
     }
 }
 
+task convertTextGridsToJson {
+    def textGridFiles = fileTree(sourceSets.data.output.resourcesDir).include('*.TextGrid').files
+    def praatScript = 'src/data/praat/TextGrid2JSON.praat'
+    inputs.files processDataResources, praatScript
+    outputs.files textGridFiles.collect { it.path - 'TextGrid' + 'json' }
+    doLast {
+        textGridFiles.each { textGridFile ->
+            def jsonFileName = textGridFile.path - 'TextGrid' + 'json'
+            exec {
+                commandLine "praat $praatScript $textGridFile $jsonFileName".tokenize()
+            }
+        }
+    }
+}
+
 task extractAudio {
     inputs.files processDataResources
 
