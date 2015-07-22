@@ -1,4 +1,4 @@
-/* The code for this class was taken directly from sources.
+/* Some code for this class was taken directly from sources.
 Original file created on January 2, 2000 by Ben Resner, benres@media.mit.edu
 Modified for talking elevator by T.Liadal July 2007.*/
 
@@ -24,11 +24,13 @@ public class ElevatorController implements ElevatorControllerInterface {
         serialPort = new SerialPortController();
     }
 
-    public int currentFloor(){
+    // we ask the elevator to send us current floor number
+    public int getCurrentFloor(){
         // this is a stub, implementation goes below
-        return 0;
+        return serialPort.askFloorInformation(heartbeat);
     }
 
+    // this method emulates button push in the elevator
     public void pushButton(int number){
         switch (number) {
             case 0:
