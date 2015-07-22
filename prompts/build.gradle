@@ -1,5 +1,9 @@
+import groovy.io.FileType
+import groovy.json.JsonSlurper
+
 sourceSets {
     text
+    data
 }
 
 task generatePromptList {
@@ -41,5 +45,27 @@ task compilePromptList(type: Exec) {
             into buildDir
             include 'prompts.pdf'
         }
+    }
+}
+
+task extractAudio {
+    inputs.files processDataResources
+
+    doLast {
+        inputs.files.each { dir ->
+            dir.eachFile { jsonFile ->
+                if (jsonFile.name.endsWith('.json')) {
+                    def waveFile = file(jsonFile.path.substring(0,jsonFile.path.length()-'.json'.length()) + '.wav')
+                    if(waveFile.exists()) {
+                        new JsonSlurper().parse(jsonFile).each { prompt ->
+                            mkdir "$sourceSets.data.output.resourcesDir/extracted"
+                            "sox $waveFile.path $sourceSets.data.output.resourcesDir/extracted/${prompt.prompt}.wav trim $prompt.start =$prompt.end".execute()
+                            file("$sourceSets.data.output.resourcesDir/extracted/${prompt.prompt}.txt").text = prompt.text
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }
