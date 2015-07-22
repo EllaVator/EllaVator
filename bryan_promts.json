@@ -1,0 +1,362 @@
+[
+	{
+		Name: bryan2
+		start: 7.738459937753329
+		End:9.617504161841342
+		Prompt: To the eye-tracking experiment
+	}
+	{
+		Name: bryan4
+		start: 10.75897962507238
+		End:11.830210444412275
+		Prompt: I would like to go up
+	}
+	{
+		Name: bryan6
+		start: 13.217542161262305
+		End:14.86829129270411
+		Prompt: To office three seventeen
+	}
+	{
+		Name: bryan8
+		start: 15.588298892588304
+		End:16.606846229009843
+		Prompt: To the restroom
+	}
+	{
+		Name: bryan10
+		start: 17.888810980023163
+		End:19.78541636508396
+		Prompt: To the reading laboratory please
+	}
+	{
+		Name: bryan12
+		start: 20.62835209177765
+		End:22.26154006224667
+		Prompt: Please to the ground level
+	}
+	{
+		Name: bryan14
+		start: 23.122036949913145
+		End:24.351318218008107
+		Prompt: Third floor thank you
+	}
+	{
+		Name: bryan16
+		start: 25.211815105674578
+		End:26.40597405182397
+		Prompt: To the conference room
+	}
+	{
+		Name: bryan18
+		start: 27.336715583381586
+		End:28.425507563694268
+		Prompt: To the aquarium
+	}
+	{
+		Name: bryan20
+		start: 29.410328571262465
+		End:30.428875907684006
+		Prompt: Down thank you
+	}
+	{
+		Name: bryan22
+		start: 31.44742316548003
+		End:33.326467389568045
+		Prompt: Office one seventeen thank you
+	}
+	{
+		Name: bryan24
+		start: 34.2045254382073
+		End:36.294303593968735
+		Prompt: oom three hundred and twelve please
+	}
+	{
+		Name: bryan26
+		start: 37.297689106091646
+		End:39.94942441298221
+		Prompt: I would like to go to the office two zero four
+	}
+	{
+		Name: bryan28
+		start: 40.84504353241112
+		End:42.355303376070644
+		Prompt: Room two hundred and two
+	}
+	{
+		Name: bryan30
+		start: 43.25092258568269
+		End:45.27045609755299
+		Prompt: I would like to go to the top floor
+	}
+	{
+		Name: bryan32
+		start: 46.56998200953909
+		End:48.18560881903532
+		Prompt: Vera Demberg's office
+	}
+	{
+		Name: bryan34
+		start: 49.02754137095572
+		End:50.8187797901798
+		Prompt: Please Manfred Pinkal's room
+	}
+	{
+		Name: bryan36
+		start: 51.48610387289462
+		End:51.9778163801326
+		Prompt: Hello
+	}
+	{
+		Name: bryan38
+		start: 52.82075210682629
+		End:54.014911052975684
+		Prompt: To the guest kitchen
+	}
+	{
+		Name: bryan40
+		start: 54.64711284799595
+		End:55.66566018441749
+		Prompt: To the first floor
+	}
+	{
+		Name: bryan42
+		start: 56.543718233056744
+		End:57.720316018233355
+		Prompt: To the mezzanine
+	}
+	{
+		Name: bryan44
+		start: 58.63349638881818
+		End:60.688152222634045
+		Prompt: To room oh oh seven
+	}
+	{
+		Name: bryan46
+		start: 61.425720983491026
+		End:62.830613861313836
+		Prompt: To Maria's office
+	}
+	{
+		Name: bryan48
+		start: 63.392882682317364
+		End:65.07875413570474
+		Prompt: To Dr. Steiner's office
+	}
+	{
+		Name: bryan50
+		start: 65.72851703973072
+		End:66.67681973226111
+		Prompt: Skywards
+	}
+	{
+		Name: bryan52
+		start: 72.55980865814414
+		End:74.17543546764037
+		Prompt: Tell me how to get to the lab.
+	}
+	{
+		Name: bryan54
+		start: 75.38932434166728
+		End:76.6712890926806
+		Prompt: Where is the restroom?
+	}
+	{
+		Name: bryan56
+		start: 77.33861315886043
+		End:77.86544798804398
+		Prompt: Open.
+	}
+	{
+		Name: bryan58
+		start: 78.72594487571045
+		End:79.69180872921363
+		Prompt: Close doors.
+	}
+	{
+		Name: bryan60
+		start: 80.48206097298898
+		End:81.06157928509087
+		Prompt: Hurry up.
+	}
+	{
+		Name: bryan62
+		start: 88.85873475700748
+		End:90.79046246401386
+		Prompt: Bring me to double oh four, please.
+	}
+	{
+		Name: bryan64
+		start: 102.41548999256166
+		End:104.68087975805095
+		Prompt: I would like to see Maria Staudte.
+	}
+	{
+		Name: bryan66
+		start: 105.53550013936446
+		End:107.81845106582652
+		Prompt: Where is Ross Macdonald's office?
+	}
+	{
+		Name: bryan68
+		start: 115.87902388695423
+		End:117.72294578909667
+		Prompt: Which floor is Arif Khan's room?
+	}
+	{
+		Name: bryan70
+		start: 122.20135353816097
+		End:123.74673570376608
+		Prompt: Room one point one.
+	}
+	{
+		Name: bryan72
+		start: 124.48430438152631
+		End:125.41504591308393
+		Prompt: To the top floor.
+	}
+	{
+		Name: bryan74
+		start: 126.41603208853269
+		End:129.85801963919857
+		Prompt: Bring me to where Alexander Hewer's office is.
+	}
+	{
+		Name: bryan76
+		start: 130.48828971270206
+		End:133.96539958531355
+		Prompt: Can you tell me where Hongxia Shi's office is?
+	}
+	{
+		Name: bryan78
+		start: 135.22980307724092
+		End:138.16251695969603
+		Prompt: Can you lift me up to floor two, please?
+	}
+	{
+		Name: bryan80
+		start: 139.54984867654608
+		End:140.88449691047776
+		Prompt: Two floors up please.
+	}
+	{
+		Name: bryan82
+		start: 150.03734549092945
+		End:153.3212825928403
+		Prompt: The birch canoe slid on the smooth planks.
+	}
+	{
+		Name: bryan84
+		start: 153.98125948506154
+		End:156.59787247000654
+		Prompt: Glue the sheet to the dark blue background.
+	}
+	{
+		Name: bryan86
+		start: 163.2008689906277
+		End:165.67699268779043
+		Prompt: It's easy to tell the depth of a well.
+	}
+	{
+		Name: bryan88
+		start: 171.82239576845495
+		End:174.3687641095088
+		Prompt: These days a chicken leg is a rare dish.
+	}
+	{
+		Name: bryan90
+		start: 175.4082004046088
+		End:177.8843241017715
+		Prompt: Rice is often served in round bowls.
+	}
+	{
+		Name: bryan92
+		start: 178.74482097661496
+		End:181.5546067322606
+		Prompt: The juice of lemons makes fine punch.
+	}
+	{
+		Name: bryan94
+		start: 182.5204705857638
+		End:185.3829398243278
+		Prompt: The box was thrown beside the parked truck.
+	}
+	{
+		Name: bryan96
+		start: 186.57833895858073
+		End:189.68666445076371
+		Prompt: The hogs were fed chopped corn and garbage.
+	}
+	{
+		Name: bryan98
+		start: 196.9504105905976
+		End:199.44409544873312
+		Prompt: Four hours of steady work faced us.
+	}
+	{
+		Name: bryan100
+		start: 200.76118243834227
+		End:203.14950033064105
+		Prompt: Large size in stockings is hard to sell.
+	}
+	{
+		Name: bryan102
+		start: 204.32548129513367
+		End:206.76648267035083
+		Prompt: The boy was there when the sun rose.
+	}
+	{
+		Name: bryan104
+		start: 207.57429602608454
+		End:210.15578668908395
+		Prompt: A rod is used to catch pink salmon.
+	}
+	{
+		Name: bryan106
+		start: 211.22701750842387
+		End:214.24753719574292
+		Prompt: The source of the huge river is the clear spring.
+	}
+	{
+		Name: bryan108
+		start: 215.65514101625217
+		End:217.74491917201362
+		Prompt: Kick the ball straight and follow through.
+	}
+	{
+		Name: bryan110
+		start: 223.4874187318263
+		End:225.52451340466936
+		Prompt: Help the woman get back to her feet.
+	}
+	{
+		Name: bryan112
+		start: 226.33232680941748
+		End:228.6855223797707
+		Prompt: A pot of tea helps to pass the evening.
+	}
+	{
+		Name: bryan114
+		start: 229.61626391132833
+		End:232.28556037919168
+		Prompt: Smoky fires lack flame and heat.
+	}
+	{
+		Name: bryan116
+		start: 233.02831409365385
+		End:235.69761056125026
+		Prompt: The soft cushion broke the man's fall.
+	}
+	{
+		Name: bryan118
+		start: 236.4878628049466
+		End:239.43813784807946
+		Prompt: The salt breeze came across from the sea.
+	}
+	{
+		Name: bryan120
+		start: 240.26351241371782
+		End:242.80988075451702
+		Prompt: The girl at the booth sold fifty bonds.
+	}
+]
