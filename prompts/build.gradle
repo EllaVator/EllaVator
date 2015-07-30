@@ -94,17 +94,21 @@ task convertTextGridsToJson {
 
 task extractAudio {
     inputs.files processDataResources
+    dependsOn convertTextGridsToJson
 
     doLast {
         inputs.files.each { dir ->
             dir.eachFile { jsonFile ->
                 if (jsonFile.name.endsWith('.json')) {
-                    def waveFile = file(jsonFile.path.substring(0,jsonFile.path.length()-'.json'.length()) + '.wav')
-                    if(waveFile.exists()) {
+                    def speaker = jsonFile.name - '.json'
+                    def flacFile = file("$dir/${speaker}.flac")
+                    if (flacFile.exists()) {
                         new JsonSlurper().parse(jsonFile).each { prompt ->
-                            mkdir "$sourceSets.data.output.resourcesDir/extracted"
-                            "sox $waveFile.path $sourceSets.data.output.resourcesDir/extracted/${prompt.prompt}.wav trim $prompt.start =$prompt.end".execute()
-                            file("$sourceSets.data.output.resourcesDir/extracted/${prompt.prompt}.txt").text = prompt.text
+                            exec {
+                                commandLine "sox $flacFile.path ${speaker}_${prompt.prompt}.wav trim $prompt.start =$prompt.end".tokenize()
+                                workingDir dir
+                            }
+                            file("$dir/${speaker}_${prompt.prompt}.txt").text = prompt.text
                         }
                     }
                 }
