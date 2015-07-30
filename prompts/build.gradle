@@ -1,9 +1,38 @@
 import groovy.io.FileType
 import groovy.json.JsonSlurper
 
+repositories {
+    ivy {
+        url 'http://www.coli.uni-saarland.de/courses/elevator15/audio'
+        layout 'pattern', {
+            artifact '[module]_[classifier].[ext]'
+        }
+    }
+}
+
+configurations {
+    data
+}
+
+dependencies {
+    data name: 'alexander', classifier: 'close_16', ext: 'flac'
+    data name: 'anne', classifier: 'close_16', ext: 'flac'
+    data name: 'bryan', classifier: 'close_16', ext: 'flac'
+    data name: 'kata', classifier: 'close_16', ext: 'flac'
+    data name: 'laura', classifier: 'close_16', ext: 'flac'
+    data name: 'pavel', classifier: 'close_16', ext: 'flac'
+}
+
 sourceSets {
     text
     data
+}
+
+task getAudio(type: Copy) {
+    from configurations.data
+    into sourceSets.data.output.resourcesDir
+    rename ~/\-*close_16/, ''
+    processDataResources.dependsOn it
 }
 
 task generatePromptList {
