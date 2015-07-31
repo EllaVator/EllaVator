@@ -78,42 +78,39 @@ task compilePromptList(type: Exec) {
 }
 
 task convertTextGridsToJson {
-    def textGridFiles = fileTree(sourceSets.data.output.resourcesDir).include('*.TextGrid').files
+    dependsOn processDataResources
+    def textGridFiles = sourceSets.data.resources.asFileTree.include('*.TextGrid').files.collect()
+    def jsonFiles = textGridFiles.collect {
+        file("$sourceSets.data.output.resourcesDir/$it.name" - 'TextGrid' + 'json')
+    }
     def praatScript = 'src/data/praat/TextGrid2JSON.praat'
-    inputs.files processDataResources, praatScript
-    outputs.files textGridFiles.collect { it.path - 'TextGrid' + 'json' }
+    inputs.files textGridFiles, praatScript
+    outputs.files jsonFiles
     doLast {
-        textGridFiles.each { textGridFile ->
-            def jsonFileName = textGridFile.path - 'TextGrid' + 'json'
+        [textGridFiles, jsonFiles].transpose().each { textGridFile, jsonFile ->
             exec {
-                commandLine "praat $praatScript $textGridFile $jsonFileName".tokenize()
+                commandLine "praat $praatScript $textGridFile $jsonFile".tokenize()
             }
         }
     }
 }
 
 task extractAudio {
-    inputs.files processDataResources
-    dependsOn convertTextGridsToJson
+    inputs.files processDataResources, convertTextGridsToJson
 
     doLast {
-        inputs.files.each { dir ->
-            dir.eachFile { jsonFile ->
-                if (jsonFile.name.endsWith('.json')) {
-                    def speaker = jsonFile.name - '.json'
-                    def flacFile = file("$dir/${speaker}.flac")
-                    if (flacFile.exists()) {
-                        new JsonSlurper().parse(jsonFile).each { prompt ->
-                            exec {
-                                commandLine "sox $flacFile.path ${speaker}_${prompt.prompt}.wav trim $prompt.start =$prompt.end".tokenize()
-                                workingDir dir
-                            }
-                            file("$dir/${speaker}_${prompt.prompt}.txt").text = prompt.text
-                        }
-                    }
+        convertTextGridsToJson.outputs.files.each { jsonFile ->
+            def speaker = jsonFile.name - '.json'
+            def flacFile = file(jsonFile.path - '.json' + '.flac')
+            assert flacFile.exists()
+            new JsonSlurper().parse(jsonFile).each { prompt ->
+                exec {
+                    commandLine "sox $flacFile.path ${speaker}_${prompt.prompt}.wav trim $prompt.start =$prompt.end".tokenize()
+                    workingDir sourceSets.data.output.resourcesDir
                 }
+                file("$sourceSets.data.output.resourcesDir/${speaker}_${prompt.prompt}.txt").text = prompt.text
             }
         }
-
     }
+
 }
