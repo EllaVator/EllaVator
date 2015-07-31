@@ -1,9 +1,38 @@
 import groovy.io.FileType
 import groovy.json.JsonSlurper
 
+repositories {
+    ivy {
+        url 'http://www.coli.uni-saarland.de/courses/elevator15/audio'
+        layout 'pattern', {
+            artifact '[module]_[classifier].[ext]'
+        }
+    }
+}
+
+configurations {
+    data
+}
+
+dependencies {
+    data group: 'ellavator', name: 'alexander', classifier: 'close_16', ext: 'flac'
+    data group: 'ellavator', name: 'anne', classifier: 'close_16', ext: 'flac'
+    data group: 'ellavator', name: 'bryan', classifier: 'close_16', ext: 'flac'
+    data group: 'ellavator', name: 'kata', classifier: 'close_16', ext: 'flac'
+    data group: 'ellavator', name: 'laura', classifier: 'close_16', ext: 'flac'
+    data group: 'ellavator', name: 'pavel', classifier: 'close_16', ext: 'flac'
+}
+
 sourceSets {
     text
     data
+}
+
+task getAudio(type: Copy) {
+    from configurations.data
+    into sourceSets.data.output.resourcesDir
+    rename ~/\-*close_16/, ''
+    processDataResources.dependsOn it
 }
 
 task generatePromptList {
@@ -49,38 +78,39 @@ task compilePromptList(type: Exec) {
 }
 
 task convertTextGridsToJson {
-    def textGridFiles = fileTree(sourceSets.data.output.resourcesDir).include('*.TextGrid').files
+    dependsOn processDataResources
+    def textGridFiles = sourceSets.data.resources.asFileTree.include('*.TextGrid').files.collect()
+    def jsonFiles = textGridFiles.collect {
+        file("$sourceSets.data.output.resourcesDir/$it.name" - 'TextGrid' + 'json')
+    }
     def praatScript = 'src/data/praat/TextGrid2JSON.praat'
-    inputs.files processDataResources, praatScript
-    outputs.files textGridFiles.collect { it.path - 'TextGrid' + 'json' }
+    inputs.files textGridFiles, praatScript
+    outputs.files jsonFiles
     doLast {
-        textGridFiles.each { textGridFile ->
-            def jsonFileName = textGridFile.path - 'TextGrid' + 'json'
+        [textGridFiles, jsonFiles].transpose().each { textGridFile, jsonFile ->
             exec {
-                commandLine "praat $praatScript $textGridFile $jsonFileName".tokenize()
+                commandLine "praat $praatScript $textGridFile $jsonFile".tokenize()
             }
         }
     }
 }
 
 task extractAudio {
-    inputs.files processDataResources
+    inputs.files processDataResources, convertTextGridsToJson
 
     doLast {
-        inputs.files.each { dir ->
-            dir.eachFile { jsonFile ->
-                if (jsonFile.name.endsWith('.json')) {
-                    def waveFile = file(jsonFile.path.substring(0,jsonFile.path.length()-'.json'.length()) + '.wav')
-                    if(waveFile.exists()) {
-                        new JsonSlurper().parse(jsonFile).each { prompt ->
-                            mkdir "$sourceSets.data.output.resourcesDir/extracted"
-                            "sox $waveFile.path $sourceSets.data.output.resourcesDir/extracted/${prompt.prompt}.wav trim $prompt.start =$prompt.end".execute()
-                            file("$sourceSets.data.output.resourcesDir/extracted/${prompt.prompt}.txt").text = prompt.text
-                        }
-                    }
+        convertTextGridsToJson.outputs.files.each { jsonFile ->
+            def speaker = jsonFile.name - '.json'
+            def flacFile = file(jsonFile.path - '.json' + '.flac')
+            assert flacFile.exists()
+            new JsonSlurper().parse(jsonFile).each { prompt ->
+                exec {
+                    commandLine "sox $flacFile.path ${speaker}_${prompt.prompt}.wav trim $prompt.start =$prompt.end".tokenize()
+                    workingDir sourceSets.data.output.resourcesDir
                 }
+                file("$sourceSets.data.output.resourcesDir/${speaker}_${prompt.prompt}.txt").text = prompt.text
             }
         }
-
     }
+
 }
