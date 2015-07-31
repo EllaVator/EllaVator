@@ -1,11 +1,16 @@
 "Praat chronological TextGrid text file"
 0 376   ! Time domain.
-1   ! Number of tiers.
+2   ! Number of tiers.
 "IntervalTier" "prompts" 0 376
+"IntervalTier" "language" 0 376
 
 ! prompts:
 1 0 3.309555710197752
 ""
+
+! language:
+2 0 207.4486503402344
+"en"
 
 ! prompts:
 1 3.309555710197752 4.9575923648887015
@@ -530,6 +535,10 @@
 ! prompts:
 1 206.6686409934187 208.45950766343938
 ""
+
+! language:
+2 207.4486503402344 376
+"de"
 
 ! prompts:
 1 208.45950766343938 210.4041911026643
