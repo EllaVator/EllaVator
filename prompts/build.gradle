@@ -15,12 +15,12 @@ configurations {
 }
 
 dependencies {
-    data name: 'alexander', classifier: 'close_16', ext: 'flac'
-    data name: 'anne', classifier: 'close_16', ext: 'flac'
-    data name: 'bryan', classifier: 'close_16', ext: 'flac'
-    data name: 'kata', classifier: 'close_16', ext: 'flac'
-    data name: 'laura', classifier: 'close_16', ext: 'flac'
-    data name: 'pavel', classifier: 'close_16', ext: 'flac'
+    data group: 'ellavator', name: 'alexander', classifier: 'close_16', ext: 'flac'
+    data group: 'ellavator', name: 'anne', classifier: 'close_16', ext: 'flac'
+    data group: 'ellavator', name: 'bryan', classifier: 'close_16', ext: 'flac'
+    data group: 'ellavator', name: 'kata', classifier: 'close_16', ext: 'flac'
+    data group: 'ellavator', name: 'laura', classifier: 'close_16', ext: 'flac'
+    data group: 'ellavator', name: 'pavel', classifier: 'close_16', ext: 'flac'
 }
 
 sourceSets {
