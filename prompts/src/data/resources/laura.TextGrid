@@ -1,11 +1,16 @@
 "Praat chronological TextGrid text file"
 0 348   ! Time domain.
-1   ! Number of tiers.
+2   ! Number of tiers.
 "IntervalTier" "prompts" 0 348
+"IntervalTier" "language" 0 348
 
 ! prompts:
 1 0 4.48176965816787
 "to the eye tracking experiment"
+
+! language:
+2 0 181.8126860739957
+"en"
 
 ! prompts:
 1 4.48176965816787 6.508048708258123
@@ -250,6 +255,10 @@
 ! prompts:
 1 181.8126860739957 184.97623350124798
 "bring mich bitte zu null null eins"
+
+! language:
+2 181.8126860739957 348
+"de"
 
 ! prompts:
 1 184.97623350124798 187.5671075775679
