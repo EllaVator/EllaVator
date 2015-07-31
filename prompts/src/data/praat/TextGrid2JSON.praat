@@ -5,6 +5,7 @@ endform
 
 Read from file... 'textGrid_file$'
 t = 1
+lt = 2
 ni = Get number of intervals... t
 p = 0
 filedelete 'jSON_file$'
@@ -18,11 +19,13 @@ for i to ni
     p$ = if p < 100 then "0'p$'" else p$ fi
     start = Get starting point... t i
     end = Get end point... t i
+    l = Get interval at time... lt (start + end) / 2
+    l$ = Get label of interval... lt l
     if p > 1
       fileappend 'jSON_file$' ,'newline$'
     endif
     fileappend 'jSON_file$' {'newline$'
-    fileappend 'jSON_file$'   "prompt": "prompt_'p$'",'newline$'
+    fileappend 'jSON_file$'   "prompt": "'l$'_'p$'",'newline$'
     fileappend 'jSON_file$'   "text": "'text$'",'newline$'
     fileappend 'jSON_file$'   "start": 'start','newline$'
     fileappend 'jSON_file$'   "end": 'end''newline$'
