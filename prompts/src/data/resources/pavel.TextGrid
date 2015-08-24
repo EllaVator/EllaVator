@@ -1,0 +1,13 @@
+"Praat chronological TextGrid text file"
+0 214   ! Time domain.
+2   ! Number of tiers.
+"IntervalTier" "prompts" 0 214
+"IntervalTier" "language" 0 214
+
+! prompts:
+1 0 214
+""
+
+! language:
+2 0 214
+"en"
