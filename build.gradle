@@ -18,6 +18,7 @@ apply plugin: 'application'
 mainClassName = 'OpenDialDemo'
 
 repositories {
+    mavenLocal()
     jcenter()
     maven {
         url 'http://oss.jfrog.org/artifactory/repo'
@@ -30,7 +31,7 @@ dependencies {
     compile project(':opendial')
     testCompile localGroovy()
     testCompile group: 'org.testng', name: 'testng', version: '6.8.21'
-    compile group: 'com.pi4j', name: 'pi4j-distribution', version: '1.0'
+    compile group: 'com.pi4j', name: 'pi4j-distribution', version: '1.1-SNAPSHOT'
 }
 
 project(':opendial') {
