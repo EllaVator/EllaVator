@@ -155,8 +155,8 @@ public class SerialPortController {
     }
 
     /**
-    * Takes the start and the stop index of an interval in the bytestring, and copies the contents into
-    * a new bytestring of the same length as the interval. This new bytestring is added to the
+    * Takes the start and the stop index of an interval in the byte string, and copies the contents into
+    * a new byte string of the same length as the interval. This new byte string is added to the
     * ArrayList.
     * @param byteString
     * @param startFlagIndex
