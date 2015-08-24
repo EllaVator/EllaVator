@@ -1,5 +1,12 @@
+plugins {
+  id 'java' // or 'groovy' Must be explicitly applied
+  id 'com.github.johnrengelman.shadow' version '1.2.2'
+}
+
 allprojects {
     apply plugin: 'groovy'
+    apply plugin: 'java'
+
 
     repositories {
         flatDir {
@@ -14,7 +21,10 @@ allprojects {
     }
 }
 
+apply plugin: 'java'
+apply plugin: 'maven'
 apply plugin: 'application'
+apply plugin: 'com.github.johnrengelman.shadow'
 mainClassName = 'OpenDialDemo'
 
 repositories {
@@ -143,6 +153,11 @@ jar {
     manifest {
         attributes('Main-Class': project.mainClassName)
     }
+}
+
+shadowJar {
+    classifier = ''
+    mergeServiceFiles()
 }
 
 test {
