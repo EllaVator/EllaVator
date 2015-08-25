@@ -5,70 +5,70 @@
     Modified for talking elevator by T.Liadal July 2007.
 */
 
+import com.pi4j.io.serial.Baud;
+import com.pi4j.io.serial.DataBits;
+import com.pi4j.io.serial.FlowControl;
+import com.pi4j.io.serial.Parity;
 import com.pi4j.io.serial.Serial;
 import com.pi4j.io.serial.SerialDataEvent;
-import com.pi4j.io.serial.SerialDataListener;
+import com.pi4j.io.serial.SerialDataEventListener;
 import com.pi4j.io.serial.SerialFactory;
-import com.pi4j.io.serial.SerialPortException;
+import com.pi4j.io.serial.StopBits;
+import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 public class SerialPortController {
     // creating instance of the serial communication class
-    final Serial serialPort = SerialFactory.createInstance();
-    String receivedData = "";
+    private final Serial serialPort = SerialFactory.createInstance();
+    private Baud baud;
+    private DataBits dbits;
+    private Parity parity;
+    private StopBits sbits ;
+    private FlowControl flow;
+    private byte[] receivedBytes;
 
-    public SerialPortController(){
+    // serialPort constructor
+    public SerialPortController(Baud baud, DataBits dbits, Parity parity, StopBits sbits, FlowControl flow){
     // creating and registering serial data listener
-    serialPort.addListener(new SerialDataListener() {
-            @Override
-            public void dataReceived(SerialDataEvent event) {
-                receivedData = event.getData();
-                throw new UnsupportedOperationException("Not supported yet.");
+    this.baud = baud;
+    this.dbits = dbits;
+    this.parity = parity;
+    this.sbits = sbits;
+    this.flow = flow;
+    serialPort.addListener(new SerialDataEventListener() {
+        @Override
+        public void dataReceived(SerialDataEvent event) {
+            try {
+                receivedBytes = event.getBytes();
+                } catch (IOException ex) {
+                    Logger.getLogger(SerialPortController.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
-    }
-
-    //a few printing methods for debugging
-    public void printMessage(int[] message) {
-        for(int i = 0; i<message.length; i++ ) {
-            System.out.println("message i: " + i + " = " + message[i]);
-        }
-    }
-    public void printMessageAndHex(byte[] message) {
-        for(int i = 0; i<message.length; i++ ) {
-            System.out.println("message i: " + i + " = " + message[i] +
-                                " HEX: " + Integer.toHexString(message[i]));
-        }
     }
 
     // writing data to serial port
     public void writeToPort(int[] message) {
         // open rasppi default serial port provided on the GPIO header with
         // DEFAULT_COM_PORT = /dev/ttyAMA0, speed = 38400
-        if (serialPort.isOpen()) {
-            serialPort.close();
-        } else {
-            try {
-                serialPort.open(serialPort.DEFAULT_COM_PORT, 38400);
-            } catch (SerialPortException ex) {
-                ex.printStackTrace();  // we could use log4j here
-            } finally {
+        try {
+            if (serialPort.isOpen()) {
                 serialPort.close();
+        }
+            serialPort.open(Serial.DEFAULT_COM_PORT, baud, dbits, parity, sbits, flow);
+            for (int i=0; i<message.length; i++) {
+                serialPort.write((byte)message[i]);
             }
-
-            try {
-                for (int i=0; i < message.length; i++){
-                    serialPort.write((byte)message[i]);
-                }
-            } catch (IllegalStateException ex) {
-                ex.printStackTrace();  // we could use log4j here
-            } finally {
-                serialPort.close();
-            }
+        } catch (IOException ex) {
+            System.out.println("EXCEPTION! IOException: " + ex.getMessage());
+            throw new RuntimeException(ex);
         }
     }
-
+    
     /**
      * Reads all bytes that are being sent from the elevator, chops it up into strings that
      * start and end in 0x7E (126), and looks through these for messages with message-ID C9,
@@ -81,17 +81,15 @@ public class SerialPortController {
         byte[] byteString = readPortData(heartbeat);
         // fills the arraylist with valid substrings
         ArrayList messages = findValidSubstrings(byteString);
-
         System.out.println("messages ArrayList has " + messages.size() + " elements now.");
         //returns -1 if no floor is set
         int floor = -1;
         for(int i=0; i<messages.size(); i++) {
-                int temp = checkMessage((byte[])messages.get(i));
-                if(temp!=-1){ floor = temp;}
+            int temp = checkMessage((byte[])messages.get(i));
+            if(temp!=-1){ floor = temp;}
         }
         return floor;
     }
-
 
     /**
      * Sends a heartbeat to the elevator, who writes status information back.
@@ -100,14 +98,20 @@ public class SerialPortController {
      */
     private byte[] readPortData(int[] heartbeat) {
         writeToPort(heartbeat);  // writing the heartbeat to get a reply
-
         try {
-            Thread.sleep(100);
+            Thread.sleep(1000);
         } catch (InterruptedException ex) {
-            ex.printStackTrace();
+            System.out.println("EXCEPTION! InterruptedException: " + ex.getMessage());
+            throw new RuntimeException(ex);
         }
-        //returns data collected by Listener
-        return receivedData.getBytes(Charset.forName("UTF-8"));
+        try {
+            receivedBytes = serialPort.read();
+        } catch (IllegalStateException ex) {
+            Logger.getLogger(SerialPortController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SerialPortController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return receivedBytes;
     }
 
     /**
