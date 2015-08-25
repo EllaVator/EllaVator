@@ -93,8 +93,6 @@ public class SerialPortController {
     }
 
 
-    /********** private methods ahead, step lightly :) **********/
-
     /**
      * Sends a heartbeat to the elevator, who writes status information back.
      * We wait until we have gotten a long enough message, then return it.
@@ -157,15 +155,16 @@ public class SerialPortController {
     }
 
     /**
-    * Takes the start and the stop index of an interval in the bytestring, and copies the contents into
-    * a new bytestring of the same length as the interval. This new bytestring is added to the
+    * Takes the start and the stop index of an interval in the byte string, and copies the contents into
+    * a new byte string of the same length as the interval. This new byte string is added to the
     * ArrayList.
     * @param byteString
     * @param startFlagIndex
     * @param stopFlagIndex
     * @param validSubstrings
     */
-    private void addByteStringToArrayList(byte[] byteString, int startFlagIndex, int stopFlagIndex, ArrayList validSubstrings) {
+    private void addByteStringToArrayList(byte[] byteString, int startFlagIndex,
+            int stopFlagIndex, ArrayList validSubstrings) {
         //System.out.println("adding an byte array, start = "+startFlagIndex+" stop ="+stopFlagIndex);
         byte[] message = new byte[stopFlagIndex - startFlagIndex +1];
         int messageIndex = 0 ;

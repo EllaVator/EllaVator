@@ -1,5 +1,12 @@
+plugins {
+  id 'java' // or 'groovy' Must be explicitly applied
+  id 'com.github.johnrengelman.shadow' version '1.2.2'
+}
+
 allprojects {
     apply plugin: 'groovy'
+    apply plugin: 'java'
+
 
     repositories {
         flatDir {
@@ -14,10 +21,14 @@ allprojects {
     }
 }
 
+apply plugin: 'java'
+apply plugin: 'maven'
 apply plugin: 'application'
+apply plugin: 'com.github.johnrengelman.shadow'
 mainClassName = 'OpenDialDemo'
 
 repositories {
+    mavenLocal()
     jcenter()
     maven {
         url 'http://oss.jfrog.org/artifactory/repo'
@@ -30,7 +41,7 @@ dependencies {
     compile project(':opendial')
     testCompile localGroovy()
     testCompile group: 'org.testng', name: 'testng', version: '6.8.21'
-    compile group: 'com.pi4j', name: 'pi4j-distribution', version: '1.0'
+    compile group: 'com.pi4j', name: 'pi4j-distribution', version: '1.1-SNAPSHOT'
 }
 
 project(':opendial') {
@@ -69,6 +80,13 @@ project(':opendial') {
 
     compileJava {
         sourceCompatibility = '1.8'
+    }
+}
+
+project(':pi4j') {
+    task install(type: Exec) {
+        executable 'mvn'
+        args 'install'
     }
 }
 
@@ -135,6 +153,11 @@ jar {
     manifest {
         attributes('Main-Class': project.mainClassName)
     }
+}
+
+shadowJar {
+    classifier = ''
+    mergeServiceFiles()
 }
 
 test {
