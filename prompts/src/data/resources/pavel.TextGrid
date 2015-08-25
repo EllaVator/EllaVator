@@ -1,0 +1,513 @@
+"Praat chronological TextGrid text file"
+0 214   ! Time domain.
+2   ! Number of tiers.
+"IntervalTier" "prompts" 0 214
+"IntervalTier" "language" 0 214
+
+! prompts:
+1 0 5.9629375
+""
+
+! language:
+2 0 214
+"en"
+
+! prompts:
+1 5.9629375 7.9113125
+"To the eyetracking experiment"
+
+! prompts:
+1 7.9113125 9.073
+""
+
+! prompts:
+1 9.073 10.911125
+"I would like to go up"
+
+! prompts:
+1 10.911125 12.9213125
+""
+
+! prompts:
+1 12.9213125 14.73325
+"To office three seventeen"
+
+! prompts:
+1 14.73325 16.473125
+""
+
+! prompts:
+1 16.473125 17.683125
+"To the restroom"
+
+! prompts:
+1 17.683125 19.2733125
+""
+
+! prompts:
+1 19.2733125 21.393250000000002
+"To the reading laboratory please"
+
+! prompts:
+1 21.393250000000002 23.79325
+""
+
+! prompts:
+1 23.79325 25.873125
+"To the reading laboratory please"
+
+! prompts:
+1 25.873125 27.51325
+""
+
+! prompts:
+1 27.51325 29.27325
+"Please to the ground level"
+
+! prompts:
+1 29.27325 30.165977592539704
+""
+
+! prompts:
+1 30.165977592539704 31.7225
+"Third floor thank you"
+
+! prompts:
+1 31.7225 32.8465
+""
+
+! prompts:
+1 32.8465 34.4925625
+"To the conference room"
+
+! prompts:
+1 34.4925625 35.1265
+""
+
+! prompts:
+1 35.1265 36.2325
+"To the aquarium"
+
+! prompts:
+1 36.2325 37.552375
+""
+
+! prompts:
+1 37.552375 38.622375
+"Down thank you"
+
+! prompts:
+1 38.622375 39.862500000000004
+""
+
+! prompts:
+1 39.862500000000004 41.9225625
+"Office one seventeen thank you"
+
+! prompts:
+1 41.9225625 43.8323125
+""
+
+! prompts:
+1 43.8323125 46.0025
+"Office one seventeen thank you"
+
+! prompts:
+1 46.0025 47.301500000000004
+""
+
+! prompts:
+1 47.301500000000004 49.372437500000004
+"Room three hundred and twelve please"
+
+! prompts:
+1 49.372437500000004 50.9224375
+""
+
+! prompts:
+1 50.9224375 53.652375
+"I would like to go to the office two zero four"
+
+! prompts:
+1 53.652375 55.05125
+""
+
+! prompts:
+1 55.05125 56.826875
+"Room two hundred and two"
+
+! prompts:
+1 56.826875 57.918875
+""
+
+! prompts:
+1 57.918875 59.8110625
+"I would like to go to the top floor"
+
+! prompts:
+1 59.8110625 61.130875
+""
+
+! prompts:
+1 61.130875 62.707
+"Vera Dembergs office"
+
+! prompts:
+1 62.707 64.0290625
+""
+
+! prompts:
+1 64.0290625 65.85906250000001
+"Please Manfred Pinkals room"
+
+! prompts:
+1 65.85906250000001 66.9090625
+""
+
+! prompts:
+1 66.9090625 67.6389375
+"Hello"
+
+! prompts:
+1 67.6389375 68.6089375
+""
+
+! prompts:
+1 68.6089375 69.8589375
+"To the guest kitchen"
+
+! prompts:
+1 69.8589375 71.009125
+""
+
+! prompts:
+1 71.009125 72.0889375
+"To the first floor"
+
+! prompts:
+1 72.0889375 73.4589375
+""
+
+! prompts:
+1 73.4589375 74.5190625
+"To the mezzanine"
+
+! prompts:
+1 74.5190625 75.6289375
+""
+
+! prompts:
+1 75.6289375 77.269
+"To room oh oh seven"
+
+! prompts:
+1 77.269 78.324875
+""
+
+! prompts:
+1 78.324875 79.5550625
+"To Marias office"
+
+! prompts:
+1 79.5550625 80.7868125
+""
+
+! prompts:
+1 80.7868125 82.717
+"To Doctor Steiners office"
+
+! prompts:
+1 82.717 84.208
+""
+
+! prompts:
+1 84.208 84.9980625
+"Skywards"
+
+! prompts:
+1 84.9980625 86.427875
+""
+
+! prompts:
+1 86.427875 87.90593750000001
+"Tell me how to get to the lab"
+
+! prompts:
+1 87.90593750000001 89.2384375
+""
+
+! prompts:
+1 89.2384375 90.5585
+"Where is the restroom"
+
+! prompts:
+1 90.5585 91.6224375
+""
+
+! prompts:
+1 91.6224375 92.42425
+"Open"
+
+! prompts:
+1 92.42425 93.5765
+""
+
+! prompts:
+1 93.5765 94.65887500000001
+"Close doors"
+
+! prompts:
+1 94.65887500000001 95.7689375
+""
+
+! prompts:
+1 95.7689375 96.5889375
+"Hurry up"
+
+! prompts:
+1 96.5889375 97.678875
+""
+
+! prompts:
+1 97.678875 99.490875
+"Bring me to the double oh four please"
+
+! prompts:
+1 99.490875 100.9121875
+""
+
+! prompts:
+1 100.9121875 104.2621875
+"I would like to see Maria Staudte"
+
+! prompts:
+1 104.2621875 107.28225
+"I would like to see Maria Staudte"
+
+! prompts:
+1 107.28225 108.6721875
+""
+
+! prompts:
+1 108.6721875 110.9021875
+"Where is Ross Macdonalds office"
+
+! prompts:
+1 110.9021875 111.8221875
+""
+
+! prompts:
+1 111.8221875 113.84218750000001
+"Which floor is Arif Khans room"
+
+! prompts:
+1 113.84218750000001 115.1021875
+""
+
+! prompts:
+1 115.1021875 116.432125
+"Room one point one"
+
+! prompts:
+1 116.432125 117.6621875
+""
+
+! prompts:
+1 117.6621875 118.902375
+"To the top floor"
+
+! prompts:
+1 118.902375 120.2023125
+""
+
+! prompts:
+1 120.2023125 122.70225
+"Bring me to where Alexander Hewers office is"
+
+! prompts:
+1 122.70225 124.0761355705397
+""
+
+! prompts:
+1 124.0761355705397 126.90231250000001
+"Can you tell me where Hongxia Shis office is"
+
+! prompts:
+1 126.90231250000001 128.5141875
+""
+
+! prompts:
+1 128.5141875 130.8141875
+"Can you lift me up to floor two please"
+
+! prompts:
+1 130.8141875 132.19400000000002
+""
+
+! prompts:
+1 132.19400000000002 133.5541875
+"Two floors up please"
+
+! prompts:
+1 133.5541875 134.8743125
+""
+
+! prompts:
+1 134.8743125 137.3843125
+"The birch canoe slid on the smooth planks"
+
+! prompts:
+1 137.3843125 138.92425
+""
+
+! prompts:
+1 138.92425 141.67425
+"Glue the sheet to the dark blue background"
+
+! prompts:
+1 141.67425 143.0243125
+""
+
+! prompts:
+1 143.0243125 145.25425
+"Its easy to tell the depth of a well"
+
+! prompts:
+1 145.25425 146.5941875
+""
+
+! prompts:
+1 146.5941875 149.0941875
+"These days a chicken leg is a rare dish"
+
+! prompts:
+1 149.0941875 150.27425
+""
+
+! prompts:
+1 150.27425 152.76425
+"Rice is often served in round bowls"
+
+! prompts:
+1 152.76425 153.750125
+""
+
+! prompts:
+1 153.750125 156.10475
+"The juice of lemons makes fine punch"
+
+! prompts:
+1 156.10475 157.78481250000002
+""
+
+! prompts:
+1 157.78481250000002 160.034875
+"The box was thrown beside the parked truck"
+
+! prompts:
+1 160.034875 161.3048125
+""
+
+! prompts:
+1 161.3048125 164.1648125
+"The hogs were fed chopped corn and garbage"
+
+! prompts:
+1 164.1648125 165.7148125
+""
+
+! prompts:
+1 165.7148125 167.95487500000002
+"Four hours of steady work faced us"
+
+! prompts:
+1 167.95487500000002 169.334875
+""
+
+! prompts:
+1 169.334875 171.95475
+"Large size in stockings is hard to sell"
+
+! prompts:
+1 171.95475 173.6848125
+""
+
+! prompts:
+1 173.6848125 175.9096875
+"The boy was there when the sun rose"
+
+! prompts:
+1 175.9096875 177.5398125
+""
+
+! prompts:
+1 177.5398125 179.9534375
+"The rod is used to catch pink salmon"
+
+! prompts:
+1 179.9534375 181.6734375
+""
+
+! prompts:
+1 181.6734375 184.3034375
+"The source of the huge river is the clear spring"
+
+! prompts:
+1 184.3034375 185.6235
+""
+
+! prompts:
+1 185.6235 187.6235
+"Kick the ball straight and follow through"""
+
+! prompts:
+1 187.6235 189.0235
+""
+
+! prompts:
+1 189.0235 191.2335
+"Help the woman get back to her feet"
+
+! prompts:
+1 191.2335 192.3934375
+""
+
+! prompts:
+1 192.3934375 195.0835625
+"A pot of tea helps to pass the evening"
+
+! prompts:
+1 195.0835625 196.2034375
+""
+
+! prompts:
+1 196.2034375 198.710375
+"Smoky fires lack flame and heat"
+
+! prompts:
+1 198.710375 199.94037500000002
+""
+
+! prompts:
+1 199.94037500000002 201.960375
+"The soft cushion broke the man's fall"
+
+! prompts:
+1 201.960375 203.450375
+""
+
+! prompts:
+1 203.450375 206.06900000000002
+"The salt breeze came across from the sea"
+
+! prompts:
+1 206.06900000000002 207.3490625
+""
+
+! prompts:
+1 207.3490625 210.059
+"The girl at the booth sold fifty bonds"
+
+! prompts:
+1 210.059 214
+""
