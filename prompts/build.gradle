@@ -114,3 +114,18 @@ task extractAudio {
     }
 
 }
+
+task concatAudio {
+    dependsOn processDataResources
+    inputs.files configurations.data
+    doLast {
+        exec {
+            commandLine """sox ${
+                inputs.files.collect {
+                    it.name.replace('--close_16', '')
+                }.join(' ')
+            } chain.flac""".tokenize()
+            workingDir sourceSets.data.output.resourcesDir
+        }
+    }
+}
