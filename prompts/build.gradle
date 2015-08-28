@@ -12,6 +12,7 @@ repositories {
 
 configurations {
     data
+    noisyData
 }
 
 dependencies {
@@ -21,17 +22,30 @@ dependencies {
     data group: 'ellavator', name: 'kata', version: '0.1', classifier: 'close_16', ext: 'flac'
     data group: 'ellavator', name: 'laura', version: '0.1', classifier: 'close_16', ext: 'flac'
     data group: 'ellavator', name: 'pavel', version: '0.1', classifier: 'close_16', ext: 'flac'
+    noisyData group: 'ellavator', name: 'alexander', version: '0.1', classifier: 'noise_16', ext: 'flac'
+    noisyData group: 'ellavator', name: 'anne', version: '0.1', classifier: 'noise_16', ext: 'flac'
+    noisyData group: 'ellavator', name: 'bryan', version: '0.1', classifier: 'noise_16', ext: 'flac'
+    noisyData group: 'ellavator', name: 'kata', version: '0.1', classifier: 'noise_16', ext: 'flac'
+    noisyData group: 'ellavator', name: 'laura', version: '0.1', classifier: 'noise_16', ext: 'flac'
+    noisyData group: 'ellavator', name: 'pavel', version: '0.1', classifier: 'noise_16', ext: 'flac'
 }
 
 sourceSets {
     text
     data
+    noisyData
 }
 
 task getAudio(type: Copy) {
     from configurations.data
     into sourceSets.data.output.resourcesDir
     processDataResources.dependsOn it
+}
+
+task getNoisyAudio(type: Copy) {
+    from configurations.noisyData
+    into sourceSets.data.output.resourcesDir
+    processNoisyDataResources.dependsOn it
 }
 
 task generatePromptList {
@@ -105,6 +119,26 @@ task extractAudio {
             new JsonSlurper().parse(jsonFile).each { prompt ->
                 exec {
                     commandLine "sox $flacFile.path ${speaker}_${prompt.prompt}_close_16.wav trim $prompt.start =$prompt.end".tokenize()
+                    workingDir sourceSets.data.output.resourcesDir
+                }
+                file("$sourceSets.data.output.resourcesDir/${speaker}_${prompt.prompt}.txt").text = prompt.text
+            }
+        }
+    }
+
+}
+
+task extractNoisyAudio {
+    inputs.files processNoisyDataResources, convertTextGridsToJson
+
+    doLast {
+        convertTextGridsToJson.outputs.files.each { jsonFile ->
+            def speaker = jsonFile.name - '.json'
+            def flacFile = file(jsonFile.path - '.json' + '-0.1-noise_16.flac')
+            assert flacFile.exists()
+            new JsonSlurper().parse(jsonFile).each { prompt ->
+                exec {
+                    commandLine "sox $flacFile.path ${speaker}_${prompt.prompt}_noise_16.wav trim $prompt.start =$prompt.end".tokenize()
                     workingDir sourceSets.data.output.resourcesDir
                 }
                 file("$sourceSets.data.output.resourcesDir/${speaker}_${prompt.prompt}.txt").text = prompt.text
