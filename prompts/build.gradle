@@ -5,7 +5,7 @@ repositories {
     ivy {
         url 'http://www.coli.uni-saarland.de/courses/elevator15/audio'
         layout 'pattern', {
-            artifact '[module]_[classifier].[ext]'
+            artifact '[module]-[revision]-[classifier].[ext]'
         }
     }
 }
@@ -15,12 +15,12 @@ configurations {
 }
 
 dependencies {
-    data group: 'ellavator', name: 'alexander', classifier: 'close_16', ext: 'flac'
-    data group: 'ellavator', name: 'anne', classifier: 'close_16', ext: 'flac'
-    data group: 'ellavator', name: 'bryan', classifier: 'close_16', ext: 'flac'
-    data group: 'ellavator', name: 'kata', classifier: 'close_16', ext: 'flac'
-    data group: 'ellavator', name: 'laura', classifier: 'close_16', ext: 'flac'
-    data group: 'ellavator', name: 'pavel', classifier: 'close_16', ext: 'flac'
+    data group: 'ellavator', name: 'alexander', version: '0.1', classifier: 'close_16', ext: 'flac'
+    data group: 'ellavator', name: 'anne', version: '0.1', classifier: 'close_16', ext: 'flac'
+    data group: 'ellavator', name: 'bryan', version: '0.1', classifier: 'close_16', ext: 'flac'
+    data group: 'ellavator', name: 'kata', version: '0.1', classifier: 'close_16', ext: 'flac'
+    data group: 'ellavator', name: 'laura', version: '0.1', classifier: 'close_16', ext: 'flac'
+    data group: 'ellavator', name: 'pavel', version: '0.1', classifier: 'close_16', ext: 'flac'
 }
 
 sourceSets {
@@ -31,7 +31,6 @@ sourceSets {
 task getAudio(type: Copy) {
     from configurations.data
     into sourceSets.data.output.resourcesDir
-    rename ~/\-*close_16/, ''
     processDataResources.dependsOn it
 }
 
@@ -101,11 +100,11 @@ task extractAudio {
     doLast {
         convertTextGridsToJson.outputs.files.each { jsonFile ->
             def speaker = jsonFile.name - '.json'
-            def flacFile = file(jsonFile.path - '.json' + '.flac')
+            def flacFile = file(jsonFile.path - '.json' + '-0.1-close_16.flac')
             assert flacFile.exists()
             new JsonSlurper().parse(jsonFile).each { prompt ->
                 exec {
-                    commandLine "sox $flacFile.path ${speaker}_${prompt.prompt}.wav trim $prompt.start =$prompt.end".tokenize()
+                    commandLine "sox $flacFile.path ${speaker}_${prompt.prompt}_close_16.wav trim $prompt.start =$prompt.end".tokenize()
                     workingDir sourceSets.data.output.resourcesDir
                 }
                 file("$sourceSets.data.output.resourcesDir/${speaker}_${prompt.prompt}.txt").text = prompt.text
