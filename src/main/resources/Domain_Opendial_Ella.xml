@@ -418,7 +418,7 @@
 				<condition>
 					<if var="a_m" value="AskRepeat" />
 				</condition>
-				<effect prob="0.95">
+				<effect prob="0.6">
 					<set var="a_u^p" value="{a_u}" />
 				</effect>
 			</case>
