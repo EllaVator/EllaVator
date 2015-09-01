@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <domain>
 
+<!-- Register ModuleElla as external module (http://www.opendial-toolkit.net/user-manual/external-modules) -->
+<settings>
+<modules>ModuleElla</modules>
+</settings>
+
 <initialstate>	
 		<variable id="u_m">
 			<value>Welcome!</value>
