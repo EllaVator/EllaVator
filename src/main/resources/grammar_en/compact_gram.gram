@@ -14,7 +14,7 @@ public <BasicElevator> = <FloorRequest>;
 <MovementWithoutGoal> = up | down;
 <Bathroom> = bathroom | restroom | restrooms;
 <Lab> = lab | laboratory | experiment | eye-tracking experiment | reading experiment | eye-tracking laboratory |
-eye-tracking lab | guest kitchen | kitchen;
+eye-tracking lab | guest kitchen | kitchen | lego mind storms lab | lego mind storms laboratory | usability lab | usability laboratory | recording studio | dialogue lab | dialogue laboratory | control room | systems group | server room;
 <RoomWithNameOrNumber> = (<Room> (<RoomNumber> | <RoomName>)) | (<RoomName> <Room>);
 <Room> = room | office;
 <RoomNumber> = <ground> | <first> | <oneandhalf> | <second> | <third>;
@@ -39,17 +39,17 @@ eye-tracking lab | guest kitchen | kitchen;
 | asad sayeed
 | andrea horbach
 | david howcroft
-| alexandre klementiev
-| mikhail kozhevnikov
 | ekaterina kravtchenko
 | ashutosh modi
 | diana steffen
 | fatemeh torabi asr
-| yoana vergilova
 | jorrig vogels
 | lilian wanzare
 | alessandra zarcone
 | chiara gambi
+| ines rehbein
+| william blacoe
+| caroline sporleder
 | hongxia shi;
 <NameOnSecondFloor> = maria staudte
 | ingmar steiner
@@ -59,13 +59,9 @@ eye-tracking lab | guest kitchen | kitchen;
 | mirjana sekicki
 | ross macdonald
 | nikolina koleva
-| christine ankener
-| elli tourtouri;
+| christine ankener;
 <NameOnGroundFloor> = christoph clodo
-| bernd mechenbier
-| josef nguyen
-| wahid rahmani
-| sebastian schmidt;
+| bernd mechenbier;
 <To> = to | to the;
 <FloorRequestMiddle> = ((<Number> <AnyFloor>) | <PreciseFloor> | <Lab> | <Bathroom> | <MovementWithoutGoal> |  <RoomWithNameOrNumber>);
 <FloorRequest> =  [(<StartPolite> | <PoliteRequest>)]  [<To>] <FloorRequestMiddle> [<EndPolite>];
