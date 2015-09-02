@@ -16,7 +16,11 @@
 	<model trigger="u_u">
 
 		<rule>
-		<case>
+			
+			<!-- to avoid confusion in this file the rules we are not currently using / do not currently 				know how to handle, such as the "up" and "down" commands are commented out at the 				moment. We can put them in again once we know how to deal with them -->
+
+			
+			<!-- <case>
 			<condition operator="or">
 				<if var="u_u" value="no" relation="contains" />
 				<if var="u_u" value="didn't * mean * that" relation="contains" />
@@ -26,6 +30,7 @@
 				<set var="a_u" value="nope" />
 			</effect>
 			</case>
+
 			<case>
 				<condition operator="or">
 					<if var="u_u" value="(go |move)? up" relation="contains" />
@@ -42,7 +47,7 @@
 				<effect prob="1">
 					<set var="a_u" value="Request(down one floor)" />
 				</effect>
-			</case>
+			</case> -->
 			<case>
 				<condition operator="or">
 					<if var="u_u" value="(go * to | move *to)* floor * zero" relation="contains" />
@@ -167,13 +172,13 @@
 					<if var="u_u" value="restrooms" relation="contains"/>
 				</condition>
 				<effect prob="1">
-					<set var="a_u" value="restrooms" />
+					<set var="a_u" value="Requestfloor(zero point five)" />
 				</effect>
 			</case>
 			
 			<case>
 				<condition operator="or">
-					<if var="u_u" value="Hi" relation="contains" />
+					<if var="u_u" value="hi" relation="contains" />
 					<if var="u_u" value="hello" relation="contains" />
 				</condition>
 				<effect prob="1">
@@ -186,7 +191,7 @@
 			
 	<!-- Action selection model -->
 	<model trigger="a_u">
-		<rule id="grounding">
+		<!-- <rule id="grounding">
 			<case>
 				<condition>
 					<if var="a_u" value="nope" />
@@ -206,7 +211,8 @@
 					<set var="a_m" value="Move({X})" />
 				</effect>
 			</case>
-		</rule>
+		</rule> 
+		-->
 		
 		
 		<rule id="movetofloor">
@@ -216,17 +222,6 @@
 				</condition>
 				<effect util="1">
 					<set var="a_m" value="Movefloor({X})" />
-				</effect>
-			</case>
-		</rule>
-		
-		<rule id="restroomfloor">
-			<case>
-			<condition>
-					<if var="a_u" value="restrooms" />
-				</condition>
-				<effect util="1">
-					<set var="a_m" value="restrooms" />
 				</effect>
 			</case>
 		</rule>
@@ -260,7 +255,7 @@
 	<!-- NLG model -->
 	<model trigger="a_m">
 		<rule>		
-			<case>
+			<!-- <case>
 				<condition>
 					<if var="a_m" value="Move({X})" />
 				</condition>
@@ -277,7 +272,7 @@
 				<effect util="1"> 
 					<set var="u_m" value= "I'm not {last}." />
 				</effect>
-			</case>
+			</case> -->
 			
 			<case>
 				<condition>
@@ -288,15 +283,7 @@
 					<set var="u_m" value="I will take you to floor {X}" />
 				</effect>
 			</case>
-			<case>
-				<condition>
-					<if var="a_m" value="restrooms" />
-				</condition>
-				<effect util="1">
-					<set var="last" value="not taking you to floor zero dot five" />
-					<set var="u_m" value="I'm moving to floor zero dot five, where the restrooms are located" />
-				</effect>
-			</case>
+
 			
 			<case>
 				<condition>
