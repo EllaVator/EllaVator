@@ -7,13 +7,6 @@ allprojects {
     apply plugin: 'groovy'
     apply plugin: 'java'
 
-
-    repositories {
-        flatDir {
-            dirs file("${project(':opendial').projectDir}/lib")
-        }
-    }
-
     test {
         testLogging {
             exceptionFormat = 'full'
@@ -29,6 +22,9 @@ mainClassName = 'OpenDialDemo'
 
 repositories {
     mavenLocal()
+    flatDir {
+        dirs 'opendial/lib'
+    }
     jcenter()
     maven {
         url 'http://oss.jfrog.org/artifactory/repo'
@@ -42,45 +38,6 @@ dependencies {
     testCompile localGroovy()
     testCompile group: 'org.testng', name: 'testng', version: '6.8.21'
     compile group: 'com.pi4j', name: 'pi4j-distribution', version: '1.1-SNAPSHOT'
-}
-
-project(':opendial') {
-    dependencies {
-        compile name: 'apache-hc'
-        compile name: 'att-codekit'
-        compile name: 'balloontip'
-        compile name: 'commons-io'
-        compile name: 'exp4j'
-        compile name: 'java-json'
-        compile name: 'jcommon'
-        compile name: 'jfreechart'
-        compile name: 'jung'
-        testCompile name: 'junit'
-    }
-
-    sourceSets {
-        main {
-            java {
-                srcDirs 'src'
-            }
-            resources {
-                srcDir 'resources'
-            }
-        }
-        test {
-            java {
-                srcDirs 'test/opendial'
-            }
-            resources {
-                srcDirs 'test/domains'
-                exclude 'domain-demo-exportparams.xml'
-            }
-        }
-    }
-
-    compileJava {
-        sourceCompatibility = '1.8'
-    }
 }
 
 project(':pi4j') {
