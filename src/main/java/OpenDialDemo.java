@@ -1,5 +1,7 @@
 import opendial.DialogueSystem;
 import opendial.domains.Domain;
+import opendial.plugins.MaryTTS;
+import opendial.plugins.SphinxASR;
 import opendial.readers.XMLDomainReader;
 import opendial.Settings;
 
