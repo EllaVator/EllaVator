@@ -1,18 +1,10 @@
 plugins {
-  id 'java' // or 'groovy' Must be explicitly applied
-  id 'com.github.johnrengelman.shadow' version '1.2.2'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '1.2.2'
 }
 
 allprojects {
     apply plugin: 'groovy'
-    apply plugin: 'java'
-
-
-    repositories {
-        flatDir {
-            dirs file("${project(':opendial').projectDir}/lib")
-        }
-    }
 
     test {
         testLogging {
@@ -21,14 +13,13 @@ allprojects {
     }
 }
 
-apply plugin: 'java'
-apply plugin: 'maven'
-apply plugin: 'application'
-apply plugin: 'com.github.johnrengelman.shadow'
 mainClassName = 'OpenDialDemo'
 
 repositories {
     mavenLocal()
+    flatDir {
+        dirs 'opendial/lib'
+    }
     jcenter()
     maven {
         url 'http://oss.jfrog.org/artifactory/repo'
@@ -44,43 +35,9 @@ dependencies {
     compile group: 'com.pi4j', name: 'pi4j-distribution', version: '1.1-SNAPSHOT'
 }
 
-project(':opendial') {
-    dependencies {
-        compile name: 'apache-hc'
-        compile name: 'att-codekit'
-        compile name: 'balloontip'
-        compile name: 'commons-io'
-        compile name: 'exp4j'
-        compile name: 'java-json'
-        compile name: 'jcommon'
-        compile name: 'jfreechart'
-        compile name: 'jung'
-        testCompile name: 'junit'
-    }
-
-    sourceSets {
-        main {
-            java {
-                srcDirs 'src'
-            }
-            resources {
-                srcDir 'resources'
-            }
-        }
-        test {
-            java {
-                srcDirs 'test/opendial'
-            }
-            resources {
-                srcDirs 'test/domains'
-                exclude 'domain-demo-exportparams.xml'
-            }
-        }
-    }
-
-    compileJava {
-        sourceCompatibility = '1.8'
-    }
+project(':opendial').test {
+    systemProperty 'java.awt.headless', true
+    exclude 'opendial/modules/GUITest*'
 }
 
 project(':pi4j') {
