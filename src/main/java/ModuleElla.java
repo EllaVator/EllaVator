@@ -90,10 +90,6 @@ public class ModuleElla implements Module {
 				System.out.println("EllaModule:  go to floor: " + togoFloor);
 				changePosition(togoFloor);
 			}
-			//the restrooms have to be done seperately, because the command is not "Movefloor("
-			if (actionValue.equals("restrooms")) {
-				changePosition("restrooms");
-			}
 
 		}
 	}
@@ -109,7 +105,7 @@ public class ModuleElla implements Module {
 		if      (togoFloor.equals("zero")) {
 			newFloor = 0;
 		}
-		else if (togoFloor.equals("restrooms")) {
+		else if (togoFloor.equals("zero point five")) {
 			newFloor = 1;
 		}
 		else if (togoFloor.equals("one")) {
