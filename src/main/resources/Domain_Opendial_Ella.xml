@@ -31,6 +31,7 @@
 			</effect>
 			</case>
 
+		<!-- command for moving up and down without floor specified from user in the beginning --> 
 			<case>
 				<condition operator="or">
 					<if var="u_u" value="(go |move)? up" relation="contains" />
@@ -48,15 +49,21 @@
 					<set var="a_u" value="Request(down)" />
 				</effect>
 			</case> 
+
+		<!-- commands for moving to floor zero --> 
 			<case>
 				<condition operator="or">
 					<if var="u_u" value="(go * to | move *to)* floor * zero" relation="contains" />
-					<!--<if var="u_u" value="zero" relation="contains" /> -->
 					<if var="u_u" value="(go * to | move *to)? ground" relation="contains"/>
 					<if var="u_u" value="(go * to | move *to)? exit" relation="contains"/>
 					<if var="u_u" value="(go * to | move *to)? street * level" relation="contains"/>
-					<if var="u_u" value="(go * to | move *to)? christoph * clodo" relation="contains"/>
-					<if var="u_u" value="(go * to | move *to)? bernd * mechenbier" relation="contains"/>
+					<!--Christoph Clodo--> 
+					<if var="u_u" value="(go * to | move *to | to)? christoph" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to)?  clodo" relation="contains"/>
+					<!--Bernd Mechenbier--> 
+					<if var="u_u" value="(go * to | move *to | to)? bernd" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to)?  mechenbier" relation="contains"/>
+					<!--rooms on floor zero-->
 					<if var="u_u" value="(go * to | move *to)? dialogue" relation="contains"/>
 					<if var="u_u" value="(go * to | move *to)? systems" relation="contains"/>
 					<if var="u_u" value="(go * to | move *to)? server" relation="contains"/>
@@ -66,13 +73,16 @@
 					<set var="a_u" value="Requestfloor(zero)" />
 				</effect>
 			</case>
+
+		<!-- commands for moving to the first floor -->
 			<case>
 				<condition operator="or">
+					<!-- commands naming the floor number --> 
 					<if var="u_u" value="first * floor" relation="contains" />
 					<if var="u_u" value="go * to* floor * one" relation="contains" />
 					<if var="u_u" value="first * storey" relation="contains"/>
 					<if var="u_u" value="floor * one" relation="contains" />
-					<!-- <if var="u_u" value="one" relation="contains" /> -->
+					<!-- commands naming special rooms on first floor (laboratories, kitchen, etc.)--> 
 					<if var="u_u" value="(go * to | move *to)?  (laboratory | lab)" relation="contains"/>
 					<if var="u_u" value="(go * to | move *to)? experiment" relation="contains"/>
 					<if var="u_u" value="(go * to | move *to)? eye-tracking (experiment | laboratory | lab)?" relation="contains"/>
@@ -82,6 +92,7 @@
 					<if var="u_u" value="(go * to | move *to)? reading (experiment)?" relation="contains"/>
 					<if var="u_u" value="kitchen" relation="contains"/>
 					<if var="u_u" value="guest * kitchen" relation="contains"/>
+					<!-- commands naming room numbers --> 
 					<if var="u_u" value="one * zero * (one | two | three| four |five| six | seven | eight)" relation="contains"/>
 					
 					<if var="u_u" value="one * oh * (one | two | three| four |five| six | seven | eight)" relation="contains"/>
@@ -91,21 +102,43 @@
 					<set var="a_u" value="Requestfloor(one)" />
 				</effect>
 			</case>
+
+		<!-- commands for moving to the first floor -->
 			<case>
 				<condition operator="or">
+					<!-- commands naming the floor number --> 
 					<if var="u_u" value="(go * to | move *to)? floor * two" relation="contains" />
 					<if var="u_u" value="(go * to | move *to)? second * floor" relation="contains"/>
 					<if var="u_u" value="(go * to | move *to)? second * storey" relation="contains"/>
-					<!-- <if var="u_u" value="two" relation="contains" />-->
-					<if var="u_u" value="(go * to | move *to | to)? ingmar * steiner" relation="contains"/>
-					<if var="u_u" value="(go * to | move *to | to)? arif * khan" relation="contains"/>
-					<if var="u_u" value="(go * to | move *to | to)? alexander * hewer" relation="contains"/>
-					<if var="u_u" value="(go * to | move *to | to)? maria * staudte" relation="contains"/>
-					<if var="u_u" value="(go * to | move *to | to)? sebastien * le * maguer" relation="contains"/>
-					<if var="u_u" value="(go * to | move *to | to)? mirjana * sekicki" relation="contains"/>
-					<if var="u_u" value="(go * to | move *to | to)? ross * macdonald" relation="contains"/>
-					<if var="u_u" value="(go * to | move *to | to)? nikolina * koleva" relation= "contains"/>
-					<if var="u_u" value="(go * to | move *to | to)? christine * ankener" relation="contains"/>
+					<!-- commands using names of people on floor--> 
+					<!--Ingmar Steiner-->
+					<if var="u_u" value="(go * to | move *to | to)? ingmar" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to | to)? steiner" relation="contains"/>
+					<!--Arif Khan-->
+					<if var="u_u" value="(go * to | move *to | to)? arif" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to | to)? khan" relation="contains"/>
+					<!--Alexander Hewer-->
+					<if var="u_u" value="(go * to | move *to | to)? alexander" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to | to)? hewer" relation="contains"/>
+					<!--Maria Staudte-->
+					<if var="u_u" value="(go * to | move *to | to)? maria" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to | to)? staudte" relation="contains"/>
+					<!--Sebastien le Maguer--> 
+					<if var="u_u" value="(go * to | move *to | to)? sebastien " relation="contains"/>
+					<if var="u_u" value="(go * to | move *to | to)? le * maguer" relation="contains"/>
+					<!--Mirjana Sekicki-->
+					<if var="u_u" value="(go * to | move *to | to)? mirjana" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to | to)? sekicki" relation="contains"/>
+					<!--Ross Macdonald-->
+					<if var="u_u" value="(go * to | move *to | to)? ross" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to | to)? macdonald" relation="contains"/>
+					<!--Nikolina Koleva-->
+					<if var="u_u" value="(go * to | move *to | to)? nikolina" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to | to)? koleva" relation= "contains"/>
+					<!--Christine Ankener-->
+					<if var="u_u" value="(go * to | move *to | to)? christine" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to | to)? ankener" relation="contains"/>
+					<!-- commands using room numbers --> 
 					<if var="u_u" value="two * zero * (one | two | three| four) " relation="contains"/>
 					<if var="u_u" value="two * oh * (one | two | three| four)" relation="contains"/>
 					<if var="u_u" value="two * hundred *(one | two | three| four)" relation="contains"/>
@@ -116,30 +149,65 @@
 			</case>
 			<case>
 				<condition operator="or">
+					<!-- commands naming the floor number --> 
 					<if var="u_u" value="(go * to | move *to | to)? floor * three" relation="contains" />
 					<if var="u_u" value="(go * to | move *to | to)? third * floor" relation="contains" />
-					<!--<if var="u_u" value="three" relation="contains" />-->
 					<if var="u_u" value="(go * to | move *to | to)? third * storey" relation="contains" />
 					<if var="u_u" value="(go * to | move *to | to)? top * floor" relation="contains"/>
 					<if var="u_u" value="(go * to | move *to | to)? aquarium" relation="contains"/>
-					<if var="u_u" value="(go * to | move *to | to)? manfred * pinkal" relation="contains" />
-					<if var="u_u" value="(go * to | move *to | to)?  vera * demberg" relation="contains" />
-					<if var="u_u" value="(go * to | move *to | to)?  annemarie * friedrich" relation="contains" />
-					<if var="u_u" value="(go * to | move *to | to)?  asad * sayeed" relation="contains" />
-					<if var="u_u" value="(go * to | move *to | to)?  andrea * horbach" relation="contains" />
-					<if var="u_u" value="(go * to | move *to | to)?  david * howcroft" relation="contains" />
-					<if var="u_u" value="(go * to | move *to | to)?  ekaterina * kravtchenko" relation="contains" />
-					<if var="u_u" value="(go * to | move *to | to)?  ashutosh * modi" relation="contains" />
-					<if var="u_u" value="diana * steffen" relation="contains" />
-					<if var="u_u" value="fatemeh * torabi * asr" relation="contains" />
-					<if var="u_u" value="jorrig * vogels" relation="contains" />
-					<if var="u_u" value="lilian * wanzare" relation="contains" />
-					<if var="u_u" value="ines * rehbein" relation="contains" />
-					<if var="u_u" value="alessandra * zarcone" relation="contains" />
-					<if var="u_u" value="william * blacoe" relation="contains" />
-					<if var="u_u" value="chiara * gambi" relation="contains" />
-					<if var="u_u" value="caroline * sporleder" relation="contains" />
-					<if var="u_u" value="hongxia * shi" relation="contains" />
+					<!-- commands using names of people on floor--> 
+					<!--Manfred Pinkal-->
+					<if var="u_u" value="(go * to | move *to | to)? manfred" relation="contains" />
+					<if var="u_u" value="(go * to | move *to | to)? pinkal" relation="contains" />
+					<!--Vera Demberg-->
+					<if var="u_u" value="vera" relation="contains" /> 
+					<if var="u_u" value="(go * to | move *to | to)?  demberg" relation="contains" />
+					<!--Annemarie Friedrich-->
+					<if var="u_u" value="(go * to | move *to | to)?  annemarie" relation="contains" />
+					<if var="u_u" value="(go * to | move *to | to)?  friedrich" relation="contains" />
+					<!-- Asad Sayeed-->
+					<if var="u_u" value="(go * to | move *to | to)?  asad" relation="contains" />
+					<if var="u_u" value="(go * to | move *to | to)?  sayeed" relation="contains" />
+					<!--Andrea Horbach-->
+					<if var="u_u" value="(go * to | move *to | to)?  andrea" relation="contains" />
+					<if var="u_u" value="(go * to | move *to | to)?  horbach" relation="contains" />
+					<!--David Howcroft-->
+					<if var="u_u" value="(go * to | move *to | to)?  david" relation="contains" />
+					<if var="u_u" value="(go * to | move *to | to)?  howcroft" relation="contains" />
+					<!--Ekaterina Kravtchenko-->
+					<if var="u_u" value="(go * to | move *to | to)?  ekaterina" relation="contains" />
+					<if var="u_u" value="(go * to | move *to | to)?  kravtchenko" relation="contains" />
+					<!--Ashutosh Modi-->
+					<if var="u_u" value="(go * to | move *to | to)?  ashutosh" relation="contains" />
+					<if var="u_u" value="(go * to | move *to | to)?  modi" relation="contains" />
+					<!--Diana Steffen--> 
+					<if var="u_u" value="(go * to | move *to | to)?  diana" relation="contains" />
+					<if var="u_u" value="steffen" relation="contains" />
+					<!--Fatemeh Torabi Asr--> 
+					<if var="u_u" value="fatemeh" relation="contains" />
+					<if var="u_u" value="torabi * asr" relation="contains" />
+					<!--Jorrig Vogels--> 
+					<if var="u_u" value="jorrig" relation="contains" />
+					<if var="u_u" value="vogels" relation="contains" />
+					<!--Lilian Wanzare-->
+					<if var="u_u" value="lilian" relation="contains" />
+					<if var="u_u" value="wanzare" relation="contains" />
+					<!--Ines Rehbein-->
+					<if var="u_u" value="ines" relation="contains" />
+					<if var="u_u" value="rehbein" relation="contains" />
+					<!--Alessandra Zarcone--> 
+					<if var="u_u" value="alessandra" relation="contains" />
+					<if var="u_u" value="zarcone" relation="contains" />
+					<!--William Blacoe--> 
+					<if var="u_u" value="william" relation="contains" />
+					<if var="u_u" value="blacoe" relation="contains" />
+					<!--Chiara Gambi-->
+					<if var="u_u" value="chiara" relation="contains" />
+					<if var="u_u" value="gambi" relation="contains" />
+					<!--Caroline Sporleder-->
+					<if var="u_u" value="caroline" relation="contains" />
+					<if var="u_u" value="sporleder" relation="contains" />
+					<!-- commands using room numbers --> 
 					<if var="u_u" value="three * zero * (one | two | three| four |five| six | seven | eight |nine | ten |eleven | twelve | thirteen | fourteen | fifteen | sixteen | seventeen | eighteen| nineteen)" relation="contains"/>
 					<if var="u_u" value="three * oh * (one | two | three| four |five| six | seven | eight |nine | ten |eleven | twelve | thirteen | fourteen | fifteen | sixteen | seventeen | eighteen| nineteen)" relation="contains"/>
 					<if var="u_u" value="three * hundred * (one | two | three| four |five| six | seven | eight |nine | ten |eleven | twelve | thirteen | fourteen | fifteen | sixteen | seventeen | eighteen| nineteen)" relation="contains"/>
@@ -155,6 +223,7 @@
 					<if var="u_u" value="entresol" relation="contains" />
 					<if var="u_u" value="conference * room" relation="contains"/>
 					<if var="u_u" value="intermediate" relation="contains"/>
+					<!-- commands using room numbers --> 
 					<if var="u_u" value="one * seventeen" relation="contains"/>
 					<if var="u_u" value="one * hundred * seventeen" relation="contains"/>
 				</condition>
@@ -166,6 +235,7 @@
 
 		
 			<case>
+			<!-- commands for bathroom--> 
 				<condition operator="or">
 					<if var="u_u" value="bathroom" relation="contains" />
 					<if var="u_u" value="restroom" relation="contains" />
