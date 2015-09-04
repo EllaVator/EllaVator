@@ -125,4 +125,5 @@ test {
     testLogging {
         exceptionFormat = 'full'
     }
+    systemProperty 'audioDir', project(':prompts').sourceSets.data.output.resourcesDir
 }
