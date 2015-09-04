@@ -35,11 +35,6 @@ dependencies {
     compile group: 'com.pi4j', name: 'pi4j-distribution', version: '1.1-SNAPSHOT'
 }
 
-project(':opendial').test {
-    systemProperty 'java.awt.headless', true
-    exclude 'opendial/modules/GUITest*'
-}
-
 project(':pi4j') {
     task install(type: Exec) {
         executable 'mvn'
