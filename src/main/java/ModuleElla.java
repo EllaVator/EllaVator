@@ -35,7 +35,7 @@ public class ModuleElla implements Module {
 
 
 	//create controller to speak with the elevator via serial port
-	final static ElevatorControllerInterface controller= new ElevatorController();
+	final static ElevatorController controller= new ElevatorController();
 
 	//number of floors (used for JFrame output) and the JFrame itself
 	public static int FLOORS = 6;
