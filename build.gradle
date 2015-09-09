@@ -13,6 +13,8 @@ allprojects {
     }
 }
 
+evaluationDependsOn ':prompts'
+
 mainClassName = 'OpenDialDemo'
 
 repositories {
@@ -113,8 +115,10 @@ shadowJar {
 }
 
 test {
+    dependsOn project(':prompts').extractAudio
     useTestNG()
     testLogging {
         exceptionFormat = 'full'
     }
+    systemProperty 'audioDir', project(':prompts').sourceSets.data.output.resourcesDir
 }

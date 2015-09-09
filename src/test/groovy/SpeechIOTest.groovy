@@ -22,13 +22,17 @@ class SpeechIOTest {
     }
 
     @DataProvider
-    Object[][] expandedGrammar() {
-        return [
-            [AudioSystem.getAudioInputStream(getClass().getResourceAsStream('SpeechInput/room-one.wav')), 'room one'],
-        ]
+    Object[][] prompts() {
+        def items = []
+        new File(System.properties.audioDir).eachFileMatch(~/.+_en_.+\.txt/) { txtFile ->
+            def wavFile = new File(txtFile.path - '.txt' + '_close_16.wav')
+            def audio = AudioSystem.getAudioInputStream(wavFile)
+            items << [audio, txtFile.text]
+        }
+        return items
     }
 
-    @Test(dataProvider = 'expandedGrammar')
+    @Test(dataProvider = 'prompts')
     void canRecognizeGrammar(AudioInputStream audio, String expected) {
         def actual = recognize(audio)
         assert actual == expected
