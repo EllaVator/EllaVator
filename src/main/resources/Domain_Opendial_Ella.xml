@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <domain>
 
+<!-- Register ModuleElla as external module (http://www.opendial-toolkit.net/user-manual/external-modules) -->
+<settings>
+<modules>ModuleElla</modules>
+</settings>
+
 <initialstate>	
 		<variable id="u_m">
 			<value>Welcome!</value>
@@ -11,7 +16,11 @@
 	<model trigger="u_u">
 
 		<rule>
-		<case>
+			
+			<!-- to avoid confusion in this file the rules we are not currently using / do not currently 				know how to handle, such as the "up" and "down" commands are commented out at the 				moment. We can put them in again once we know how to deal with them -->
+
+			
+			<case>
 			<condition operator="or">
 				<if var="u_u" value="no" relation="contains" />
 				<if var="u_u" value="didn't * mean * that" relation="contains" />
@@ -21,44 +30,37 @@
 				<set var="a_u" value="nope" />
 			</effect>
 			</case>
+
 			<case>
 				<condition operator="or">
-					<if var="u_u" value="go * up" relation="contains" />
-					<if var="u_u" value="move * up" relation="contains" />
-					<if var="u_u" value="up" relation="contains" />
+					<if var="u_u" value="(go |move)? up" relation="contains" />
 				</condition>
 				<effect prob="1">
-					<set var="a_u" value="Request(up one floor)" />
+					<set var="a_u" value="Request(up)" />
 				</effect>
 			</case>
 			
 			<case>
 				<condition operator="or">
-					<if var="u_u" value="go * down" relation="contains" />
-					<if var="u_u" value="move * down" relation="contains" />
-					<if var="u_u" value="down" relation="contains" />
+					<if var="u_u" value="(go | move)? down" relation="contains" />
 				</condition>
 				<effect prob="1">
-					<set var="a_u" value="Request(down one floor)" />
+					<set var="a_u" value="Request(down)" />
 				</effect>
-			</case>
+			</case> 
 			<case>
 				<condition operator="or">
-					<if var="u_u" value="go * to* floor * zero" relation="contains" />
-					<if var="u_u" value="floor * zero" relation="contains" />
+					<if var="u_u" value="(go * to | move *to)* floor * zero" relation="contains" />
 					<!--<if var="u_u" value="zero" relation="contains" /> -->
-					<if var="u_u" value="ground" relation="contains"/>
-					<if var="u_u" value="exit" relation="contains"/>
-					<if var="u_u" value="street * level" relation="contains"/>
-					<if var="u_u" value="christoph * clodo" relation="contains"/>
-					<if var="u_u" value="bernd * mechenbier" relation="contains"/>
-					<if var="u_u" value="josef * nguyen" relation="contains"/>
-					<if var="u_u" value="wahid * rahmani" relation="contains"/>
-					<if var="u_u" value="sebastian * schmidt" relation="contains"/>
-					<if var="u_u" value="zero * zero * one" relation="contains"/>
-					<if var="u_u" value="zero * zero * two" relation="contains"/>
-					<if var="u_u" value="zero * zero * three" relation="contains"/>
-					<if var="u_u" value="zero * zero * four" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to)? ground" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to)? exit" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to)? street * level" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to)? christoph * clodo" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to)? bernd * mechenbier" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to)? dialogue" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to)? systems" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to)? server" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to)? zero * zero * (one | two | three| four)" relation="contains"/>
 				</condition>
 				<effect prob="1">
 					<set var="a_u" value="Requestfloor(zero)" />
@@ -71,39 +73,19 @@
 					<if var="u_u" value="first * storey" relation="contains"/>
 					<if var="u_u" value="floor * one" relation="contains" />
 					<!-- <if var="u_u" value="one" relation="contains" /> -->
-					<if var="u_u" value="laboratory" relation="contains"/>
-					<if var="u_u" value="experiment" relation="contains"/>
-					<if var="u_u" value="eye-tracking" relation="contains"/>
-					<if var="u_u" value="eye-tracking * experiment" relation="contains"/>
-					<if var="u_u" value="eye-tracking * laboratory" relation="contains"/>
-					<if var="u_u" value="reading" relation="contains"/>
-					<if var="u_u" value="reading * experiment" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to)?  (laboratory | lab)" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to)? experiment" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to)? eye-tracking (experiment | laboratory | lab)?" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to)? lego * mind * storms (lab | laboratory)?" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to)? usability (lab | laboratory)?" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to)? recording * studio" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to)? reading (experiment)?" relation="contains"/>
 					<if var="u_u" value="kitchen" relation="contains"/>
 					<if var="u_u" value="guest * kitchen" relation="contains"/>
-					<if var="u_u" value="one * zero * one" relation="contains"/>
-					<if var="u_u" value="one * zero * two" relation="contains"/>
-					<if var="u_u" value="one * zero * three" relation="contains"/>
-					<if var="u_u" value="one * zero * four" relation="contains"/>
-					<if var="u_u" value="one * zero * five" relation="contains"/>
-					<if var="u_u" value="one * zero * six" relation="contains"/>
-					<if var="u_u" value="one * zero * seven" relation="contains"/>
-					<if var="u_u" value="one * zero * eight" relation="contains"/>
-					<if var="u_u" value="one * oh * one" relation="contains"/>
-					<if var="u_u" value="one * oh * two" relation="contains"/>
-					<if var="u_u" value="one * oh * three" relation="contains"/>
-					<if var="u_u" value="one * oh * four" relation="contains"/>
-					<if var="u_u" value="one * oh * five" relation="contains"/>
-					<if var="u_u" value="one * oh * six" relation="contains"/>
-					<if var="u_u" value="one * oh * seven" relation="contains"/>
-					<if var="u_u" value="one * oh * eight" relation="contains"/>
-					<if var="u_u" value="one * hundred * one" relation="contains"/>
-					<if var="u_u" value="one * hundred * two" relation="contains"/>
-					<if var="u_u" value="one * hundred * three" relation="contains"/>
-					<if var="u_u" value="one * hundred * four" relation="contains"/>
-					<if var="u_u" value="one * hundred * five" relation="contains"/>
-					<if var="u_u" value="one * hundred * six" relation="contains"/>
-					<if var="u_u" value="one * hundred * seven" relation="contains"/>
-					<if var="u_u" value="one * hundred * eight" relation="contains"/>
+					<if var="u_u" value="one * zero * (one | two | three| four |five| six | seven | eight)" relation="contains"/>
+					
+					<if var="u_u" value="one * oh * (one | two | three| four |five| six | seven | eight)" relation="contains"/>
+					<if var="u_u" value="one * hundred * (one | two | three| four |five| six | seven | eight)" relation="contains"/>
 				</condition>
 				<effect prob="1">
 					<set var="a_u" value="Requestfloor(one)" />
@@ -111,32 +93,22 @@
 			</case>
 			<case>
 				<condition operator="or">
-					<if var="u_u" value="floor * two" relation="contains" />
-					<if var="u_u" value="second * floor" relation="contains"/>
-					<if var="u_u" value="second * storey" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to)? floor * two" relation="contains" />
+					<if var="u_u" value="(go * to | move *to)? second * floor" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to)? second * storey" relation="contains"/>
 					<!-- <if var="u_u" value="two" relation="contains" />-->
-					<if var="u_u" value="ingmar * steiner" relation="contains"/>
-					<if var="u_u" value="arif * khan" relation="contains"/>
-					<if var="u_u" value="alexander * hewer" relation="contains"/>
-					<if var="u_u" value="maria * staudte" relation="contains"/>
-					<if var="u_u" value="sebastien * le * maguer" relation="contains"/>
-					<if var="u_u" value="mirjana * sekicki" relation="contains"/>
-					<if var="u_u" value="ross * macdonald" relation="contains"/>
-					<if var="u_u" value="nikolina * koleva" relation= "contains"/>
-					<if var="u_u" value="christine * ankener" relation="contains"/>
-					<if var="u_u" value="elli * tourtouri" relation="contains"/>
-					<if var="u_u" value="two * zero * one" relation="contains"/>
-					<if var="u_u" value="two * zero * two" relation="contains"/>
-					<if var="u_u" value="two * zero * three" relation="contains"/>
-					<if var="u_u" value="two * zero * four" relation="contains"/>
-					<if var="u_u" value="two * oh * one" relation="contains"/>
-					<if var="u_u" value="two * oh * two" relation="contains"/>
-					<if var="u_u" value="two * oh * three" relation="contains"/>
-					<if var="u_u" value="two * oh * four" relation="contains"/>
-					<if var="u_u" value="two * hundred * one" relation="contains"/>
-					<if var="u_u" value="two * hundred * two" relation="contains"/>
-					<if var="u_u" value="two * hundred * three" relation="contains"/>
-					<if var="u_u" value="two * hundred * four" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to | to)? ingmar * steiner" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to | to)? arif * khan" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to | to)? alexander * hewer" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to | to)? maria * staudte" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to | to)? sebastien * le * maguer" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to | to)? mirjana * sekicki" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to | to)? ross * macdonald" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to | to)? nikolina * koleva" relation= "contains"/>
+					<if var="u_u" value="(go * to | move *to | to)? christine * ankener" relation="contains"/>
+					<if var="u_u" value="two * zero * (one | two | three| four) " relation="contains"/>
+					<if var="u_u" value="two * oh * (one | two | three| four)" relation="contains"/>
+					<if var="u_u" value="two * hundred *(one | two | three| four)" relation="contains"/>
 				</condition>
 				<effect prob="1">
 					<set var="a_u" value="Requestfloor(two)" />
@@ -144,90 +116,33 @@
 			</case>
 			<case>
 				<condition operator="or">
-					<if var="u_u" value="floor * three" relation="contains" />
-					<if var="u_u" value="third * floor" relation="contains" />
+					<if var="u_u" value="(go * to | move *to | to)? floor * three" relation="contains" />
+					<if var="u_u" value="(go * to | move *to | to)? third * floor" relation="contains" />
 					<!--<if var="u_u" value="three" relation="contains" />-->
-					<if var="u_u" value="third * storey" relation="contains" />
-					<if var="u_u" value="top * floor" relation="contains"/>
-					<if var="u_u" value="aquarium" relation="contains"/>
-					<if var="u_u" value="manfred * pinkal" relation="contains" />
-					<if var="u_u" value="vera * demberg" relation="contains" />
-					<if var="u_u" value="annemarie * friedrich" relation="contains" />
-					<if var="u_u" value="asad * sayeed" relation="contains" />
-					<if var="u_u" value="andrea * horbach" relation="contains" />
-					<if var="u_u" value="david * howcroft" relation="contains" />
-					<if var="u_u" value="alexandre * klementiev" relation="contains" />
-					<if var="u_u" value="mikhail * kozhevnikov" relation="contains" />
-					<if var="u_u" value="ekaterina * kravtchenko" relation="contains" />
-					<if var="u_u" value="ashutosh * modi" relation="contains" />
+					<if var="u_u" value="(go * to | move *to | to)? third * storey" relation="contains" />
+					<if var="u_u" value="(go * to | move *to | to)? top * floor" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to | to)? aquarium" relation="contains"/>
+					<if var="u_u" value="(go * to | move *to | to)? manfred * pinkal" relation="contains" />
+					<if var="u_u" value="(go * to | move *to | to)?  vera * demberg" relation="contains" />
+					<if var="u_u" value="(go * to | move *to | to)?  annemarie * friedrich" relation="contains" />
+					<if var="u_u" value="(go * to | move *to | to)?  asad * sayeed" relation="contains" />
+					<if var="u_u" value="(go * to | move *to | to)?  andrea * horbach" relation="contains" />
+					<if var="u_u" value="(go * to | move *to | to)?  david * howcroft" relation="contains" />
+					<if var="u_u" value="(go * to | move *to | to)?  ekaterina * kravtchenko" relation="contains" />
+					<if var="u_u" value="(go * to | move *to | to)?  ashutosh * modi" relation="contains" />
 					<if var="u_u" value="diana * steffen" relation="contains" />
 					<if var="u_u" value="fatemeh * torabi * asr" relation="contains" />
-					<if var="u_u" value="yoana * vergilova" relation="contains" />
 					<if var="u_u" value="jorrig * vogels" relation="contains" />
 					<if var="u_u" value="lilian * wanzare" relation="contains" />
-					<if var="u_u" value="yoana * vergilova" relation="contains" />
-					<if var="u_u" value="jorrig * vogels" relation="contains" />
-					<if var="u_u" value="lilian * wanzare" relation="contains" />
+					<if var="u_u" value="ines * rehbein" relation="contains" />
 					<if var="u_u" value="alessandra * zarcone" relation="contains" />
+					<if var="u_u" value="william * blacoe" relation="contains" />
 					<if var="u_u" value="chiara * gambi" relation="contains" />
+					<if var="u_u" value="caroline * sporleder" relation="contains" />
 					<if var="u_u" value="hongxia * shi" relation="contains" />
-					<if var="u_u" value="three * zero * one" relation="contains"/>
-					<if var="u_u" value="three * zero * two" relation="contains"/>
-					<if var="u_u" value="three * zero * three" relation="contains"/>
-					<if var="u_u" value="three * zero * four" relation="contains"/>
-					<if var="u_u" value="three * zero * five" relation="contains"/>
-					<if var="u_u" value="three * zero * six" relation="contains"/>
-					<if var="u_u" value="three * zero * seven" relation="contains"/>
-					<if var="u_u" value="three * zero * eight" relation="contains"/>
-					<if var="u_u" value="three * zero * nine" relation="contains"/>
-					<if var="u_u" value="three * zero * ten" relation="contains"/>
-					<if var="u_u" value="three * zero * eleven" relation="contains"/>
-					<if var="u_u" value="three * zero * twelve" relation="contains"/>
-					<if var="u_u" value="three * zero * thirteen" relation="contains"/>
-					<if var="u_u" value="three * zero * fourteen" relation="contains"/>
-					<if var="u_u" value="three * zero * fifteen" relation="contains"/>
-					<if var="u_u" value="three * zero * sixteen" relation="contains"/>
-					<if var="u_u" value="three * zero * seventeen" relation="contains"/>
-					<if var="u_u" value="three * zero * eighteen" relation="contains"/>
-					<if var="u_u" value="three * zero * nineteen" relation="contains"/>
-					<if var="u_u" value="three * oh * one" relation="contains"/>
-					<if var="u_u" value="three * oh * two" relation="contains"/>
-					<if var="u_u" value="three * oh * three" relation="contains"/>
-					<if var="u_u" value="three * oh * four" relation="contains"/>
-					<if var="u_u" value="three * oh * five" relation="contains"/>
-					<if var="u_u" value="three * oh * six" relation="contains"/>
-					<if var="u_u" value="three * oh * seven" relation="contains"/>
-					<if var="u_u" value="three * oh * eight" relation="contains"/>
-					<if var="u_u" value="three * oh * nine" relation="contains"/>
-					<if var="u_u" value="three * oh * ten" relation="contains"/>
-					<if var="u_u" value="three * oh * eleven" relation="contains"/>
-					<if var="u_u" value="three * oh * twelve" relation="contains"/>
-					<if var="u_u" value="three * oh * thirteen" relation="contains"/>
-					<if var="u_u" value="three * oh * fourteen" relation="contains"/>
-					<if var="u_u" value="three * oh * fifteen" relation="contains"/>
-					<if var="u_u" value="three * oh * sixteen" relation="contains"/>
-					<if var="u_u" value="three * oh * seventeen" relation="contains"/>
-					<if var="u_u" value="three * oh * eighteen" relation="contains"/>
-					<if var="u_u" value="three * oh * nineteen" relation="contains"/>
-					<if var="u_u" value="three * hundred * one" relation="contains"/>
-					<if var="u_u" value="three * hundred * two" relation="contains"/>
-					<if var="u_u" value="three * hundred * three" relation="contains"/>
-					<if var="u_u" value="three * hundred * four" relation="contains"/>
-					<if var="u_u" value="three * hundred * five" relation="contains"/>
-					<if var="u_u" value="three * hundred * six" relation="contains"/>
-					<if var="u_u" value="three * hundred * seven" relation="contains"/>
-					<if var="u_u" value="three * hundred * eight" relation="contains"/>
-					<if var="u_u" value="three * hundred * nine" relation="contains"/>
-					<if var="u_u" value="three * hundred * ten" relation="contains"/>
-					<if var="u_u" value="three * hundred * eleven" relation="contains"/>
-					<if var="u_u" value="three * hundred * twelve" relation="contains"/>
-					<if var="u_u" value="three * hundred * thirteen" relation="contains"/>
-					<if var="u_u" value="three * hundred * fourteen" relation="contains"/>
-					<if var="u_u" value="three * hundred * fifteen" relation="contains"/>
-					<if var="u_u" value="three * hundred * sixteen" relation="contains"/>
-					<if var="u_u" value="three * hundred * seventeen" relation="contains"/>
-					<if var="u_u" value="three * hundred * eighteen" relation="contains"/>
-					<if var="u_u" value="three * hundred * nineteen" relation="contains"/>
+					<if var="u_u" value="three * zero * (one | two | three| four |five| six | seven | eight |nine | ten |eleven | twelve | thirteen | fourteen | fifteen | sixteen | seventeen | eighteen| nineteen)" relation="contains"/>
+					<if var="u_u" value="three * oh * (one | two | three| four |five| six | seven | eight |nine | ten |eleven | twelve | thirteen | fourteen | fifteen | sixteen | seventeen | eighteen| nineteen)" relation="contains"/>
+					<if var="u_u" value="three * hundred * (one | two | three| four |five| six | seven | eight |nine | ten |eleven | twelve | thirteen | fourteen | fifteen | sixteen | seventeen | eighteen| nineteen)" relation="contains"/>
 				</condition>
 				<effect prob="1">
 					<set var="a_u" value="Requestfloor(three)" />
@@ -257,13 +172,13 @@
 					<if var="u_u" value="restrooms" relation="contains"/>
 				</condition>
 				<effect prob="1">
-					<set var="a_u" value="restrooms" />
+					<set var="a_u" value="Requestfloor(zero point five)" />
 				</effect>
 			</case>
 			
 			<case>
 				<condition operator="or">
-					<if var="u_u" value="Hi" relation="contains" />
+					<if var="u_u" value="hi" relation="contains" />
 					<if var="u_u" value="hello" relation="contains" />
 				</condition>
 				<effect prob="1">
@@ -276,7 +191,7 @@
 			
 	<!-- Action selection model -->
 	<model trigger="a_u">
-		<rule id="grounding">
+		<!-- <rule id="grounding">
 			<case>
 				<condition>
 					<if var="a_u" value="nope" />
@@ -286,7 +201,7 @@
 				</effect>
 			</case>
 		</rule>
-	
+	-->
 		<rule id="movement">
 			<case>
 				<condition>
@@ -296,7 +211,8 @@
 					<set var="a_m" value="Move({X})" />
 				</effect>
 			</case>
-		</rule>
+		</rule> 
+	
 		
 		
 		<rule id="movetofloor">
@@ -306,17 +222,6 @@
 				</condition>
 				<effect util="1">
 					<set var="a_m" value="Movefloor({X})" />
-				</effect>
-			</case>
-		</rule>
-		
-		<rule id="restroomfloor">
-			<case>
-			<condition>
-					<if var="a_u" value="restrooms" />
-				</condition>
-				<effect util="1">
-					<set var="a_m" value="restrooms" />
 				</effect>
 			</case>
 		</rule>
@@ -334,6 +239,16 @@
 		</rule>
 		
 	
+<rule id="talkyourself">
+			<case>
+			<condition>
+					<if var="a_m" value="real up" />
+				</condition>
+				<effect util="1">
+					<set var="a_u" value="Movefloor({X})" />
+				</effect>
+			</case>
+		</rule>
 		
 		<rule id="repeat">
 			<case>
@@ -350,13 +265,13 @@
 	<!-- NLG model -->
 	<model trigger="a_m">
 		<rule>		
-			<case>
+			 <case>
 				<condition>
 					<if var="a_m" value="Move({X})" />
 				</condition>
 				<effect util="1">
-					<set var="last" value="moving {X}" />
-					<set var="u_m" value="Ok, moving {X}" />
+					<set var="u_m" value="Ok, where is {X}" />
+					<set var="m_a" value="real up" />
 				</effect>
 			</case>
 			
@@ -367,7 +282,7 @@
 				<effect util="1"> 
 					<set var="u_m" value= "I'm not {last}." />
 				</effect>
-			</case>
+			</case> 
 			
 			<case>
 				<condition>
@@ -378,15 +293,7 @@
 					<set var="u_m" value="I will take you to floor {X}" />
 				</effect>
 			</case>
-			<case>
-				<condition>
-					<if var="a_m" value="restrooms" />
-				</condition>
-				<effect util="1">
-					<set var="last" value="not taking you to floor zero dot five" />
-					<set var="u_m" value="I'm moving to floor zero dot five, where the restrooms are located" />
-				</effect>
-			</case>
+
 			
 			<case>
 				<condition>

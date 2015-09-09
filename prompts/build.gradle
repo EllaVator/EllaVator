@@ -1,5 +1,51 @@
+import groovy.io.FileType
+import groovy.json.JsonSlurper
+
+repositories {
+    ivy {
+        url 'http://www.coli.uni-saarland.de/courses/elevator15/audio'
+        layout 'pattern', {
+            artifact '[module]-[revision]-[classifier].[ext]'
+        }
+    }
+}
+
+configurations {
+    data
+    noisyData
+}
+
+dependencies {
+    data group: 'ellavator', name: 'alexander', version: '0.1', classifier: 'close_16', ext: 'flac'
+    data group: 'ellavator', name: 'anne', version: '0.1', classifier: 'close_16', ext: 'flac'
+    data group: 'ellavator', name: 'bryan', version: '0.1', classifier: 'close_16', ext: 'flac'
+    data group: 'ellavator', name: 'kata', version: '0.1', classifier: 'close_16', ext: 'flac'
+    data group: 'ellavator', name: 'laura', version: '0.1', classifier: 'close_16', ext: 'flac'
+    data group: 'ellavator', name: 'pavel', version: '0.1', classifier: 'close_16', ext: 'flac'
+    noisyData group: 'ellavator', name: 'alexander', version: '0.1', classifier: 'noise_16', ext: 'flac'
+    noisyData group: 'ellavator', name: 'anne', version: '0.1', classifier: 'noise_16', ext: 'flac'
+    noisyData group: 'ellavator', name: 'bryan', version: '0.1', classifier: 'noise_16', ext: 'flac'
+    noisyData group: 'ellavator', name: 'kata', version: '0.1', classifier: 'noise_16', ext: 'flac'
+    noisyData group: 'ellavator', name: 'laura', version: '0.1', classifier: 'noise_16', ext: 'flac'
+    noisyData group: 'ellavator', name: 'pavel', version: '0.1', classifier: 'noise_16', ext: 'flac'
+}
+
 sourceSets {
     text
+    data
+    noisyData
+}
+
+task getAudio(type: Copy) {
+    from configurations.data
+    into sourceSets.data.output.resourcesDir
+    processDataResources.dependsOn it
+}
+
+task getNoisyAudio(type: Copy) {
+    from configurations.noisyData
+    into sourceSets.data.output.resourcesDir
+    processNoisyDataResources.dependsOn it
 }
 
 task generatePromptList {
@@ -40,6 +86,79 @@ task compilePromptList(type: Exec) {
             from temporaryDir
             into buildDir
             include 'prompts.pdf'
+        }
+    }
+}
+
+task convertTextGridsToJson {
+    dependsOn processDataResources
+    def textGridFiles = sourceSets.data.resources.asFileTree.include('*.TextGrid').files.collect()
+    def jsonFiles = textGridFiles.collect {
+        file("$sourceSets.data.output.resourcesDir/$it.name" - 'TextGrid' + 'json')
+    }
+    def praatScript = 'src/data/praat/TextGrid2JSON.praat'
+    inputs.files textGridFiles, praatScript
+    outputs.files jsonFiles
+    doLast {
+        [textGridFiles, jsonFiles].transpose().each { textGridFile, jsonFile ->
+            exec {
+                commandLine "praat $praatScript $textGridFile $jsonFile".tokenize()
+            }
+        }
+    }
+}
+
+task extractAudio {
+    inputs.files processDataResources, convertTextGridsToJson
+
+    doLast {
+        convertTextGridsToJson.outputs.files.each { jsonFile ->
+            def speaker = jsonFile.name - '.json'
+            def flacFile = file(jsonFile.path - '.json' + '-0.1-close_16.flac')
+            assert flacFile.exists()
+            new JsonSlurper().parse(jsonFile).each { prompt ->
+                exec {
+                    commandLine "sox $flacFile.path ${speaker}_${prompt.prompt}_close_16.wav trim $prompt.start =$prompt.end".tokenize()
+                    workingDir sourceSets.data.output.resourcesDir
+                }
+                file("$sourceSets.data.output.resourcesDir/${speaker}_${prompt.prompt}.txt").text = prompt.text
+            }
+        }
+    }
+
+}
+
+task extractNoisyAudio {
+    inputs.files processNoisyDataResources, convertTextGridsToJson
+
+    doLast {
+        convertTextGridsToJson.outputs.files.each { jsonFile ->
+            def speaker = jsonFile.name - '.json'
+            def flacFile = file(jsonFile.path - '.json' + '-0.1-noise_16.flac')
+            assert flacFile.exists()
+            new JsonSlurper().parse(jsonFile).each { prompt ->
+                exec {
+                    commandLine "sox $flacFile.path ${speaker}_${prompt.prompt}_noise_16.wav trim $prompt.start =$prompt.end".tokenize()
+                    workingDir sourceSets.data.output.resourcesDir
+                }
+                file("$sourceSets.data.output.resourcesDir/${speaker}_${prompt.prompt}.txt").text = prompt.text
+            }
+        }
+    }
+
+}
+
+task concatAudio {
+    dependsOn processDataResources
+    inputs.files configurations.data
+    doLast {
+        exec {
+            commandLine """sox ${
+                inputs.files.collect {
+                    it.name.replace('--close_16', '')
+                }.join(' ')
+            } chain.flac""".tokenize()
+            workingDir sourceSets.data.output.resourcesDir
         }
     }
 }

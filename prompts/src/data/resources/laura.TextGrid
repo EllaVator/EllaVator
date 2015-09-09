@@ -1,8 +1,461 @@
 "Praat chronological TextGrid text file"
 0 348   ! Time domain.
-1   ! Number of tiers.
+2   ! Number of tiers.
 "IntervalTier" "prompts" 0 348
+"IntervalTier" "language" 0 348
 
 ! prompts:
-1 0 348
+1 0 4.48176965816787
+"to the eye tracking experiment"
+
+! language:
+2 0 181.8126860739957
+"en"
+
+! prompts:
+1 4.48176965816787 6.508048708258123
+"i would like to go up"
+
+! prompts:
+1 6.508048708258123 9.565888002030686
+"to office three seventeen"
+
+! prompts:
+1 9.565888002030686 11.407959865749097
+"to the restroom"
+
+! prompts:
+1 11.407959865749097 14.097384786777978
+"to the reading laboratory please"
+
+! prompts:
+1 14.097384786777978 16.197346711416966
+"please to the groundlevel"
+
+! prompts:
+1 16.197346711416966 18.62888157152527
+"third floor thank you"
+
+! prompts:
+1 18.62888157152527 20.50779487251805
+"to the conferenceroom"
+
+! prompts:
+1 20.50779487251805 22.497232485333935
+"to the aquarium"
+
+! prompts:
+1 22.497232485333935 24.30246291177798
+"down thank you"
+
+! prompts:
+1 24.30246291177798 27.286619331001805
+"office one seventeen thank you"
+
+! prompts:
+1 27.286619331001805 30.568971988341264
+"room three hundred and twelve please"
+
+! prompts:
+1 30.568971988341264 34.73435699017452
+"i would like to go to the office two zero four"
+
+! prompts:
+1 34.73435699017452 37.26260062312804
+"room two hundred and two"
+
+! prompts:
+1 37.26260062312804 40.350373584686025
+"i would like to go to the topfloor"
+
+! prompts:
+1 40.350373584686025 43.013318602673955
+"vera dembergs office"
+
+! prompts:
+1 43.013318602673955 46.03892163883145
+"please manfred pinkals room"
+
+! prompts:
+1 46.03892163883145 47.90401940084634
+"hello"
+
+! prompts:
+1 47.90401940084634 50.65608434682037
+"to the guest kitchen"
+
+! prompts:
+1 50.65608434682037 52.76986180160635
+"to the first floor"
+
+! prompts:
+1 52.76986180160635 55.81618813350381
+"to the mezzanine"
+
+! prompts:
+1 55.81618813350381 58.4273249894159
+"to room oh oh seven"
+
+! prompts:
+1 58.4273249894159 60.78978214476494
+"to marias office"
+
+! prompts:
+1 60.78978214476494 63.15223930011398
+"to doctor steiners office"
+
+! prompts:
+1 63.15223930011398 65.07950697947767
+"skywards"
+
+! prompts:
+1 65.07950697947767 67.93932353595282
+"tell me how to get to the lab"
+
+! prompts:
+1 67.93932353595282 70.36395061644264
+"wheres the restroom"
+
+! prompts:
+1 70.36395061644264 71.4029276626144
+"open"
+
+! prompts:
+1 71.4029276626144 73.59315110857558
+"close doors"
+
+! prompts:
+1 73.59315110857558 75.14233354596277
+"hurry up"
+
+! prompts:
+1 75.14233354596277 78.26740846276105
+"bring me to double oh four please"
+
+! prompts:
+1 78.26740846276105 81.45766610603724
+"i would like to see maria staudte"
+
+! prompts:
+1 81.45766610603724 84.3957707286681
+"where is ross macdonalds office"
+
+! prompts:
+1 84.3957707286681 87.76123602368165
+"which floor is arif khans room"
+
+! prompts:
+1 87.76123602368165 90.218559889882
+"room one point one"
+
+! prompts:
+1 90.218559889882 92.22181304167577
+"to the topfloor"
+
+! prompts:
+1 92.22181304167577 96.70910010169382
+"bring me to where alexander hewers office is"
+
+! prompts:
+1 96.70910010169382 100.94104920990276
+"can you tell me where hongxia shis office is"
+
+! prompts:
+1 100.94104920990276 104.52019484110764
+"can you lift me up to floor two please"
+
+! prompts:
+1 104.52019484110764 107.16448900147542
+"two floors up please"
+
+! prompts:
+1 107.16448900147542 111.49151580934996
+"the birch canoe slid on the smooth planks"
+
+! prompts:
+1 111.49151580934996 115.18926407708057
+"glue the sheet to the dark blue background"
+
+! prompts:
+1 115.18926407708057 118.66156954018976
+"its easy to tell the depths of a well"
+
+! prompts:
+1 118.66156954018976 122.88175617996865
+"these days a chicken leg is a rare dish"
+
+! prompts:
+1 122.88175617996865 126.2739315170061
+"rice is often served in round bowls"
+
+! prompts:
+1 126.2739315170061 130.36056794666538
+"the juice of lemons makes fine punch"
+
+! prompts:
+1 130.36056794666538 133.417275031822
+"the juice of lemons makes finde punch"
+
+! prompts:
+1 133.417275031822 136.88958049493118
+"the box was thrown beside the parked truck"
+
+! prompts:
+1 136.88958049493118 140.78924663042307
+"the hogs were fed chopped corn and garbage"
+
+! prompts:
+1 140.78924663042307 143.80748137912568
+"four hours of steady work faced us"
+
+! prompts:
+1 143.80748137912568 147.49346717842622
+"large size in stockings is hard to sell"
+
+! prompts:
+1 147.49346717842622 150.5501744375828
+"the boy was there when the sun rose"
+
+! prompts:
+1 150.5501744375828 153.7286694384289
+"a rod is used to catch pink salmon"
+
+! prompts:
+1 153.7286694384289 157.70846569999253
+"the source of the huge river is the clear spring"
+
+! prompts:
+1 157.70846569999253 160.8068305747669
+"kick the ball straight and follow through"
+
+! prompts:
+1 160.8068305747669 163.9586155335891
+"help the woman get back to her feet"
+
+! prompts:
+1 163.9586155335891 167.78991401143932
+"a pot of tea helps to pass the evening"
+
+! prompts:
+1 167.78991401143932 170.80814876014193
+"smoky fires lack flame and heat"
+
+! prompts:
+1 170.80814876014193 174.36058434932286
+"the soft cushion broke the mans fall"
+
+! prompts:
+1 174.36058434932286 177.6926530612245
+"the salt breeze came across from the sea"
+
+! prompts:
+1 177.6926530612245 181.8126860739957
+"the girl at the booth sold fifty bonds"
+
+! prompts:
+1 181.8126860739957 184.97623350124798
+"bring mich bitte zu null null eins"
+
+! language:
+2 181.8126860739957 348
+"de"
+
+! prompts:
+1 184.97623350124798 187.5671075775679
+"ich möchte zu maria staudte"
+
+! prompts:
+1 187.5671075775679 190.29153186400742
+"wo is ross macdonalds büro"
+
+! prompts:
+1 190.29153186400742 193.84396745318838
+"in welcher etage arbeitet arif khan"
+
+! prompts:
+1 193.84396745318838 196.67523190772357
+"raum eins punkt eins"
+
+! prompts:
+1 196.67523190772357 198.70519510154128
+"bis ganz nach oben"
+
+! prompts:
+1 198.70519510154128 198.71695913597136
+"wo is ross macdonalds büro"
+
+! prompts:
+1 198.71695913597136 203.249914619873
+"bringe mich in den stock in dem alexander hewers büro ist"
+
+! prompts:
+1 203.249914619873 206.29485941059954
+"wo ist denn hongxia shis büro"
+
+! prompts:
+1 206.29485941059954 209.6603247056131
+"kannst du mich bitte in die zweite etage bringen"
+
+! prompts:
+1 209.6603247056131 212.20954116631523
+"zwei stockwerke höher bitte"
+
+! prompts:
+1 212.20954116631523 215.25448595704177
+"ich suche das eye tracking labor"
+
+! prompts:
+1 215.25448595704177 217.5248395290747
+"zum labor bitte"
+
+! prompts:
+1 217.5248395290747 220.2570154756785
+"zum aufnahmestudio bitte"
+
+! prompts:
+1 220.2570154756785 222.74104938390275
+"ich muss zur gästeküche"
+
+! prompts:
+1 222.74104938390275 225.11824312403135
+"zum aquarium"
+
+! prompts:
+1 225.11824312403135 228.10976783071007
+"zum büro dreihundertundachtzehn"
+
+! prompts:
+1 228.10976783071007 230.00510204081633
+"zur toilette bitte"
+
+! prompts:
+1 230.00510204081633 233.0440136054422
+"ich möchte das gebäude verlassen"
+
+! prompts:
+1 233.0440136054422 236.2222448979592
+"ich suche das lese experiment"
+
+! prompts:
+1 236.2222448979592 237.76637188208616
+"ich habe es eilig"
+
+! prompts:
+1 237.76637188208616 240.44537414965987
+"zum konferenzraum"
+
+! prompts:
+1 240.44537414965987 242.6802947845805
+"ins dritte stockwerk"
+
+! prompts:
+1 242.6802947845805 245.13580498866213
+"ins zweite stockwerk"
+
+! prompts:
+1 245.13580498866213 247.46650793650795
+"ins erste stockwerk"
+
+! prompts:
+1 247.46650793650795 249.81462585034015
+"einmal nach unten bitte"
+
+! prompts:
+1 249.81462585034015 252.0292290249433
+"zu professor pinkal"
+
+! prompts:
+1 252.0292290249433 255.02170068027212
+"zur gruppe von doktor demberg"
+
+! prompts:
+1 255.02170068027212 257.3273686997114
+"das dunkel war ein kurz"
+
+! prompts:
+1 257.3273686997114 259.75798252388785
+"ein kurzes uns leiser werdendes verschwinden"
+
+! prompts:
+1 259.75798252388785 263.68795918367346
+"das dunkel war ein kurzes und leiser werdendes verschwinden"
+
+! prompts:
+1 263.68795918367346 266.6136734693878
+"er sah sich im karstadt kaufhaus um"
+
+! prompts:
+1 266.6136734693878 270.35201814058956
+"fahr hat er gesagt um das hindernis herum"
+
+! prompts:
+1 270.35201814058956 275.8493424036281
+"gemütlicher abend auf der weser mit kohlfahrt ab martini anleger"
+
+! prompts:
+1 275.8493424036281 279.48616780045353
+"das schiff wogte auf den starken wellen hin und her"
+
+! prompts:
+1 279.48616780045353 283.9066666666667
+"der schnellste weg ins jenseits führt kopfüber in die nacht"
+
+! prompts:
+1 283.9066666666667 287.23292517006803
+"zu schade fürs altpapier"
+
+! prompts:
+1 287.23292517006803 293.0930612244898
+"zu den ressorts arbeit und frauen könnte noch gesundheit und soziales hinzukommen"
+
+! prompts:
+1 293.0930612244898 297.15945578231293
+"weltausstellung in hannover ökologisch vertretbar"
+
+! prompts:
+1 297.15945578231293 301.1019424717475
+"das gemälde ohne titel in tusche auf papier"
+
+! prompts:
+1 301.1019424717475 305.49632653061224
+"in ungarn zeigt die abbildung eine zahnbürste mit zahnpasta"
+
+! prompts:
+1 305.49632653061224 310.8572335600907
+"ein computer besizt im allgemeinen prozessor arbeitsspeicher und festplatte"
+
+! prompts:
+1 310.8572335600907 315.08907029478456
+"das netzwerk hilft dem atomotor auf das motorrad"
+
+! prompts:
+1 315.08907029478456 320.13650793650794
+"die telekom drückt mit ihrer preispolitik kräftig auf das bremspedal"
+
+! prompts:
+1 320.13650793650794 323.74721088435376
+"der lehrer benutzte den projektor im unterricht"
+
+! prompts:
+1 323.74721088435376 329.11972789115646
+"in der linguistik kommt es zu meinungsverschiedenheiten zwischen fundis und realos"
+
+! prompts:
+1 329.11972789115646 333.3660770975057
+"die sprache ist ein weltweites medium der kommunikation"
+
+! prompts:
+1 333.3660770975057 337.97233560090706
+"hervor trat ein langes messer im suhrkam verlag"
+
+! prompts:
+1 337.97233560090706 340.94158730158733
+"wo wilhelm bush zur schule ging"
+
+! prompts:
+1 340.94158730158733 345.3911111111111
+"unter anderem flog lufthansa von friedrichshafen nach oldenburg"
+
+! prompts:
+1 345.3911111111111 348
 ""
