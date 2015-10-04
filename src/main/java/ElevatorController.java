@@ -5,14 +5,13 @@ via serial port. It contains bunch of methods that basically emulate button acti
 Floor codes are taken from sources. */
 public class ElevatorController {
     private SerialPortController elevator = null;
-    private final int baudRate = 115200;
-                
+
     // class constructor
     public ElevatorController() {
-        elevator = new SerialPortController(SerialControllerInterface.desktopPort0, 
-                                              baudRate, 
-                                              SerialPort.DATABITS_8, 
-                                              SerialPort.STOPBITS_1, 
+        elevator = new SerialPortController(SerialControllerInterface.PORT_ttyS0,
+                                              SerialControllerInterface.BAUD_115200,
+                                              SerialPort.DATABITS_8,
+                                              SerialPort.STOPBITS_1,
                                               SerialPort.PARITY_NONE);
     }
 
