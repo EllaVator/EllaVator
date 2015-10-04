@@ -1,86 +1,131 @@
 /**
-    This class uses pi4j library to create a serial port instance.
+    This class uses RXTX library to create a serial port instance.
     Other code and comments for this class was taken directly from sources.
     Original code by Ben Resner, 2000, benres@media.mit.edu
     Modified for talking elevator by T.Liadal July 2007.
 */
 
-import com.pi4j.io.serial.Baud;
-import com.pi4j.io.serial.DataBits;
-import com.pi4j.io.serial.FlowControl;
-import com.pi4j.io.serial.Parity;
-import com.pi4j.io.serial.Serial;
-import com.pi4j.io.serial.SerialDataEvent;
-import com.pi4j.io.serial.SerialDataEventListener;
-import com.pi4j.io.serial.SerialFactory;
-import com.pi4j.io.serial.StopBits;
+import gnu.io.CommPort;
+import gnu.io.CommPortIdentifier;
+import gnu.io.NoSuchPortException;
+import gnu.io.PortInUseException;
+import gnu.io.SerialPort;
+import gnu.io.UnsupportedCommOperationException;
 import java.io.IOException;
-import java.nio.charset.Charset;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
-public class SerialPortController {
-    // creating instance of the serial communication class
-    private final Serial serialPort = SerialFactory.createInstance();
-    private Baud baud;
-    private DataBits dbits;
-    private Parity parity;
-    private StopBits sbits ;
-    private FlowControl flow;
+public class SerialPortController implements SerialControllerInterface {
+    private InputStream istream;
+    private OutputStream ostream;
     private byte[] receivedBytes;
 
-    // serialPort constructor
-    public SerialPortController(Baud baud, DataBits dbits, Parity parity, StopBits sbits, FlowControl flow){
-    // creating and registering serial data listener
-    this.baud = baud;
-    this.dbits = dbits;
-    this.parity = parity;
-    this.sbits = sbits;
-    this.flow = flow;
-    serialPort.addListener(new SerialDataEventListener() {
-        @Override
-        public void dataReceived(SerialDataEvent event) {
+    //constructor
+    public SerialPortController (String portName, int baud, int bits, int stopbits, int parity)
+    {
+        CommPortIdentifier portId;
+        CommPort comm;
+        SerialPort serialPort;
+
+        try {
+            portId = CommPortIdentifier.getPortIdentifier(portName);
+        } catch (NoSuchPortException ex) {
+            System.out.println("NoSuchPortExcetion: " + ex.toString());
+            throw new RuntimeException(ex);
+        }
+        try {
+            comm = portId.open(this.getClass().getName(), 2000);
+        } catch (PortInUseException ex) {
+            System.out.println("PortInUseException: " + ex.toString());
+            throw new RuntimeException(ex);
+        }
+
+        if (comm instanceof SerialPort) {
+            serialPort = (SerialPort) comm;
             try {
-                receivedBytes = event.getBytes();
-                } catch (IOException ex) {
-                    Logger.getLogger(SerialPortController.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                serialPort.setSerialPortParams(baud, bits, stopbits, parity);
+                istream = serialPort.getInputStream();
+                ostream = serialPort.getOutputStream();
+            } catch (UnsupportedCommOperationException ex) {
+                System.out.println("UnsupportedCommOperationException: " + ex.toString());
+                throw new RuntimeException(ex);
+            } catch (IOException ex) {
+                System.out.println("IOException: " + ex.toString());
+                throw new RuntimeException(ex);
             }
-        });
+        } else {
+            System.out.println("ERROR! Serial port is not available.");
+            System.exit(1);
+        }
     }
 
+
     // writing data to serial port
-    public void writeToPort(int[] message) {
-        // open rasppi default serial port provided on the GPIO header with
-        // DEFAULT_COM_PORT = /dev/ttyAMA0, speed = 38400
+    public void move(int[] message) {
         try {
-            if (serialPort.isOpen()) {
-                serialPort.close();
-        }
-            serialPort.open(Serial.DEFAULT_COM_PORT, baud, dbits, parity, sbits, flow);
             for (int i=0; i<message.length; i++) {
-                serialPort.write((byte)message[i]);
+                ostream.write((byte) message[i]);
             }
         } catch (IOException ex) {
-            System.out.println("EXCEPTION! IOException: " + ex.getMessage());
+            System.out.println("IOException when writing to serial port: " + ex.toString());
+            closeIOStreams();
             throw new RuntimeException(ex);
         }
     }
-    
+
+    /**
+     * Reads received bytes from serial port buffer.
+     * We wait until we have gotten a long enough message, then return it.
+     * @return
+     */
+    public byte[] getReceivedBytes() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException ex) {
+            System.out.println("EXCEPTION! InterruptedException: " + ex.getMessage());
+            closeIOStreams();
+            throw new RuntimeException(ex);
+        }
+
+        byte[] buffer = new byte[1024];
+        int len = -1;
+        String str = "";
+        try {
+            while ((len=this.istream.read(buffer)) > -1){
+                str = new String(buffer, 0, len);
+            }
+        } catch (IllegalStateException ex) {
+            System.out.println("IllegalStateException: " + ex.toString());
+            closeIOStreams();
+            throw new RuntimeException(ex);
+        } catch (IOException ex) {
+            System.out.println("IOException: " + ex.toString());
+            closeIOStreams();
+            throw new RuntimeException(ex);
+        }
+        if (str.isEmpty()) {
+            System.out.println("WARNING! Serial buffer received nothing.");
+            return receivedBytes;
+        } else {
+            return str.getBytes();
+        }
+    }
+
     /**
      * Reads all bytes that are being sent from the elevator, chops it up into strings that
      * start and end in 0x7E (126), and looks through these for messages with message-ID C9,
      * and checks what the floor byte is. The last one gets returned (might send several as
      * the elevator is moving, we want the newest value.)
      */
-    public int askFloorInformation(int[] heartbeat) {
+    public int getCurrentFloor() {
         /* WARNING: I didn't test readPortData() and whether what it returns can
         * be processed by findValidSubstrings without errors */
-        byte[] byteString = readPortData(heartbeat);
+        move(SerialControllerInterface.heartbeat);
+        byte[] bytes = getReceivedBytes();
         // fills the arraylist with valid substrings
-        ArrayList messages = findValidSubstrings(byteString);
+        ArrayList messages = findValidSubstrings(bytes);
         System.out.println("messages ArrayList has " + messages.size() + " elements now.");
         //returns -1 if no floor is set
         int floor = -1;
@@ -91,29 +136,17 @@ public class SerialPortController {
         return floor;
     }
 
-    /**
-     * Sends a heartbeat to the elevator, who writes status information back.
-     * We wait until we have gotten a long enough message, then return it.
-     * @return
-     */
-    private byte[] readPortData(int[] heartbeat) {
-        writeToPort(heartbeat);  // writing the heartbeat to get a reply
+    public void closeIOStreams() {
         try {
-            Thread.sleep(1000);
-        } catch (InterruptedException ex) {
-            System.out.println("EXCEPTION! InterruptedException: " + ex.getMessage());
+            istream.close();
+            ostream.close();
+        } catch (IOException ex) {
+            System.out.println("ERROR! Failed to close IO streams: " + ex.toString());
             throw new RuntimeException(ex);
         }
-        try {
-            receivedBytes = serialPort.read();
-        } catch (IllegalStateException ex) {
-            Logger.getLogger(SerialPortController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(SerialPortController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return receivedBytes;
     }
 
+    ////////////////////////////////////////////////////////////////////////////
     /**
     * Looks for the start and stop flag and copies them and the bytes between
     * to an ArrayList.

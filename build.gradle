@@ -32,7 +32,7 @@ dependencies {
     compile project(':opendial')
     testCompile localGroovy()
     testCompile group: 'org.testng', name: 'testng', version: '6.8.21'
-    compile group: 'com.pi4j', name: 'pi4j-distribution', version: '1.1-SNAPSHOT'
+    compile group: 'org.rxtx', name: 'rxtx', version: '2.1.7'
 }
 
 project(':pi4j') {
