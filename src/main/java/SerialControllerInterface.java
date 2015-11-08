@@ -1,15 +1,17 @@
 /* Serial port controller interface */
 interface SerialControllerInterface {
     // Some constants
-    public final String PORT_ttyS0 = "ttyS0";
-    public final String PORT_ttyS1 = "ttyS1";
-    public final String PORT_ttyS2 = "ttyS2";
-    public final String PORT_ttyAMA0 = "ttyAMA0";  // default for Rasp Pi
+    public final String PORT_COM1 = "COM1";  // Windows
+    public final String PORT_ttyS0 = "/dev/ttyS0";
+    public final String PORT_ttyS1 = "/dev/ttyS1";
+    public final String PORT_ttyS2 = "/dev/ttyS2";
+    public final String PORT_ttyAMA0 = "/dev/ttyAMA0";  // default for Rasp Pi
+    public final String PORT_USB0 = "/dev/ttyUSB0";  // default for Rasp Pi
 
     // Baudrates
-    public final int BAUD_115200 = 115200; // default for Rasp Pi
+    public final int BAUD_115200 = 115200;
     public final int BAUD_57600 = 57600;
-    public final int BAUD_38400 = 38400;
+    public final int BAUD_38400 = 38400;  // use this rate
     public final int BAUD_19200 = 19200;
     public final int BAUD_9600 = 9600;
     public final int BAUD_4800 = 4800;
