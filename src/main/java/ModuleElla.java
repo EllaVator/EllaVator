@@ -1,8 +1,8 @@
-// =================================================================   
-// This file is based on the ModuleExample1.java file by                                                                 
-// 2011-2015 Pierre Lison (plison@ifi.uio.no)                                                                            
+// =================================================================
+// This file is based on the ModuleExample1.java file by
+// 2011-2015 Pierre Lison (plison@ifi.uio.no)
 // to be found at
-//https://github.com/plison/opendial/blob/master/src/opendial/modules/examples/ModuleExample1.java =================================================================                                                                   
+//https://github.com/plison/opendial/blob/master/src/opendial/modules/examples/ModuleExample1.java =================================================================
 
 
 import java.util.logging.*;
@@ -21,11 +21,11 @@ import opendial.modules.Module;
 /**
  * Simple example of a synchronous module for the domain specified in
  * domains/examples/example-step-by-step.xml.
- * 
+ *
  * <p>
  * The example creates a visual grid of size GRID_SIZE and updates the position of
  * the agent in accordance with the movements.
- * 
+ *
  * @author Pierre Lison (plison@ifi.uio.no)
  */
 public class ModuleElla implements Module {
@@ -35,7 +35,7 @@ public class ModuleElla implements Module {
 
 
 	//create controller to speak with the elevator via serial port
-	final static ElevatorControllerInterface controller= new ElevatorController();
+	final static ElevatorController controller= new ElevatorController();
 
 	//number of floors (used for JFrame output) and the JFrame itself
 	public static int FLOORS = 6;
@@ -45,7 +45,7 @@ public class ModuleElla implements Module {
 
 	// the controller is commented out at the moment because it is not attached and it crashes if it is not attached
 	// the current floor we are on
-	//int currentPosition = controller.getCurrentFloor();
+	//int currentPosition = controller.getCurrentFloor(); // NOT TESTED! uncomment for now
 	int currentPosition = 0;
 
 	public ModuleElla(DialogueSystem system) {
@@ -96,7 +96,7 @@ public class ModuleElla implements Module {
 
 	/**
 	 * Changes the position of the elevator and its visual grid depending on the specified floor.
-	 * 
+	 *
 	 * @param direction the direction, as a string.
 	 */
 	private void changePosition(String togoFloor) {
