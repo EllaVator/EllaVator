@@ -8,7 +8,7 @@ public class ElevatorController {
 
     // class constructor
     public ElevatorController() {
-        elevator = new SerialPortController(SerialControllerInterface.PORT_ttyAMA0,
+        elevator = new SerialPortController(SerialControllerInterface.PORT_USB0,
                                               SerialControllerInterface.BAUD_38400,
                                               SerialPort.DATABITS_8,
                                               SerialPort.STOPBITS_1,

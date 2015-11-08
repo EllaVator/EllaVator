@@ -136,7 +136,9 @@ public class SerialPortController implements SerialControllerInterface {
         return floor;
     }
 
-    public void closeIOStreams() {
+
+    /////////////////////////// private methods ///////////////////////////
+    private void closeIOStreams() {
         try {
             istream.close();
             ostream.close();
@@ -146,7 +148,6 @@ public class SerialPortController implements SerialControllerInterface {
         }
     }
 
-    ////////////////////////////////////////////////////////////////////////////
     /**
     * Looks for the start and stop flag and copies them and the bytes between
     * to an ArrayList.
