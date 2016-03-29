@@ -1,8 +1,8 @@
 /* Serial port controller interface */
 interface SerialControllerInterface {
     // Some constants
-    public final String PORT_COM1 = "COM1";  // Windows
     public final String PORT_ttyS0 = "/dev/ttyS0";
+    public final String PORT_COM1 = "COM1";  // Windows
     public final String PORT_ttyS1 = "/dev/ttyS1";
     public final String PORT_ttyS2 = "/dev/ttyS2";
     public final String PORT_ttyAMA0 = "/dev/ttyAMA0";  // default for Rasp Pi
