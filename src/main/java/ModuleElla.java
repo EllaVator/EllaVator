@@ -29,13 +29,11 @@ import opendial.modules.Module;
  * @author Pierre Lison (plison@ifi.uio.no)
  */
 public class ModuleElla implements Module {
-
+        // elevator control via serial port
+        final static ElevatorController elevator = new ElevatorController();
+    
 	// logger
 	final static Logger log = Logger.getLogger("OpenDial");
-
-
-	//create controller to speak with the elevator via serial port
-	final static ElevatorController controller= new ElevatorController();
 
 	//number of floors (used for JFrame output) and the JFrame itself
 	public static int FLOORS = 6;
@@ -43,9 +41,8 @@ public class ModuleElla implements Module {
 
 	boolean paused = true;
 
-	// the controller is commented out at the moment because it is not attached and it crashes if it is not attached
 	// the current floor we are on
-	//int currentPosition = controller.getCurrentFloor(); // NOT TESTED! uncomment for now
+	//int currentPosition = elevator.getCurrentFloor(); // NOT TESTED! uncomment for now
 	int currentPosition = 0;
 
 	public ModuleElla(DialogueSystem system) {
@@ -124,9 +121,8 @@ public class ModuleElla implements Module {
                 }
 
 		System.out.println("EllaModule new floor: " + newFloor);
-		//controller commented out again because it is not attached
 		//move elevator
-		//controller.pushButton(newFloor);
+		elevator.pushButton(newFloor);
 
 		//change display
 		if (newFloor >= 0 && newFloor < FLOORS) {
