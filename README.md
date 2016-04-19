@@ -39,3 +39,30 @@ Instead of building a standalone jar file, it is also possible to just run the a
 ```
 $ ./gradlew :run
 ```
+
+### known issues
+
+After running the command **$ ./gradlew :run**, if it ouput error like:
+```
+repository_ellaVator/src/main/java/ModuleElla.java:17: error: package opendial does not exist
+import opendial.DialogueState;
+               ^
+repository_ellaVator/src/main/java/ModuleElla.java:18: error: package opendial does not exist
+import opendial.DialogueSystem;
+               ^
+repository_ellaVator/src/main/java/ModuleElla.java:19: error: package opendial.modules does not exist
+import opendial.modules.Module;
+                       ^
+repository_ellaVator/src/main/java/ModuleElla.java:31: error: cannot find symbol
+public class ModuleElla implements Module {
+                                   ^
+  symbol: class Module
+repository_ellaVator/src/main/java/ModuleElla.java:48: error: cannot find symbol
+	public ModuleElla(DialogueSystem system) {
+	                  ^
+```
+
+May be one of the submodule is not installed correctly. Try to run the following command:
+```
+$ git submodule update --init
+```
