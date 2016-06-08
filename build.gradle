@@ -16,7 +16,6 @@ allprojects {
 mainClassName = 'OpenDialDemo'
 
 repositories {
-    mavenLocal()
     jcenter()
     maven {
         url 'http://oss.jfrog.org/artifactory/repo'
