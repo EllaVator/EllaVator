@@ -26,7 +26,7 @@ dependencies {
     compile group: 'de.dfki.mary', name: 'voice-cmu-slt-hsmm', version: '5.2-beta3'
     compile project(':sphinx4:sphinx4-core')
     compile group: 'opendial', name: 'opendial', version: '1.5'
-    testCompile localGroovy()
+    testCompile group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.4.6'
     testCompile group: 'org.testng', name: 'testng', version: '6.8.21'
     compile group: 'org.rxtx', name: 'rxtx', version: '2.1.7'
 }
