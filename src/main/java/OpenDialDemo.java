@@ -4,14 +4,25 @@ import opendial.plugins.MaryTTS;
 import opendial.plugins.SphinxASR;
 import opendial.readers.XMLDomainReader;
 import opendial.Settings;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
 
 public class OpenDialDemo {
-    public static void main (String[] args) {
+    public static void main (String[] args) throws IOException {
         // creating the dialogue system
         DialogueSystem system = new DialogueSystem();
 
         // Extracting the dialogue domain
-        Domain domain = XMLDomainReader.extractDomain("Domain_Opendial_Ella.xml");
+        InputStream domainStream = OpenDialDemo.class.getClassLoader().getResourceAsStream("Domain_Opendial_Ella.xml");
+        List<String> domainLines = IOUtils.readLines(domainStream, "UTF-8");
+        File domainFile = File.createTempFile("domain", ".xml");
+        FileUtils.writeLines(domainFile, domainLines);
+        Domain domain = XMLDomainReader.extractDomain(domainFile.getCanonicalPath());
         system.changeDomain(domain);
 
         Settings setting = system.getSettings();
