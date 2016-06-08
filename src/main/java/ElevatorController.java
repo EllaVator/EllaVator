@@ -8,11 +8,15 @@ public class ElevatorController {
 
     // class constructor
     public ElevatorController() {
-        elevator = new SerialPortController(SerialControllerInterface.PORT_ttyS0,
-                                              SerialControllerInterface.BAUD_38400,
-                                              SerialPort.DATABITS_8,
-                                              SerialPort.STOPBITS_1,
-                                              SerialPort.PARITY_NONE);
+        try {
+            elevator = new SerialPortController(SerialControllerInterface.PORT_ttyS0,
+                    SerialControllerInterface.BAUD_38400,
+                    SerialPort.DATABITS_8,
+                    SerialPort.STOPBITS_1,
+                    SerialPort.PARITY_NONE);
+        } catch (UnsatisfiedLinkError e) {
+            System.err.println(e.getMessage());
+        }
     }
 
     // we ask the elevator to send us current floor number
