@@ -2,7 +2,3 @@
 	path = sphinx4
 	url = https://github.com/EllaVator/sphinx4.git
 	ignore = dirty
-[submodule "pi4j"]
-	path = pi4j
-	url = https://github.com/EllaVator/pi4j.git
-	branch = develop

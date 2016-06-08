@@ -39,14 +39,6 @@ configurations.all {
     }
 }
 
-/*
-project(':pi4j') {
-    task install(type: Exec) {
-        executable 'mvn'
-        args 'install'
-    }
-}
-*/
 project(':sphinx4:sphinx4-core') {
     repositories {
         jcenter()
