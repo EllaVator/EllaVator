@@ -17,9 +17,6 @@ mainClassName = 'OpenDialDemo'
 
 repositories {
     mavenLocal()
-    flatDir {
-        dirs 'opendial/lib'
-    }
     jcenter()
     maven {
         url 'http://oss.jfrog.org/artifactory/repo'
@@ -29,7 +26,7 @@ repositories {
 dependencies {
     compile group: 'de.dfki.mary', name: 'voice-cmu-slt-hsmm', version: '5.1.1'
     compile project(':sphinx4:sphinx4-core')
-    compile project(':opendial')
+    compile group: 'opendial', name: 'opendial', version: '1.5'
     testCompile localGroovy()
     testCompile group: 'org.testng', name: 'testng', version: '6.8.21'
     compile group: 'org.rxtx', name: 'rxtx', version: '2.1.7'
@@ -86,18 +83,11 @@ task expandGrammarGerman {
     }
 }
 
-task copySettingsXml(type: Copy) {
-    from project(':opendial').sourceSets.main.output.resourcesDir
-    into "$buildDir/resources"
-    include 'settings.xml'
-}
-
 processResources {
     from project(':sphinx4:sphinx4-data').sourceSets.main.output.resourcesDir
 }
 
 run {
-    dependsOn copySettingsXml
     workingDir = buildDir
 }
 
