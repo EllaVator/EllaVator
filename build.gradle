@@ -16,10 +16,6 @@ allprojects {
 mainClassName = 'OpenDialDemo'
 
 repositories {
-    mavenLocal()
-    flatDir {
-        dirs 'opendial/lib'
-    }
     jcenter()
     maven {
         url 'http://oss.jfrog.org/artifactory/repo'
@@ -27,13 +23,22 @@ repositories {
 }
 
 dependencies {
-    compile group: 'de.dfki.mary', name: 'voice-cmu-slt-hsmm', version: '5.1.1'
+    compile group: 'de.dfki.mary', name: 'voice-cmu-slt-hsmm', version: '5.2-beta3'
     compile project(':sphinx4:sphinx4-core')
-    compile project(':opendial')
-    testCompile localGroovy()
+    compile group: 'opendial', name: 'opendial', version: '1.5'
+    testCompile group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.4.6'
     testCompile group: 'org.testng', name: 'testng', version: '6.8.21'
     compile group: 'org.rxtx', name: 'rxtx', version: '2.1.7'
 }
+
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        if (details.requested.group == 'de.dfki.mary' && details.requested.name.startsWith('marytts')) {
+            details.useVersion '5.2-beta3'
+        }
+    }
+}
+
 /*
 project(':pi4j') {
     task install(type: Exec) {
@@ -86,18 +91,11 @@ task expandGrammarGerman {
     }
 }
 
-task copySettingsXml(type: Copy) {
-    from project(':opendial').sourceSets.main.output.resourcesDir
-    into "$buildDir/resources"
-    include 'settings.xml'
-}
-
 processResources {
     from project(':sphinx4:sphinx4-data').sourceSets.main.output.resourcesDir
 }
 
 run {
-    dependsOn copySettingsXml
     workingDir = buildDir
 }
 
